@@ -1,326 +1,715 @@
+```html
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<title>Vishnuvardhan V | Knowledge Management Portfolio</title>
+    <title>Vishnuvardhan V | Knowledge Management Portfolio</title>
 
-<meta name="description"
-    content="Knowledge Management portfolio of Vishnuvardhan V featuring enterprise knowledge strategy, HR knowledge management, ServiceNow, content governance, information architecture and AI-ready knowledge.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<link rel="stylesheet" href="style.css">
-```
+        :root {
+            --bg: #0d0f12;
+            --card: #15181d;
+            --text: #f4f4f4;
+            --muted: #a6a6a6;
+            --accent: #d9d9d9;
+            --line: #2b3038;
+        }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: auto;
+            padding: 28px 24px;
+        }
+
+        /* =========================
+           SECTION SPACING
+        ========================= */
+
+        section {
+            padding: 26px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        section:first-child {
+            padding-top: 10px;
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .eyebrow {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: clamp(38px, 7vw, 72px);
+            line-height: 0.95;
+            letter-spacing: -2px;
+            margin-bottom: 14px;
+        }
+
+        .hero-name {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .hero-role {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .quote {
+            margin-top: 22px;
+            font-size: 15px;
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        /* =========================
+           HEADINGS
+        ========================= */
+
+        .section-label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            font-size: 25px;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        /* =========================
+           CORE FOCUS
+        ========================= */
+
+        .focus-text {
+            font-size: 17px;
+            max-width: 800px;
+            margin-bottom: 14px;
+        }
+
+        .keyword-line {
+            font-size: 12px;
+            line-height: 2;
+            color: var(--muted);
+        }
+
+        .keyword-line span {
+            color: var(--text);
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-text {
+            max-width: 850px;
+            color: #d4d4d4;
+            font-size: 15px;
+        }
+
+        .about-text p {
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        /* =========================
+           CERTIFICATIONS
+        ========================= */
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .cert-card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            padding: 15px;
+            min-height: 110px;
+        }
+
+        .cert-card h3 {
+            font-size: 14px;
+            margin-bottom: 7px;
+        }
+
+        .cert-card p {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        /* =========================
+           EXPERTISE
+        ========================= */
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .approach-card {
+            border: 1px solid var(--line);
+            padding: 14px;
+            background: var(--card);
+        }
+
+        .approach-number {
+            font-size: 11px;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+
+        .approach-card h3 {
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .approach-card p {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        /* =========================
+           PORTFOLIO EXPERIENCE
+        ========================= */
+
+        .company {
+            margin-top: 20px;
+        }
+
+        .company:first-of-type {
+            margin-top: 0;
+        }
+
+        .company-name {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .company-description {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 14px;
+        }
+
+        .experience-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .experience-item {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            color: #d0d0d0;
+            padding: 7px 10px;
+            border: 1px solid var(--line);
+            background: var(--card);
+        }
+
+        /* =========================
+           SELECTED WORK
+        ========================= */
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .work-card {
+            border: 1px solid var(--line);
+            padding: 17px;
+            background: var(--card);
+        }
+
+        .work-card h3 {
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        .work-card ul {
+            padding-left: 16px;
+        }
+
+        .work-card li {
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 5px;
+        }
+
+        /* =========================
+           CONNECT
+        ========================= */
+
+        .connect-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .connect-item {
+            padding: 14px;
+            border: 1px solid var(--line);
+            background: var(--card);
+            text-decoration: none;
+            color: var(--text);
+            transition: 0.2s ease;
+        }
+
+        .connect-item:hover {
+            border-color: #777;
+            transform: translateY(-2px);
+        }
+
+        .connect-item small {
+            display: block;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--muted);
+            margin-bottom: 5px;
+        }
+
+        .connect-item span {
+            font-size: 12px;
+            word-break: break-word;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding-top: 20px;
+            font-size: 11px;
+            color: var(--muted);
+            text-align: center;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .cert-grid,
+            .approach-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .connect-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 560px) {
+
+            .container {
+                padding: 20px 16px;
+            }
+
+            section {
+                padding: 20px 0;
+            }
+
+            h1 {
+                font-size: 42px;
+            }
+
+            .cert-grid,
+            .approach-grid,
+            .work-grid,
+            .connect-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-item {
+                font-size: 10px;
+            }
+
+        }
+
+    </style>
 </head>
 
 <body>
 
-```
-<!-- 1. KNOWLEDGE MANAGEMENT PORTFOLIO -->
+<div class="container">
 
-<section class="hero section" id="home">
+    <!-- ================= HERO ================= -->
 
-    <div class="container">
+    <section id="home">
 
-        <div class="hero-tile">
+        <div class="eyebrow">Vishnuvardhan V.</div>
 
-            <span class="eyebrow">
-                KNOWLEDGE MANAGEMENT PORTFOLIO
-            </span>
+        <h1>
+            KNOWLEDGE<br>
+            MANAGEMENT<br>
+            PORTFOLIO
+        </h1>
 
-            <h1>
-                Designing Knowledge
-                <span>That Works.</span>
-            </h1>
+        <div class="hero-role">
+            Knowledge Management | Knowledge Architecture |
+            Enterprise Content | AI-Ready Knowledge
+        </div>
 
-            <p class="hero-description">
-                Structured, searchable and governed enterprise knowledge
-                experiences for employees, HR service teams and
-                intelligent self-service.
+        <div class="quote">
+            “Life, Knowledge Management and everything in between.”
+        </div>
+
+    </section>
+
+
+    <!-- ================= CORE FOCUS ================= -->
+
+    <section id="focus">
+
+        <div class="section-label">01 — Core Focus</div>
+
+        <div class="focus-text">
+            Designing knowledge ecosystems that make enterprise information
+            <strong>easier to find, easier to understand, and easier to use.</strong>
+        </div>
+
+        <div class="keyword-line">
+
+            <span>Knowledge Strategy</span> •
+            <span>Knowledge Architecture</span> •
+            <span>Taxonomy & Metadata</span> •
+            <span>Enterprise Search</span> •
+            <span>Content Governance</span> •
+            <span>Knowledge Lifecycle</span> •
+            <span>Self-Service</span> •
+            <span>ServiceNow KM</span> •
+            <span>SharePoint</span> •
+            <span>Content Migration</span> •
+            <span>Knowledge Analytics</span> •
+            <span>Automation</span> •
+            <span>AI & RAG-Ready Knowledge</span>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section id="about">
+
+        <div class="section-label">02 — About Me</div>
+
+        <h2>Building knowledge that people can actually use.</h2>
+
+        <div class="about-text">
+
+            <p>
+                I am a Knowledge Management professional with experience in
+                building, governing, organizing, and improving enterprise
+                knowledge ecosystems.
             </p>
 
-            <p class="hero-caption">
-                “Life, Knowledge Management and everything in between.”
+            <p>
+                My work sits at the intersection of
+                <span class="highlight">
+                    people, processes, content, technology, and enterprise
+                    self-service.
+                </span>
             </p>
 
-            <div class="hero-tags">
-                <span>Knowledge Strategy</span>
-                <span>ServiceNow</span>
-                <span>Content Governance</span>
-                <span>AI-Ready Knowledge</span>
-            </div>
+            <p>
+                Currently, I am pursuing my
+                <span class="highlight">
+                    Doctorate (PhD) focused on Enterprise Knowledge Management
+                    Systems using Generative AI and Retrieval-Augmented
+                    Generation (RAG) pipelines.
+                </span>
+            </p>
+
+            <p>
+                My research explores how enterprise knowledge can become more
+                intelligent, contextual, personalized, and accessible through
+                AI-powered knowledge systems.
+            </p>
+
+            <p>
+                <span class="highlight">
+                    For me, Knowledge Management is not about storing documents.
+                    It is about connecting the right knowledge with the right
+                    person at the right time.
+                </span>
+            </p>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- 2. CORE FOCUS -->
+    <!-- ================= CERTIFICATIONS ================= -->
 
-<section class="core-focus section">
+    <section id="certifications">
 
-    <div class="container">
+        <div class="section-label">03 — Certifications</div>
 
-        <div class="section-header">
+        <div class="cert-grid">
 
-            <span class="section-number">01</span>
+            <div class="cert-card">
 
-            <div>
-
-                <span class="eyebrow">
-                    CORE FOCUS
-                </span>
-
-                <h2>
-                    Employee & HRSS Knowledge Experience
-                </h2>
-
-            </div>
-
-        </div>
-
-
-        <div class="focus-grid">
-
-            <div class="focus-card employee">
-
-                <span class="card-label">
-                    EMPLOYEE
-                </span>
-
-                <h3>
-                    Self-Service
-                </h3>
+                <h3>ServiceNow CSA</h3>
 
                 <p>
-                    Clear and persona-relevant knowledge.
+                    ServiceNow Certified System Administrator with knowledge
+                    of platform administration, ITSM practices, workflow
+                    automation, and ServiceNow Knowledge Management.
                 </p>
 
             </div>
 
 
-            <div class="focus-card knowledge-layer">
+            <div class="cert-card">
 
-                <span class="card-label">
-                    KNOWLEDGE
-                </span>
-
-                <h3>
-                    Structured
-                </h3>
+                <h3>Knowledge Management</h3>
 
                 <p>
-                    Taxonomy, metadata and governance.
+                    Knowledge Architecture • Content Governance • Taxonomy •
+                    Metadata • Enterprise Search • Self-Service
                 </p>
 
             </div>
 
 
-            <div class="focus-card hrss">
+            <div class="cert-card">
 
-                <span class="card-label">
-                    HRSS
-                </span>
-
-                <h3>
-                    Assisted Service
-                </h3>
+                <h3>AI-Ready Knowledge</h3>
 
                 <p>
-                    Resolution knowledge for service teams.
+                    Generative AI • Prompt Engineering • Semantic Knowledge •
+                    Intelligent Knowledge Systems • RAG Concepts
                 </p>
 
             </div>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- 3. ABOUT ME -->
+    <!-- ================= EXPERTISE ================= -->
 
-<section class="about section" id="about">
+    <section id="expertise">
 
-    <div class="container">
-
-        <div class="section-header">
-
-            <span class="section-number">02</span>
-
-            <div>
-
-                <span class="eyebrow">
-                    ABOUT ME
-                </span>
-
-                <h2>
-                    Knowledge Management Across the Enterprise
-                </h2>
-
-            </div>
-
+        <div class="section-label">
+            04 — Expertise
         </div>
 
+        <h2>How I Approach Knowledge Management</h2>
 
-        <div class="about-grid">
 
-            <div class="about-introduction">
+        <div class="approach-grid">
+
+            <div class="approach-card">
+
+                <div class="approach-number">01</div>
+
+                <h3>Understand</h3>
 
                 <p>
-                    I am a Knowledge Management professional focused on
-                    designing structured, searchable and governed knowledge
-                    experiences across enterprise platforms and repositories.
-                </p>
-
-                <p>
-                    My work spans knowledge architecture, taxonomy, metadata,
-                    ServiceNow Knowledge, SharePoint, content governance,
-                    lifecycle management, analytics and AI-enabled knowledge.
+                    Identify where knowledge exists, who owns it,
+                    how people access it, and where gaps occur.
                 </p>
 
             </div>
 
 
-            <div class="research-tile">
+            <div class="approach-card">
 
-                <span class="card-label">
-                    DOCTORAL RESEARCH
-                </span>
+                <div class="approach-number">02</div>
 
-                <h3>
-                    Enterprise Knowledge Management Systems
-                </h3>
+                <h3>Structure</h3>
 
                 <p>
-                    Pursuing doctoral research on enterprise knowledge
-                    management systems using Retrieval-Augmented Generation
-                    (RAG) pipelines for intelligent knowledge retrieval,
-                    personalization and access.
+                    Build logical knowledge architecture using taxonomy,
+                    metadata, categories, and information standards.
                 </p>
 
-                <div class="research-tags">
-                    <span>RAG</span>
-                    <span>GenAI</span>
-                    <span>Retrieval</span>
-                    <span>Personalization</span>
-                </div>
+            </div>
+
+
+            <div class="approach-card">
+
+                <div class="approach-number">03</div>
+
+                <h3>Govern</h3>
+
+                <p>
+                    Establish ownership, review cycles, approval workflows,
+                    and lifecycle governance.
+                </p>
+
+            </div>
+
+
+            <div class="approach-card">
+
+                <div class="approach-number">04</div>
+
+                <h3>Enable Self-Service</h3>
+
+                <p>
+                    Create knowledge experiences that help employees find
+                    answers independently.
+                </p>
+
+            </div>
+
+
+            <div class="approach-card">
+
+                <div class="approach-number">05</div>
+
+                <h3>Measure</h3>
+
+                <p>
+                    Use search trends, usage data, feedback, and knowledge
+                    gaps to improve the ecosystem.
+                </p>
+
+            </div>
+
+
+            <div class="approach-card">
+
+                <div class="approach-number">06</div>
+
+                <h3>Prepare for AI</h3>
+
+                <p>
+                    Build structured and governed knowledge foundations
+                    ready for enterprise AI and RAG systems.
+                </p>
 
             </div>
 
         </div>
 
+    </section>
 
-        <!-- ENTERPRISE EXPERIENCE -->
 
-        <div class="experience-heading">
+    <!-- ================= PORTFOLIO ================= -->
 
-            <span class="eyebrow">
-                ENTERPRISE EXPERIENCE
-            </span>
+    <section id="portfolio">
 
+        <div class="section-label">
+            05 — Portfolio
         </div>
+
+        <h2>Selected Knowledge Management Work</h2>
 
 
         <!-- CAPGEMINI -->
 
-        <div class="company-experience">
+        <div class="company">
 
-            <div class="company-title capgemini-title">
+            <div class="company-name">
+                CAPGEMINI
+            </div>
 
-                <h3>
-                    Capgemini
-                </h3>
-
-                <span>
-                    Global Knowledge Management
-                </span>
-
+            <div class="company-description">
+                Process Lead | Global Knowledge Management |
+                Enterprise Content | Self-Service
             </div>
 
 
-            <div class="responsibility-grid">
+            <div class="experience-list">
 
-                <div>
-                    <strong>ServiceNow Certification:</strong>
-                    ServiceNow Certified System Administrator (CSA) with
-                    knowledge of ITSM best practices, workflow automation,
-                    platform administration and enterprise service management.
+                <div class="experience-item">
+                    Global HR Knowledge Management
                 </div>
 
-                <div>
-                    <strong>HR Knowledge Management & Self-Service:</strong>
-                    Lead global HR Knowledge Management initiatives across
-                    ServiceNow, SharePoint, Salesforce, HR portals and
-                    enterprise repositories.
+                <div class="experience-item">
+                    ServiceNow Knowledge Management
                 </div>
 
-                <div>
-                    <strong>Knowledge Architecture & Taxonomy:</strong>
-                    Design knowledge architecture, taxonomy, metadata,
-                    templates, categorization and content standards.
+                <div class="experience-item">
+                    Knowledge Architecture & Taxonomy
                 </div>
 
-                <div>
-                    <strong>ServiceNow Knowledge Management:</strong>
-                    Manage Knowledge content through categorization,
-                    ownership, user criteria, workflows, governance and
-                    lifecycle practices.
+                <div class="experience-item">
+                    Content Lifecycle Governance
                 </div>
 
-                <div>
-                    <strong>Content Lifecycle Governance:</strong>
-                    Govern intake, SME review, approval, publishing,
-                    ownership, version control, review, renewal and
-                    retirement.
+                <div class="experience-item">
+                    SharePoint & Repository Governance
                 </div>
 
-                <div>
-                    <strong>Repository Governance:</strong>
-                    Govern content across SharePoint, ServiceNow,
-                    Salesforce and enterprise repositories.
+                <div class="experience-item">
+                    HR Content Strategy & Development
                 </div>
 
-                <div>
-                    <strong>HR Content Strategy & Development:</strong>
-                    Develop and maintain 500+ HR knowledge guides for
-                    Employee Services using structured and plain language.
+                <div class="experience-item">
+                    Content Migration & Harmonization
                 </div>
 
-                <div>
-                    <strong>Content Migration & Harmonization:</strong>
-                    Lead inventory, cleanup, migration, restructuring and
-                    maintenance across SharePoint and legacy repositories.
+                <div class="experience-item">
+                    SME & Stakeholder Governance
                 </div>
 
-                <div>
-                    <strong>SME & Stakeholder Governance:</strong>
-                    Partner with HR stakeholders, SMEs, platform teams,
-                    clients and process owners.
+                <div class="experience-item">
+                    Knowledge Analytics & Self-Service
                 </div>
 
-                <div>
-                    <strong>Knowledge Analytics & Self-Service:</strong>
-                    Analyze ServiceNow usage, knowledge gaps, cases and
-                    SharePoint trends to improve self-service.
+                <div class="experience-item">
+                    Knowledge Enablement & Standards
                 </div>
 
-                <div>
-                    <strong>Knowledge Enablement & Standards:</strong>
-                    Enable SMEs and content owners through writing
-                    standards, templates and practical guidance.
-                </div>
-
-                <div>
-                    <strong>Analytics, Automation & AI-Ready Knowledge:</strong>
-                    Leverage ServiceNow analytics, Power BI, SharePoint,
-                    Power Automate and Generative AI knowledge practices.
+                <div class="experience-item">
+                    Analytics, Automation & AI-Ready Knowledge
                 </div>
 
             </div>
@@ -330,416 +719,224 @@
 
         <!-- AUI SYSTEMS -->
 
-        <div class="company-experience">
+        <div class="company">
 
-            <div class="company-title aui-title">
+            <div class="company-name">
+                AUI SYSTEMS PVT. LTD.
+            </div>
 
-                <h3>
-                    AUI Systems
-                </h3>
+            <div class="company-description">
+                Knowledge Architecture | Intelligent Knowledge |
+                Semantic Technologies
+            </div>
+
+
+            <div class="experience-list">
+
+                <div class="experience-item">
+                    Knowledge Management Strategy
+                </div>
+
+                <div class="experience-item">
+                    Knowledge Architecture & Information Design
+                </div>
+
+                <div class="experience-item">
+                    Taxonomy & Metadata Management
+                </div>
+
+                <div class="experience-item">
+                    Knowledge Portal & Repository Management
+                </div>
+
+                <div class="experience-item">
+                    Content Management & Standards
+                </div>
+
+                <div class="experience-item">
+                    Knowledge Governance & Lifecycle
+                </div>
+
+                <div class="experience-item">
+                    Knowledge Discovery & Search
+                </div>
+
+                <div class="experience-item">
+                    Content Analysis & Knowledge Gaps
+                </div>
+
+                <div class="experience-item">
+                    Stakeholder & SME Collaboration
+                </div>
+
+                <div class="experience-item">
+                    Knowledge Reuse & Self-Service
+                </div>
+
+                <div class="experience-item">
+                    Intelligent Knowledge & Semantic Technologies
+                </div>
+
+                <div class="experience-item">
+                    Continuous Improvement & Scalable KM
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SELECTED WORK -->
+
+        <div class="work-grid">
+
+            <div class="work-card">
+
+                <h3>HR Knowledge Management</h3>
+
+                <ul>
+                    <li>Global HR knowledge initiatives</li>
+                    <li>Employee self-service content</li>
+                    <li>Knowledge articles and process guides</li>
+                    <li>SME validation and governance</li>
+                </ul>
+
+            </div>
+
+
+            <div class="work-card">
+
+                <h3>Knowledge Architecture</h3>
+
+                <ul>
+                    <li>Taxonomy and content structure</li>
+                    <li>Information organization</li>
+                    <li>Improved discoverability</li>
+                    <li>Scalable knowledge structures</li>
+                </ul>
+
+            </div>
+
+
+            <div class="work-card">
+
+                <h3>Content Governance</h3>
+
+                <ul>
+                    <li>Content lifecycle management</li>
+                    <li>Review and approval processes</li>
+                    <li>Knowledge ownership</li>
+                    <li>Content quality standards</li>
+                </ul>
+
+            </div>
+
+
+            <div class="work-card">
+
+                <h3>AI-Ready Knowledge</h3>
+
+                <ul>
+                    <li>Structured enterprise knowledge</li>
+                    <li>Semantic knowledge concepts</li>
+                    <li>Generative AI exploration</li>
+                    <li>RAG-ready knowledge foundations</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONNECT ================= -->
+
+    <section id="connect">
+
+        <div class="section-label">
+            06 — Let's Connect
+        </div>
+
+        <h2>Let's build better knowledge experiences.</h2>
+
+
+        <div class="connect-grid">
+
+            <a
+                href="https://www.linkedin.com/in/vishnuvardhanvjkumar"
+                target="_blank"
+                class="connect-item"
+            >
+
+                <small>LinkedIn</small>
 
                 <span>
-                    Knowledge Management
+                    Connect with me
                 </span>
-
-            </div>
-
-
-            <div class="responsibility-grid">
-
-                <div>
-                    <strong>Knowledge Management Strategy:</strong>
-                    Designed enterprise KM solutions to structure,
-                    organize, manage, retrieve and share knowledge.
-                </div>
-
-                <div>
-                    <strong>Knowledge Architecture & Information Design:</strong>
-                    Developed scalable knowledge architectures,
-                    information structures and content models.
-                </div>
-
-                <div>
-                    <strong>Taxonomy & Metadata Management:</strong>
-                    Developed taxonomies, classification structures,
-                    categorization approaches and metadata concepts.
-                </div>
-
-                <div>
-                    <strong>Knowledge Portal & Repository Management:</strong>
-                    Designed and enhanced KM portals and repositories
-                    supporting navigation, search and self-service.
-                </div>
-
-                <div>
-                    <strong>Content Management & Standards:</strong>
-                    Structured, reviewed and maintained knowledge content
-                    using consistent standards.
-                </div>
-
-                <div>
-                    <strong>Knowledge Governance & Lifecycle:</strong>
-                    Supported ownership, review, maintenance, quality
-                    management, updates and continuous improvement.
-                </div>
-
-                <div>
-                    <strong>Knowledge Discovery & Search:</strong>
-                    Improved discovery and retrieval through taxonomy,
-                    metadata, semantic relationships and information design.
-                </div>
-
-                <div>
-                    <strong>Content Analysis & Knowledge Gaps:</strong>
-                    Identified content gaps, duplication, inconsistencies
-                    and usability issues.
-                </div>
-
-                <div>
-                    <strong>Stakeholder & SME Collaboration:</strong>
-                    Collaborated with SMEs, business stakeholders and
-                    technical teams to structure knowledge.
-                </div>
-
-                <div>
-                    <strong>Knowledge Reuse & Self-Service:</strong>
-                    Developed reusable knowledge structures supporting
-                    efficient knowledge discovery and reuse.
-                </div>
-
-                <div>
-                    <strong>Intelligent Knowledge & Semantic Technologies:</strong>
-                    Applied NLU, semantic technologies and Generative AI
-                    capabilities to knowledge discovery.
-                </div>
-
-                <div>
-                    <strong>Continuous Improvement & Scalable KM:</strong>
-                    Evaluated user needs, content performance,
-                    information structures and emerging technologies.
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- 4. CERTIFICATIONS -->
-
-<section class="certifications section" id="certifications">
-
-    <div class="container">
-
-        <div class="section-header">
-
-            <span class="section-number">03</span>
-
-            <div>
-
-                <span class="eyebrow">
-                    CERTIFICATIONS
-                </span>
-
-                <h2>
-                    Professional Credentials
-                </h2>
-
-            </div>
-
-        </div>
-
-
-        <div class="certification-grid">
-
-            <a href="#"
-               class="certification-card servicnow-card">
-
-                <div class="cert-icon">SN</div>
-
-                <span>PROFESSIONAL CERTIFICATION</span>
-
-                <h3>
-                    ServiceNow Certified
-                    System Administrator
-                </h3>
-
-                <p>
-                    Platform administration, workflows and
-                    enterprise service management.
-                </p>
 
             </a>
 
 
-            <a href="#"
-               class="certification-card ai-card">
+            <a
+                href="https://vishnuvardhanvjkumar.github.io/"
+                target="_blank"
+                class="connect-item"
+            >
 
-                <div class="cert-icon">AI</div>
+                <small>Portfolio</small>
 
-                <span>AI & KNOWLEDGE</span>
-
-                <h3>
-                    Generative AI &
-                    Knowledge Technologies
-                </h3>
-
-                <p>
-                    Professional learning supporting AI-enabled
-                    Knowledge Management.
-                </p>
+                <span>
+                    View my work
+                </span>
 
             </a>
 
 
-            <a href="#"
-               class="certification-card all-cert-card">
+            <a
+                href="mailto:vishnuvardhanvjkumar@gmail.com"
+                class="connect-item"
+            >
 
-                <div class="cert-icon">+</div>
+                <small>Email</small>
 
-                <span>CREDENTIALS</span>
+                <span>
+                    Send me an email
+                </span>
 
-                <h3>
-                    View All
-                    Certifications
-                </h3>
+            </a>
 
-                <p>
-                    Explore professional certifications and
-                    learning credentials.
-                </p>
+
+            <a
+                href="tel:+917200206838"
+                class="connect-item"
+            >
+
+                <small>Mobile</small>
+
+                <span>
+                    +91 72002 06838
+                </span>
 
             </a>
 
         </div>
 
-    </div>
+    </section>
 
-</section>
 
+    <!-- ================= FOOTER ================= -->
 
-<!-- 5. EXPERTISE -->
+    <footer>
 
-<section class="expertise section" id="expertise">
+        © 2026 Vishnuvardhan V. |
+        Knowledge Management Portfolio
 
-    <div class="container">
+    </footer>
 
-        <div class="section-header">
 
-            <span class="section-number">04</span>
-
-            <div>
-
-                <span class="eyebrow">
-                    EXPERTISE
-                </span>
-
-                <h2>
-                    How I Approach Knowledge Management
-                </h2>
-
-            </div>
-
-        </div>
-
-
-        <div class="expertise-grid">
-
-            <div class="expertise-card">
-                <span>01</span>
-                <h3>Knowledge Strategy</h3>
-                <p>Strategy and operating models.</p>
-            </div>
-
-            <div class="expertise-card">
-                <span>02</span>
-                <h3>Knowledge Architecture</h3>
-                <p>Taxonomy, metadata and structure.</p>
-            </div>
-
-            <div class="expertise-card">
-                <span>03</span>
-                <h3>ServiceNow Knowledge</h3>
-                <p>Knowledge bases and lifecycle.</p>
-            </div>
-
-            <div class="expertise-card">
-                <span>04</span>
-                <h3>Content Governance</h3>
-                <p>Ownership and lifecycle control.</p>
-            </div>
-
-            <div class="expertise-card">
-                <span>05</span>
-                <h3>Employee Knowledge</h3>
-                <p>Self-service information design.</p>
-            </div>
-
-            <div class="expertise-card">
-                <span>06</span>
-                <h3>HRSS Knowledge</h3>
-                <p>Resolution and case support.</p>
-            </div>
-
-            <div class="expertise-card">
-                <span>07</span>
-                <h3>Knowledge Analytics</h3>
-                <p>Usage, gaps and improvement.</p>
-            </div>
-
-            <div class="expertise-card">
-                <span>08</span>
-                <h3>AI-Ready Knowledge</h3>
-                <p>Knowledge for AI and RAG.</p>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- 6. PORTFOLIO -->
-
-<section class="portfolio section" id="portfolio">
-
-    <div class="container">
-
-        <div class="section-header">
-
-            <span class="section-number">05</span>
-
-            <div>
-
-                <span class="eyebrow">
-                    PORTFOLIO
-                </span>
-
-                <h2>
-                    Selected Knowledge Management Work
-                </h2>
-
-            </div>
-
-        </div>
-
-
-        <div class="portfolio-grid">
-
-            <div class="portfolio-card strategy-card">
-                <span>01 · STRATEGY</span>
-                <h3>Knowledge Strategy</h3>
-                <a href="#">Explore →</a>
-            </div>
-
-            <div class="portfolio-card architecture-card">
-                <span>02 · ARCHITECTURE</span>
-                <h3>Knowledge Architecture</h3>
-                <a href="#">Explore →</a>
-            </div>
-
-            <div class="portfolio-card snow-card">
-                <span>03 · SERVICENOW</span>
-                <h3>Knowledge Base Design</h3>
-                <a href="#">Explore →</a>
-            </div>
-
-            <div class="portfolio-card governance-card">
-                <span>04 · GOVERNANCE</span>
-                <h3>Content Governance</h3>
-                <a href="#">Explore →</a>
-            </div>
-
-            <div class="portfolio-card analytics-card">
-                <span>05 · ANALYTICS</span>
-                <h3>Knowledge Analytics</h3>
-                <a href="#">Explore →</a>
-            </div>
-
-            <div class="portfolio-card ai-portfolio-card">
-                <span>06 · AI</span>
-                <h3>AI-Ready Knowledge</h3>
-                <a href="#">Explore →</a>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- 7. LET'S CONNECT -->
-
-<section class="connect section" id="connect">
-
-    <div class="container">
-
-        <div class="connect-tile">
-
-            <span class="eyebrow">
-                LET'S CONNECT
-            </span>
-
-            <h2>
-                Let's Talk About Knowledge.
-            </h2>
-
-            <p>
-                Knowledge strategy, ServiceNow, enterprise content,
-                information architecture and AI-enabled knowledge.
-            </p>
-
-
-            <div class="connect-links">
-
-                <a href="mailto:vishnuvardhanvjkumar@gmail.com">
-                    Gmail
-                </a>
-
-                <a href="https://www.linkedin.com/in/vishnuvardhan-v/"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    LinkedIn
-                </a>
-
-                <a href="tel:+917200206838">
-                    +91 7200206838
-                </a>
-
-                <a href="#"
-                   target="_blank">
-                    Resume
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<footer>
-
-    <div class="container">
-
-        <p>
-            © 2026 Vishnuvardhan V · Knowledge Management Portfolio
-        </p>
-
-    </div>
-
-</footer>
-
-
-<script src="script.js"></script>
-```
+</div>
 
 </body>
 </html>
+```
