@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +36,6 @@
             --line: #dddddd;
             --line-dark: #cfcfcf;
 
-            /* COLOR PALETTE */
             --accent-blue: #2563eb;
             --accent-purple: #7c3aed;
             --accent-cyan: #0891b2;
@@ -66,6 +65,7 @@
             background: var(--background);
             color: var(--text);
             line-height: 1.45;
+            overflow-x: hidden;
         }
 
         a {
@@ -80,10 +80,63 @@
 
 
         /* =========================================================
+           READING PROGRESS
+        ========================================================= */
+
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            z-index: 9999;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #2563eb,
+                    #7c3aed,
+                    #0891b2,
+                    #059669
+                );
+
+            transition: width 0.08s linear;
+        }
+
+
+        /* =========================================================
+           CURSOR GLOW
+        ========================================================= */
+
+        .cursor-glow {
+            position: fixed;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+
+            pointer-events: none;
+            z-index: -1;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(124, 58, 237, 0.07) 0%,
+                    rgba(37, 99, 235, 0.035) 35%,
+                    transparent 70%
+                );
+
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+
+        /* =========================================================
            SECTION
         ========================================================= */
 
         section {
+            position: relative;
             padding: 30px 0;
             border-bottom: 1px solid var(--line);
         }
@@ -94,6 +147,10 @@
 
         section:last-child {
             border-bottom: none;
+        }
+
+        section.active-section .section-label {
+            color: var(--accent-blue);
         }
 
 
@@ -108,6 +165,10 @@
             text-transform: uppercase;
             color: var(--accent-purple);
             margin-bottom: 9px;
+
+            transition:
+                color 0.3s ease,
+                letter-spacing 0.3s ease;
         }
 
 
@@ -146,14 +207,34 @@
                 linear-gradient(
                     90deg,
                     #111111 0%,
-                    #2563eb 42%,
-                    #7c3aed 72%,
+                    #2563eb 35%,
+                    #7c3aed 65%,
                     #0891b2 100%
                 );
+
+            background-size: 200% auto;
 
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+
+            animation: gradientMove 7s ease-in-out infinite;
+        }
+
+        @keyframes gradientMove {
+
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+
         }
 
         .hero-role {
@@ -167,9 +248,27 @@
             font-size: 14px;
             font-style: italic;
             color: var(--accent-purple);
+
+            animation: captionFade 1.2s ease both;
+        }
+
+        @keyframes captionFade {
+
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
         }
 
         .hero-badge {
+            position: relative;
+
             border: 1px solid var(--accent-blue);
             padding: 9px 12px;
             font-size: 10px;
@@ -177,8 +276,55 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             white-space: nowrap;
+
             color: var(--accent-blue);
             background: #eff6ff;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .hero-badge::before {
+            content: "";
+            display: inline-block;
+
+            width: 6px;
+            height: 6px;
+            margin-right: 6px;
+
+            border-radius: 50%;
+            background: var(--accent-green);
+
+            box-shadow:
+                0 0 0 0 rgba(5, 150, 105, 0.35);
+
+            animation: pulseDot 2s infinite;
+        }
+
+        @keyframes pulseDot {
+
+            0% {
+                box-shadow:
+                    0 0 0 0 rgba(5, 150, 105, 0.35);
+            }
+
+            70% {
+                box-shadow:
+                    0 0 0 7px rgba(5, 150, 105, 0);
+            }
+
+            100% {
+                box-shadow:
+                    0 0 0 0 rgba(5, 150, 105, 0);
+            }
+
+        }
+
+        .hero-badge:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 8px 20px rgba(37, 99, 235, 0.12);
         }
 
 
@@ -220,6 +366,13 @@
 
         .focus-keywords span {
             color: var(--text);
+            transition:
+                opacity 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .focus-keywords span:hover {
+            opacity: 0.65;
         }
 
         .focus-keywords span:nth-child(1) {
@@ -289,8 +442,19 @@
         }
 
         .research-card {
+            position: relative;
+
             border-left: 3px solid var(--accent-purple);
             padding-left: 14px;
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .research-card:hover {
+            transform: translateX(3px);
+            border-color: var(--accent-pink);
         }
 
         .research-card small {
@@ -336,18 +500,21 @@
             background: var(--surface);
 
             transition:
-                border-color 0.2s ease,
-                transform 0.2s ease,
-                box-shadow 0.2s ease;
+                border-color 0.25s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
         }
 
         .cert-card::before {
             content: "";
             position: absolute;
+
             top: 0;
             left: 0;
             right: 0;
+
             height: 3px;
+
             background: var(--gradient-main);
         }
 
@@ -380,9 +547,10 @@
 
         .cert-card:hover {
             border-color: #b8b8b8;
-            transform: translateY(-2px);
+            transform: translateY(-4px);
+
             box-shadow:
-                0 6px 18px rgba(37, 99, 235, 0.08);
+                0 10px 25px rgba(17, 17, 17, 0.08);
         }
 
         .cert-tag {
@@ -407,7 +575,6 @@
             margin-bottom: 5px;
         }
 
-        /* ServiceNow certification link */
         .cert-card h3 a {
             color: var(--accent-blue);
             text-decoration: underline;
@@ -420,7 +587,6 @@
             opacity: 0.65;
         }
 
-        /* AI & Knowledge hyperlink */
         .cert-tag a {
             color: var(--accent-purple);
             text-decoration: underline;
@@ -450,20 +616,23 @@
         }
 
         .approach-card {
+            position: relative;
+
             border: 1px solid var(--line);
             padding: 13px;
 
             transition:
-                border-color 0.2s ease,
-                transform 0.2s ease,
-                box-shadow 0.2s ease;
+                border-color 0.25s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
         }
 
         .approach-card:hover {
             border-color: #b8b8b8;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+
             box-shadow:
-                0 5px 15px rgba(124, 58, 237, 0.07);
+                0 7px 20px rgba(124, 58, 237, 0.08);
         }
 
         .approach-number {
@@ -515,11 +684,18 @@
         .company {
             padding: 15px 0;
             border-top: 1px solid var(--line);
+
+            transition:
+                padding-left 0.25s ease;
         }
 
         .company:first-child {
             border-top: none;
             padding-top: 0;
+        }
+
+        .company:hover {
+            padding-left: 6px;
         }
 
         .company-header {
@@ -561,6 +737,12 @@
         .experience-line span {
             color: #222222;
             font-weight: 600;
+
+            transition: color 0.2s ease;
+        }
+
+        .experience-line span:hover {
+            color: var(--accent-blue);
         }
 
         .bullet {
@@ -601,9 +783,9 @@
             background: #ffffff;
 
             transition:
-                border-color 0.2s ease,
-                transform 0.2s ease,
-                box-shadow 0.2s ease;
+                border-color 0.25s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
 
             cursor: pointer;
         }
@@ -611,11 +793,21 @@
         .artifact::before {
             content: "";
             position: absolute;
+
             left: 0;
             top: 0;
             bottom: 0;
+
             width: 3px;
+
             background: var(--accent-blue);
+
+            transition:
+                width 0.25s ease;
+        }
+
+        .artifact:hover::before {
+            width: 5px;
         }
 
         .artifact:nth-child(2)::before {
@@ -640,9 +832,10 @@
 
         .artifact:hover {
             border-color: #999999;
-            transform: translateY(-2px);
+            transform: translateY(-4px);
+
             box-shadow:
-                0 7px 20px rgba(17, 17, 17, 0.07);
+                0 12px 28px rgba(17, 17, 17, 0.08);
         }
 
         .artifact-top {
@@ -684,6 +877,12 @@
         .artifact-number {
             font-size: 10px;
             color: #999999;
+            transition:
+                transform 0.25s ease;
+        }
+
+        .artifact:hover .artifact-number {
+            transform: scale(1.15);
         }
 
         .artifact:nth-child(1) .artifact-number {
@@ -735,6 +934,13 @@
             background: var(--surface);
             border: 1px solid var(--line);
             color: #555555;
+
+            transition:
+                transform 0.2s ease;
+        }
+
+        .artifact-tags span:hover {
+            transform: translateY(-1px);
         }
 
         .artifact:nth-child(1) .artifact-tags span {
@@ -773,6 +979,13 @@
             font-weight: 700;
             letter-spacing: 0.5px;
             color: var(--accent-blue);
+
+            transition:
+                letter-spacing 0.2s ease;
+        }
+
+        .artifact:hover .artifact-link {
+            letter-spacing: 1px;
         }
 
         .artifact:nth-child(2) .artifact-link {
@@ -816,6 +1029,17 @@
                 );
 
             border-left: 3px solid var(--accent-purple);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .fortiv-box:hover {
+            transform: translateX(3px);
+
+            box-shadow:
+                0 6px 18px rgba(124, 58, 237, 0.07);
         }
 
         .fortiv-box strong {
@@ -850,21 +1074,59 @@
         }
 
         .connect-item {
+            position: relative;
+            overflow: hidden;
+
             border: 1px solid var(--line);
             padding: 13px;
             background: var(--surface);
 
             transition:
-                border-color 0.2s ease,
-                transform 0.2s ease,
-                box-shadow 0.2s ease;
+                border-color 0.25s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .connect-item::before {
+            content: "";
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 0;
+            height: 3px;
+
+            transition:
+                width 0.3s ease;
+        }
+
+        .connect-item:nth-child(1)::before {
+            background: var(--accent-blue);
+        }
+
+        .connect-item:nth-child(2)::before {
+            background: var(--accent-purple);
+        }
+
+        .connect-item:nth-child(3)::before {
+            background: var(--accent-green);
+        }
+
+        .connect-item:nth-child(4)::before {
+            background: var(--accent-orange);
+        }
+
+        .connect-item:hover::before {
+            width: 100%;
         }
 
         .connect-item:hover {
             border-color: #999999;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+
             box-shadow:
-                0 5px 15px rgba(37, 99, 235, 0.08);
+                0 8px 20px rgba(37, 99, 235, 0.08);
         }
 
         .connect-item small {
@@ -900,6 +1162,56 @@
 
 
         /* =========================================================
+           BACK TO TOP
+        ========================================================= */
+
+        .back-to-top {
+            position: fixed;
+
+            right: 22px;
+            bottom: 22px;
+
+            width: 38px;
+            height: 38px;
+
+            border: 1px solid var(--line-dark);
+            border-radius: 50%;
+
+            background: #ffffff;
+            color: var(--accent-blue);
+
+            font-size: 16px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            opacity: 0;
+            visibility: hidden;
+
+            transform: translateY(10px);
+
+            transition:
+                opacity 0.25s ease,
+                visibility 0.25s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            box-shadow:
+                0 7px 18px rgba(37, 99, 235, 0.15);
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================================================
            FOOTER
         ========================================================= */
 
@@ -910,8 +1222,23 @@
             text-align: center;
         }
 
-        footer::first-letter {
-            color: var(--accent-blue);
+
+        /* =========================================================
+           SCROLL REVEAL
+        ========================================================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+
+            transition:
+                opacity 0.65s ease,
+                transform 0.65s ease;
+        }
+
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
         }
 
 
@@ -942,6 +1269,10 @@
 
             .connect-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cursor-glow {
+                display: none;
             }
 
         }
@@ -982,6 +1313,37 @@
                 margin-top: 3px;
             }
 
+            .back-to-top {
+                right: 14px;
+                bottom: 14px;
+            }
+
+        }
+
+
+        /* =========================================================
+           REDUCED MOTION
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+
         }
 
     </style>
@@ -990,6 +1352,11 @@
 
 
 <body>
+
+<div class="reading-progress"></div>
+
+<div class="cursor-glow"></div>
+
 
 <div class="container">
 
@@ -1168,8 +1535,6 @@
         <div class="cert-grid">
 
 
-            <!-- SERVICENOW -->
-
             <div class="cert-card">
 
                 <div class="cert-tag">
@@ -1196,8 +1561,6 @@
             </div>
 
 
-            <!-- KNOWLEDGE MANAGEMENT -->
-
             <div class="cert-card">
 
                 <div class="cert-tag">
@@ -1215,8 +1578,6 @@
 
             </div>
 
-
-            <!-- AI & KNOWLEDGE -->
 
             <div class="cert-card">
 
@@ -1394,8 +1755,6 @@
         </div>
 
 
-        <!-- CAPGEMINI -->
-
         <div class="company">
 
             <div class="company-header">
@@ -1452,8 +1811,6 @@
 
         </div>
 
-
-        <!-- AUI -->
 
         <div class="company">
 
@@ -1547,8 +1904,6 @@
         <div class="artifact-grid">
 
 
-            <!-- 01 -->
-
             <a
                 href="artifacts/HR_Knowledge_Article_Employee_Personal_Information_Update.pdf"
                 target="_blank"
@@ -1568,7 +1923,6 @@
 
                 </div>
 
-
                 <h3>
                     HR Knowledge Article
                 </h3>
@@ -1581,7 +1935,6 @@
 
                 </p>
 
-
                 <div class="artifact-tags">
 
                     <span>ServiceNow KM</span>
@@ -1591,7 +1944,6 @@
 
                 </div>
 
-
                 <span class="artifact-link">
                     VIEW ARTIFACT →
                 </span>
@@ -1599,8 +1951,6 @@
             </a>
 
 
-
-            <!-- 02 -->
 
             <a
                 href="artifacts/HR_Knowledge_Architecture_Taxonomy.pdf"
@@ -1621,11 +1971,9 @@
 
                 </div>
 
-
                 <h3>
                     HR Knowledge Architecture &amp; Taxonomy
                 </h3>
-
 
                 <p class="artifact-description">
 
@@ -1634,7 +1982,6 @@
                     structures for enterprise knowledge.
 
                 </p>
-
 
                 <div class="artifact-tags">
 
@@ -1645,7 +1992,6 @@
 
                 </div>
 
-
                 <span class="artifact-link">
                     VIEW ARTIFACT →
                 </span>
@@ -1653,8 +1999,6 @@
             </a>
 
 
-
-            <!-- 03 -->
 
             <a
                 href="artifacts/Knowledge_Content_Governance_Lifecycle_SOP.pdf"
@@ -1675,11 +2019,9 @@
 
                 </div>
 
-
                 <h3>
                     Knowledge Content Governance &amp; Lifecycle
                 </h3>
-
 
                 <p class="artifact-description">
 
@@ -1688,7 +2030,6 @@
                     renewal, retirement and ownership.
 
                 </p>
-
 
                 <div class="artifact-tags">
 
@@ -1699,7 +2040,6 @@
 
                 </div>
 
-
                 <span class="artifact-link">
                     VIEW ARTIFACT →
                 </span>
@@ -1707,8 +2047,6 @@
             </a>
 
 
-
-            <!-- 04 -->
 
             <a
                 href="artifacts/HR_Content_Inventory_Gap_Analysis.pdf"
@@ -1729,11 +2067,9 @@
 
                 </div>
 
-
                 <h3>
                     HR Content Inventory &amp; Gap Analysis
                 </h3>
-
 
                 <p class="artifact-description">
 
@@ -1742,7 +2078,6 @@
                     HR knowledge across multiple repositories.
 
                 </p>
-
 
                 <div class="artifact-tags">
 
@@ -1753,7 +2088,6 @@
 
                 </div>
 
-
                 <span class="artifact-link">
                     VIEW ARTIFACT →
                 </span>
@@ -1761,8 +2095,6 @@
             </a>
 
 
-
-            <!-- 05 -->
 
             <a
                 href="artifacts/Employee_Self_Service_Content_Pack.pdf"
@@ -1783,11 +2115,9 @@
 
                 </div>
 
-
                 <h3>
                     Employee Self-Service Content Pack
                 </h3>
-
 
                 <p class="artifact-description">
 
@@ -1796,7 +2126,6 @@
                     questions and reduce dependency on assisted support.
 
                 </p>
-
 
                 <div class="artifact-tags">
 
@@ -1807,7 +2136,6 @@
 
                 </div>
 
-
                 <span class="artifact-link">
                     VIEW ARTIFACT →
                 </span>
@@ -1815,8 +2143,6 @@
             </a>
 
 
-
-            <!-- 06 -->
 
             <a
                 href="artifacts/AI_RAG_Ready_Enterprise_Knowledge_Blueprint.pdf"
@@ -1837,7 +2163,6 @@
 
                 </div>
 
-
                 <h3>
                     AI / RAG-Ready Enterprise Knowledge Blueprint
                 </h3>
@@ -1850,7 +2175,6 @@
 
                 </p>
 
-
                 <div class="artifact-tags">
 
                     <span>GenAI</span>
@@ -1859,7 +2183,6 @@
                     <span>Knowledge Engineering</span>
 
                 </div>
-
 
                 <span class="artifact-link">
                     VIEW ARTIFACT →
@@ -1914,8 +2237,6 @@
         <div class="connect-grid">
 
 
-            <!-- LINKEDIN -->
-
             <a
                 href="https://www.linkedin.com/in/vishnuvardhan-v/"
                 target="_blank"
@@ -1933,8 +2254,6 @@
 
             </a>
 
-
-            <!-- RESUME -->
 
             <a
                 href="resume.pdf"
@@ -1954,8 +2273,6 @@
             </a>
 
 
-            <!-- EMAIL -->
-
             <a
                 href="mailto:vishnuvardhanvjkumar@gmail.com"
                 target="_blank"
@@ -1973,8 +2290,6 @@
 
             </a>
 
-
-            <!-- MOBILE -->
 
             <a
                 href="tel:+917200206838"
@@ -2013,6 +2328,479 @@
 
 
 </div>
+
+
+<!-- =========================================================
+     BACK TO TOP
+========================================================= -->
+
+<button
+    class="back-to-top"
+    id="backToTop"
+    aria-label="Back to top"
+    title="Back to top"
+>
+    ↑
+</button>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+    /* =========================================================
+       READING PROGRESS
+    ========================================================= */
+
+    const progressBar =
+        document.querySelector(".reading-progress");
+
+    function updateProgress() {
+
+        const scrollTop =
+            window.scrollY;
+
+        const documentHeight =
+            document.documentElement.scrollHeight -
+            window.innerHeight;
+
+        const progress =
+            documentHeight > 0
+                ? (scrollTop / documentHeight) * 100
+                : 0;
+
+        progressBar.style.width =
+            progress + "%";
+
+    }
+
+    window.addEventListener(
+        "scroll",
+        updateProgress,
+        { passive: true }
+    );
+
+    updateProgress();
+
+
+    /* =========================================================
+       SCROLL REVEAL
+    ========================================================= */
+
+    const revealElements =
+        document.querySelectorAll(
+            "section > .section-label, " +
+            ".focus-intro, " +
+            ".focus-keywords, " +
+            ".about-layout, " +
+            ".cert-card, " +
+            ".approach-card, " +
+            ".company, " +
+            ".portfolio-intro, " +
+            ".artifact, " +
+            ".fortiv-box, " +
+            ".connect-intro, " +
+            ".connect-item"
+        );
+
+    revealElements.forEach(
+        element => {
+            element.classList.add("reveal");
+        }
+    );
+
+
+    const revealObserver =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(
+                    entry => {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            entry.target.classList.add(
+                                "revealed"
+                            );
+
+                            revealObserver.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    }
+                );
+
+            },
+            {
+                threshold: 0.12,
+                rootMargin: "0px 0px -35px 0px"
+            }
+        );
+
+
+    revealElements.forEach(
+        element => {
+            revealObserver.observe(element);
+        }
+    );
+
+
+    /* =========================================================
+       STAGGER CARD ANIMATION
+    ========================================================= */
+
+    const cardGroups = [
+        ".cert-card",
+        ".approach-card",
+        ".artifact",
+        ".connect-item"
+    ];
+
+    cardGroups.forEach(
+        selector => {
+
+            const cards =
+                document.querySelectorAll(selector);
+
+            cards.forEach(
+                (card, index) => {
+
+                    card.style.transitionDelay =
+                        `${index * 70}ms`;
+
+                }
+            );
+
+        }
+    );
+
+
+    /* =========================================================
+       ACTIVE SECTION
+    ========================================================= */
+
+    const sections =
+        document.querySelectorAll(
+            "section[id]"
+        );
+
+
+    const sectionObserver =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(
+                    entry => {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            sections.forEach(
+                                section => {
+                                    section.classList.remove(
+                                        "active-section"
+                                    );
+                                }
+                            );
+
+                            entry.target.classList.add(
+                                "active-section"
+                            );
+
+                        }
+
+                    }
+                );
+
+            },
+            {
+                threshold: 0.35
+            }
+        );
+
+
+    sections.forEach(
+        section => {
+            sectionObserver.observe(section);
+        }
+    );
+
+
+    /* =========================================================
+       BACK TO TOP
+    ========================================================= */
+
+    const backToTop =
+        document.getElementById(
+            "backToTop"
+        );
+
+
+    function updateBackToTop() {
+
+        if (
+            window.scrollY > 500
+        ) {
+
+            backToTop.classList.add(
+                "visible"
+            );
+
+        } else {
+
+            backToTop.classList.remove(
+                "visible"
+            );
+
+        }
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        updateBackToTop,
+        { passive: true }
+    );
+
+
+    backToTop.addEventListener(
+        "click",
+        () => {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+    );
+
+
+    /* =========================================================
+       CURSOR GLOW
+       Desktop only
+    ========================================================= */
+
+    const cursorGlow =
+        document.querySelector(
+            ".cursor-glow"
+        );
+
+
+    if (
+        window.matchMedia(
+            "(pointer: fine)"
+        ).matches
+    ) {
+
+        document.addEventListener(
+            "mousemove",
+            event => {
+
+                cursorGlow.style.left =
+                    event.clientX + "px";
+
+                cursorGlow.style.top =
+                    event.clientY + "px";
+
+                cursorGlow.style.opacity =
+                    "1";
+
+            }
+        );
+
+        document.addEventListener(
+            "mouseleave",
+            () => {
+
+                cursorGlow.style.opacity =
+                    "0";
+
+            }
+        );
+
+    }
+
+
+    /* =========================================================
+       ARTIFACT CARD TILT
+       Very subtle — desktop only
+    ========================================================= */
+
+    if (
+        window.matchMedia(
+            "(pointer: fine)"
+        ).matches
+    ) {
+
+        const artifacts =
+            document.querySelectorAll(
+                ".artifact"
+            );
+
+
+        artifacts.forEach(
+            card => {
+
+                card.addEventListener(
+                    "mousemove",
+                    event => {
+
+                        const rect =
+                            card.getBoundingClientRect();
+
+                        const x =
+                            event.clientX -
+                            rect.left;
+
+                        const y =
+                            event.clientY -
+                            rect.top;
+
+                        const centerX =
+                            rect.width / 2;
+
+                        const centerY =
+                            rect.height / 2;
+
+                        const rotateX =
+                            ((y - centerY) /
+                                centerY) * -1.2;
+
+                        const rotateY =
+                            ((x - centerX) /
+                                centerX) * 1.2;
+
+
+                        card.style.transform =
+                            `translateY(-4px)
+                             perspective(700px)
+                             rotateX(${rotateX}deg)
+                             rotateY(${rotateY}deg)`;
+
+                    }
+                );
+
+
+                card.addEventListener(
+                    "mouseleave",
+                    () => {
+
+                        card.style.transform =
+                            "";
+
+                    }
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =========================================================
+       EXPERTISE NUMBER MICRO-ANIMATION
+    ========================================================= */
+
+    const expertiseNumbers =
+        document.querySelectorAll(
+            ".approach-number"
+        );
+
+
+    const numberObserver =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(
+                    entry => {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            const element =
+                                entry.target;
+
+                            const finalValue =
+                                element.textContent.trim();
+
+                            element.textContent =
+                                "00";
+
+
+                            setTimeout(
+                                () => {
+                                    element.textContent =
+                                        finalValue;
+                                },
+                                180
+                            );
+
+
+                            numberObserver.unobserve(
+                                element
+                            );
+
+                        }
+
+                    }
+                );
+
+            },
+            {
+                threshold: 0.7
+            }
+        );
+
+
+    expertiseNumbers.forEach(
+        number => {
+            numberObserver.observe(number);
+        }
+    );
+
+
+    /* =========================================================
+       EXTERNAL LINKS
+       Keep current HTML links untouched.
+    ========================================================= */
+
+    document.querySelectorAll(
+        'a[href^="http"]'
+    ).forEach(
+        link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    link.style.opacity =
+                        "0.7";
+
+                    setTimeout(
+                        () => {
+                            link.style.opacity =
+                                "";
+                        },
+                        250
+                    );
+
+                }
+            );
+
+        }
+    );
+
+</script>
 
 
 </body>
