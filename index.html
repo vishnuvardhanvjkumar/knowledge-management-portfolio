@@ -1,2338 +1,2939 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vishnuvardhan V | Knowledge Management Portfolio</title>
+
+<meta name="description"
+content="Vishnuvardhan V — Knowledge Management, HR Content Strategy, ServiceNow Knowledge, SharePoint, Content Governance and AI-Ready Enterprise Knowledge.">
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+:root{
+    --background:#fff;
+    --surface:#f7f7f7;
+    --text:#111;
+    --muted:#666;
+    --line:#ddd;
+    --line-dark:#cfcfcf;
+
+    --accent-blue:#2563eb;
+    --accent-purple:#7c3aed;
+    --accent-cyan:#0891b2;
+    --accent-green:#059669;
+    --accent-orange:#ea580c;
+    --accent-pink:#db2777;
+
+    --gradient-main:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #7c3aed,
+            #0891b2
+        );
+}
+
+body{
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:#fff;
+    color:#111;
+    line-height:1.45;
+    overflow-x:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.container{
+    width:min(1120px,calc(100% - 40px));
+    margin:0 auto;
+}
+
+/* =========================================================
+   READING PROGRESS
+========================================================= */
+
+.reading-progress{
+    position:fixed;
+    top:0;
+    left:0;
+    width:0;
+    height:3px;
+    z-index:9999;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #7c3aed,
+            #0891b2,
+            #059669
+        );
+
+    transition:width .08s linear;
+}
+
+/* =========================================================
+   CURSOR GLOW
+========================================================= */
+
+.cursor-glow{
+    position:fixed;
+    width:280px;
+    height:280px;
+    border-radius:50%;
+
+    pointer-events:none;
+    z-index:-1;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(124,58,237,.07) 0%,
+            rgba(37,99,235,.035) 35%,
+            transparent 70%
+        );
+
+    transform:translate(-50%,-50%);
+    opacity:0;
+
+    transition:opacity .3s ease;
+}
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+section{
+    position:relative;
+    padding:30px 0;
+    border-bottom:1px solid var(--line);
+}
+
+section:first-child{
+    padding-top:25px;
+}
+
+section:last-child{
+    border-bottom:none;
+}
+
+section.active-section .section-label{
+    color:var(--accent-blue);
+    letter-spacing:2.2px;
+}
+
+.section-label{
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:1.8px;
+    text-transform:uppercase;
+    color:var(--accent-purple);
+
+    margin-bottom:9px;
+
+    transition:
+        color .3s ease,
+        letter-spacing .3s ease;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    padding:25px 0 30px;
+}
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Vishnuvardhan V | Knowledge Management Portfolio</title>
-
-    <meta name="description"
-        content="Vishnuvardhan V — Knowledge Management, HR Content Strategy, ServiceNow Knowledge, SharePoint, Content Governance and AI-Ready Enterprise Knowledge.">
-
-    <style>
-
-        /* =========================================================
-           GLOBAL
-        ========================================================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        :root {
-            --background: #ffffff;
-            --surface: #f7f7f7;
-            --text: #111111;
-            --muted: #666666;
-            --line: #dddddd;
-            --line-dark: #cfcfcf;
-
-            --accent-blue: #2563eb;
-            --accent-purple: #7c3aed;
-            --accent-cyan: #0891b2;
-            --accent-green: #059669;
-            --accent-orange: #ea580c;
-            --accent-pink: #db2777;
-
-            --gradient-main:
-                linear-gradient(
-                    90deg,
-                    #2563eb,
-                    #7c3aed,
-                    #0891b2
-                );
-        }
-
-        body {
-            font-family:
-                Inter,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                Arial,
-                Helvetica,
-                sans-serif;
-
-            background: var(--background);
-            color: var(--text);
-            line-height: 1.45;
-            overflow-x: hidden;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .container {
-            width: min(1120px, calc(100% - 40px));
-            margin: 0 auto;
-        }
-
-
-        /* =========================================================
-           READING PROGRESS
-        ========================================================= */
-
-        .reading-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            z-index: 9999;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    #2563eb,
-                    #7c3aed,
-                    #0891b2,
-                    #059669
-                );
-
-            transition: width 0.08s linear;
-        }
-
-
-        /* =========================================================
-           CURSOR GLOW
-        ========================================================= */
-
-        .cursor-glow {
-            position: fixed;
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-
-            pointer-events: none;
-            z-index: -1;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(124, 58, 237, 0.07) 0%,
-                    rgba(37, 99, 235, 0.035) 35%,
-                    transparent 70%
-                );
-
-            transform: translate(-50%, -50%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-
-        /* =========================================================
-           SECTION
-        ========================================================= */
-
-        section {
-            position: relative;
-            padding: 30px 0;
-            border-bottom: 1px solid var(--line);
-        }
-
-        section:first-child {
-            padding-top: 25px;
-        }
-
-        section:last-child {
-            border-bottom: none;
-        }
-
-        section.active-section .section-label {
-            color: var(--accent-blue);
-        }
-
-
-        /* =========================================================
-           SMALL LABEL
-        ========================================================= */
-
-        .section-label {
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1.8px;
-            text-transform: uppercase;
-            color: var(--accent-purple);
-            margin-bottom: 9px;
-
-            transition:
-                color 0.3s ease,
-                letter-spacing 0.3s ease;
-        }
-
-
-        /* =========================================================
-           HERO
-        ========================================================= */
-
-        .hero {
-            padding: 25px 0 30px;
-        }
-
-        .hero-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 30px;
-        }
-
-        .hero-name {
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 13px;
-            color: var(--accent-blue);
-        }
-
-        .hero h1 {
-            font-size: clamp(42px, 7vw, 78px);
-            line-height: 0.9;
-            letter-spacing: -4px;
-            font-weight: 800;
-            margin-bottom: 15px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    #111111 0%,
-                    #2563eb 35%,
-                    #7c3aed 65%,
-                    #0891b2 100%
-                );
-
-            background-size: 200% auto;
-
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-
-            animation: gradientMove 7s ease-in-out infinite;
-        }
-
-        @keyframes gradientMove {
-
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-
-        }
-
-        .hero-role {
-            font-size: 13px;
-            color: var(--muted);
-            max-width: 650px;
-        }
-
-        .hero-caption {
-            margin-top: 20px;
-            font-size: 14px;
-            font-style: italic;
-            color: var(--accent-purple);
-
-            animation: captionFade 1.2s ease both;
-        }
-
-        @keyframes captionFade {
-
-            from {
-                opacity: 0;
-                transform: translateY(8px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-        }
-
-        .hero-badge {
-            position: relative;
-
-            border: 1px solid var(--accent-blue);
-            padding: 9px 12px;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            white-space: nowrap;
-
-            color: var(--accent-blue);
-            background: #eff6ff;
-
-            transition:
-                transform 0.3s ease,
-                box-shadow 0.3s ease;
-        }
-
-        .hero-badge::before {
-            content: "";
-            display: inline-block;
-
-            width: 6px;
-            height: 6px;
-            margin-right: 6px;
-
-            border-radius: 50%;
-            background: var(--accent-green);
-
-            box-shadow:
-                0 0 0 0 rgba(5, 150, 105, 0.35);
-
-            animation: pulseDot 2s infinite;
-        }
-
-        @keyframes pulseDot {
-
-            0% {
-                box-shadow:
-                    0 0 0 0 rgba(5, 150, 105, 0.35);
-            }
-
-            70% {
-                box-shadow:
-                    0 0 0 7px rgba(5, 150, 105, 0);
-            }
-
-            100% {
-                box-shadow:
-                    0 0 0 0 rgba(5, 150, 105, 0);
-            }
-
-        }
-
-        .hero-badge:hover {
-            transform: translateY(-2px);
-            box-shadow:
-                0 8px 20px rgba(37, 99, 235, 0.12);
-        }
-
-
-        /* =========================================================
-           HEADINGS
-        ========================================================= */
-
-        h2 {
-            font-size: 27px;
-            line-height: 1.05;
-            letter-spacing: -1px;
-            margin-bottom: 12px;
-        }
-
-        h3 {
-            line-height: 1.2;
-        }
-
-
-        /* =========================================================
-           CORE FOCUS
-        ========================================================= */
-
-        .focus-intro {
-            font-size: 17px;
-            max-width: 850px;
-            margin-bottom: 13px;
-        }
-
-        .focus-intro strong {
-            color: var(--accent-blue);
-        }
-
-        .focus-keywords {
-            font-size: 11px;
-            line-height: 2;
-            color: var(--muted);
-        }
-
-        .focus-keywords span {
-            color: var(--text);
-            transition:
-                opacity 0.2s ease,
-                transform 0.2s ease;
-        }
-
-        .focus-keywords span:hover {
-            opacity: 0.65;
-        }
-
-        .focus-keywords span:nth-child(1) {
-            color: #2563eb;
-        }
-
-        .focus-keywords span:nth-child(3) {
-            color: #7c3aed;
-        }
-
-        .focus-keywords span:nth-child(5) {
-            color: #0891b2;
-        }
-
-        .focus-keywords span:nth-child(7) {
-            color: #059669;
-        }
-
-        .focus-keywords span:nth-child(9) {
-            color: #ea580c;
-        }
-
-        .focus-keywords span:nth-child(11) {
-            color: #db2777;
-        }
-
-        .focus-keywords span:nth-child(13) {
-            color: #2563eb;
-        }
-
-        .focus-keywords span:nth-child(15) {
-            color: #7c3aed;
-        }
-
-        .focus-keywords span:nth-child(17) {
-            color: #0891b2;
-        }
-
-        .focus-keywords span:nth-child(19) {
-            color: #059669;
-        }
-
-
-        /* =========================================================
-           ABOUT
-        ========================================================= */
-
-        .about-layout {
-            display: grid;
-            grid-template-columns: 1fr 280px;
-            gap: 35px;
-            align-items: start;
-        }
-
-        .about-text {
-            font-size: 14px;
-            color: #444444;
-            max-width: 780px;
-        }
-
-        .about-text p {
-            margin-bottom: 9px;
-        }
-
-        .about-text strong {
-            color: var(--accent-blue);
-        }
-
-        .research-card {
-            position: relative;
-
-            border-left: 3px solid var(--accent-purple);
-            padding-left: 14px;
-
-            transition:
-                transform 0.3s ease,
-                border-color 0.3s ease;
-        }
-
-        .research-card:hover {
-            transform: translateX(3px);
-            border-color: var(--accent-pink);
-        }
-
-        .research-card small {
-            display: block;
-            font-size: 9px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--accent-purple);
-            margin-bottom: 6px;
-        }
-
-        .research-card strong {
-            display: block;
-            font-size: 13px;
-            line-height: 1.35;
-            color: #111111;
-        }
-
-        .research-card p {
-            font-size: 11px;
-            color: var(--muted);
-            margin-top: 6px;
-        }
-
-
-        /* =========================================================
-           CERTIFICATIONS
-        ========================================================= */
-
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 9px;
-        }
-
-        .cert-card {
-            position: relative;
-            overflow: hidden;
-
-            border: 1px solid var(--line);
-            padding: 13px;
-            background: var(--surface);
-
-            transition:
-                border-color 0.25s ease,
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
-        }
-
-        .cert-card::before {
-            content: "";
-            position: absolute;
-
-            top: 0;
-            left: 0;
-            right: 0;
-
-            height: 3px;
-
-            background: var(--gradient-main);
-        }
-
-        .cert-card:nth-child(1)::before {
-            background:
-                linear-gradient(
-                    90deg,
-                    #2563eb,
-                    #0891b2
-                );
-        }
-
-        .cert-card:nth-child(2)::before {
-            background:
-                linear-gradient(
-                    90deg,
-                    #059669,
-                    #0891b2
-                );
-        }
-
-        .cert-card:nth-child(3)::before {
-            background:
-                linear-gradient(
-                    90deg,
-                    #7c3aed,
-                    #db2777
-                );
-        }
-
-        .cert-card:hover {
-            border-color: #b8b8b8;
-            transform: translateY(-4px);
-
-            box-shadow:
-                0 10px 25px rgba(17, 17, 17, 0.08);
-        }
-
-        .cert-tag {
-            font-size: 9px;
-            font-weight: 700;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
-            color: var(--accent-blue);
-            margin-bottom: 7px;
-        }
-
-        .cert-card:nth-child(2) .cert-tag {
-            color: var(--accent-green);
-        }
-
-        .cert-card:nth-child(3) .cert-tag {
-            color: var(--accent-purple);
-        }
-
-        .cert-card h3 {
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
-
-        .cert-card h3 a {
-            color: var(--accent-blue);
-            text-decoration: underline;
-            text-decoration-thickness: 1px;
-            text-underline-offset: 3px;
-            cursor: pointer;
-        }
-
-        .cert-card h3 a:hover {
-            opacity: 0.65;
-        }
-
-        .cert-tag a {
-            color: var(--accent-purple);
-            text-decoration: underline;
-            text-decoration-thickness: 1px;
-            text-underline-offset: 3px;
-            cursor: pointer;
-        }
-
-        .cert-tag a:hover {
-            opacity: 0.6;
-        }
-
-        .cert-card p {
-            font-size: 11px;
-            color: var(--muted);
-        }
-
-
-        /* =========================================================
-           EXPERTISE
-        ========================================================= */
-
-        .approach-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-        }
-
-        .approach-card {
-            position: relative;
-
-            border: 1px solid var(--line);
-            padding: 13px;
-
-            transition:
-                border-color 0.25s ease,
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
-        }
-
-        .approach-card:hover {
-            border-color: #b8b8b8;
-            transform: translateY(-3px);
-
-            box-shadow:
-                0 7px 20px rgba(124, 58, 237, 0.08);
-        }
-
-        .approach-number {
-            font-size: 9px;
-            font-weight: 700;
-            color: var(--muted);
-            margin-bottom: 5px;
-        }
-
-        .approach-card:nth-child(1) .approach-number {
-            color: #2563eb;
-        }
-
-        .approach-card:nth-child(2) .approach-number {
-            color: #7c3aed;
-        }
-
-        .approach-card:nth-child(3) .approach-number {
-            color: #0891b2;
-        }
-
-        .approach-card:nth-child(4) .approach-number {
-            color: #059669;
-        }
-
-        .approach-card:nth-child(5) .approach-number {
-            color: #ea580c;
-        }
-
-        .approach-card:nth-child(6) .approach-number {
-            color: #db2777;
-        }
-
-        .approach-card h3 {
-            font-size: 13px;
-            margin-bottom: 5px;
-        }
-
-        .approach-card p {
-            font-size: 11px;
-            color: var(--muted);
-        }
-
-
-        /* =========================================================
-           ENTERPRISE EXPERIENCE
-        ========================================================= */
-
-        .company {
-            padding: 15px 0;
-            border-top: 1px solid var(--line);
-
-            transition:
-                padding-left 0.25s ease;
-        }
-
-        .company:first-child {
-            border-top: none;
-            padding-top: 0;
-        }
-
-        .company:hover {
-            padding-left: 6px;
-        }
-
-        .company-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            gap: 20px;
-            margin-bottom: 8px;
-        }
-
-        .company-name {
-            font-size: 16px;
-            font-weight: 800;
-        }
-
-        .company:first-child .company-name {
-            color: var(--accent-blue);
-        }
-
-        .company:last-child .company-name {
-            color: var(--accent-purple);
-        }
-
-        .company-role {
-            font-size: 10px;
-            color: var(--accent-blue);
-        }
-
-        .company:last-child .company-role {
-            color: var(--accent-purple);
-        }
-
-        .experience-line {
-            font-size: 11px;
-            line-height: 1.9;
-            color: var(--muted);
-        }
-
-        .experience-line span {
-            color: #222222;
-            font-weight: 600;
-
-            transition: color 0.2s ease;
-        }
-
-        .experience-line span:hover {
-            color: var(--accent-blue);
-        }
-
-        .bullet {
-            color: var(--accent-purple);
-            padding: 0 5px;
-        }
-
-
-        /* =========================================================
-           PORTFOLIO
-        ========================================================= */
-
-        .portfolio-intro {
-            font-size: 13px;
-            color: var(--muted);
-            max-width: 800px;
-            margin-bottom: 17px;
-        }
-
-
-        /* =========================================================
-           ARTIFACT GRID
-        ========================================================= */
-
-        .artifact-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-
-        .artifact {
-            position: relative;
-            overflow: hidden;
-
-            display: block;
-            border: 1px solid var(--line);
-            padding: 17px;
-            background: #ffffff;
-
-            transition:
-                border-color 0.25s ease,
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
-
-            cursor: pointer;
-        }
-
-        .artifact::before {
-            content: "";
-            position: absolute;
-
-            left: 0;
-            top: 0;
-            bottom: 0;
-
-            width: 3px;
-
-            background: var(--accent-blue);
-
-            transition:
-                width 0.25s ease;
-        }
-
-        .artifact:hover::before {
-            width: 5px;
-        }
-
-        .artifact:nth-child(2)::before {
-            background: var(--accent-purple);
-        }
-
-        .artifact:nth-child(3)::before {
-            background: var(--accent-green);
-        }
-
-        .artifact:nth-child(4)::before {
-            background: var(--accent-orange);
-        }
-
-        .artifact:nth-child(5)::before {
-            background: var(--accent-cyan);
-        }
-
-        .artifact:nth-child(6)::before {
-            background: var(--accent-pink);
-        }
-
-        .artifact:hover {
-            border-color: #999999;
-            transform: translateY(-4px);
-
-            box-shadow:
-                0 12px 28px rgba(17, 17, 17, 0.08);
-        }
-
-        .artifact-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 9px;
-        }
-
-        .artifact-type {
-            font-size: 9px;
-            font-weight: 700;
-            letter-spacing: 1.3px;
-            text-transform: uppercase;
-            color: var(--accent-blue);
-        }
-
-        .artifact:nth-child(2) .artifact-type {
-            color: var(--accent-purple);
-        }
-
-        .artifact:nth-child(3) .artifact-type {
-            color: var(--accent-green);
-        }
-
-        .artifact:nth-child(4) .artifact-type {
-            color: var(--accent-orange);
-        }
-
-        .artifact:nth-child(5) .artifact-type {
-            color: var(--accent-cyan);
-        }
-
-        .artifact:nth-child(6) .artifact-type {
-            color: var(--accent-pink);
-        }
-
-        .artifact-number {
-            font-size: 10px;
-            color: #999999;
-            transition:
-                transform 0.25s ease;
-        }
-
-        .artifact:hover .artifact-number {
-            transform: scale(1.15);
-        }
-
-        .artifact:nth-child(1) .artifact-number {
-            color: var(--accent-blue);
-        }
-
-        .artifact:nth-child(2) .artifact-number {
-            color: var(--accent-purple);
-        }
-
-        .artifact:nth-child(3) .artifact-number {
-            color: var(--accent-green);
-        }
-
-        .artifact:nth-child(4) .artifact-number {
-            color: var(--accent-orange);
-        }
-
-        .artifact:nth-child(5) .artifact-number {
-            color: var(--accent-cyan);
-        }
-
-        .artifact:nth-child(6) .artifact-number {
-            color: var(--accent-pink);
-        }
-
-        .artifact h3 {
-            font-size: 16px;
-            margin-bottom: 7px;
-        }
-
-        .artifact-description {
-            font-size: 11px;
-            line-height: 1.55;
-            color: var(--muted);
-            margin-bottom: 10px;
-        }
-
-        .artifact-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-            margin-bottom: 12px;
-        }
-
-        .artifact-tags span {
-            font-size: 9px;
-            padding: 4px 6px;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            color: #555555;
-
-            transition:
-                transform 0.2s ease;
-        }
-
-        .artifact-tags span:hover {
-            transform: translateY(-1px);
-        }
-
-        .artifact:nth-child(1) .artifact-tags span {
-            border-color: #bfdbfe;
-            background: #eff6ff;
-        }
-
-        .artifact:nth-child(2) .artifact-tags span {
-            border-color: #ddd6fe;
-            background: #f5f3ff;
-        }
-
-        .artifact:nth-child(3) .artifact-tags span {
-            border-color: #a7f3d0;
-            background: #ecfdf5;
-        }
-
-        .artifact:nth-child(4) .artifact-tags span {
-            border-color: #fed7aa;
-            background: #fff7ed;
-        }
-
-        .artifact:nth-child(5) .artifact-tags span {
-            border-color: #a5f3fc;
-            background: #ecfeff;
-        }
-
-        .artifact:nth-child(6) .artifact-tags span {
-            border-color: #fbcfe8;
-            background: #fdf2f8;
-        }
-
-        .artifact-link {
-            display: inline-block;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            color: var(--accent-blue);
-
-            transition:
-                letter-spacing 0.2s ease;
-        }
-
-        .artifact:hover .artifact-link {
-            letter-spacing: 1px;
-        }
-
-        .artifact:nth-child(2) .artifact-link {
-            color: var(--accent-purple);
-        }
-
-        .artifact:nth-child(3) .artifact-link {
-            color: var(--accent-green);
-        }
-
-        .artifact:nth-child(4) .artifact-link {
-            color: var(--accent-orange);
-        }
-
-        .artifact:nth-child(5) .artifact-link {
-            color: var(--accent-cyan);
-        }
-
-        .artifact:nth-child(6) .artifact-link {
-            color: var(--accent-pink);
-        }
-
-        .artifact-link:hover {
-            text-decoration: underline;
-        }
-
-
-        /* =========================================================
-           KM MESSAGE
-        ========================================================= */
-
-        .fortiv-box {
-            margin-top: 15px;
-            padding: 13px 15px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    #f5f3ff,
-                    #f8fafc
-                );
-
-            border-left: 3px solid var(--accent-purple);
-
-            transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
-        }
-
-        .fortiv-box:hover {
-            transform: translateX(3px);
-
-            box-shadow:
-                0 6px 18px rgba(124, 58, 237, 0.07);
-        }
-
-        .fortiv-box strong {
-            display: block;
-            font-size: 10px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 4px;
-            color: var(--accent-purple);
-        }
-
-        .fortiv-box p {
-            font-size: 11px;
-            color: var(--muted);
-        }
-
-
-        /* =========================================================
-           CONNECT
-        ========================================================= */
-
-        .connect-intro {
-            font-size: 14px;
-            color: var(--muted);
-            margin-bottom: 14px;
-        }
-
-        .connect-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-        }
-
-        .connect-item {
-            position: relative;
-            overflow: hidden;
-
-            border: 1px solid var(--line);
-            padding: 13px;
-            background: var(--surface);
-
-            transition:
-                border-color 0.25s ease,
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
-        }
-
-        .connect-item::before {
-            content: "";
-            position: absolute;
-
-            top: 0;
-            left: 0;
-
-            width: 0;
-            height: 3px;
-
-            transition:
-                width 0.3s ease;
-        }
-
-        .connect-item:nth-child(1)::before {
-            background: var(--accent-blue);
-        }
-
-        .connect-item:nth-child(2)::before {
-            background: var(--accent-purple);
-        }
-
-        .connect-item:nth-child(3)::before {
-            background: var(--accent-green);
-        }
-
-        .connect-item:nth-child(4)::before {
-            background: var(--accent-orange);
-        }
-
-        .connect-item:hover::before {
-            width: 100%;
-        }
-
-        .connect-item:hover {
-            border-color: #999999;
-            transform: translateY(-3px);
-
-            box-shadow:
-                0 8px 20px rgba(37, 99, 235, 0.08);
-        }
-
-        .connect-item small {
-            display: block;
-            font-size: 9px;
-            font-weight: 700;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
-            color: var(--muted);
-            margin-bottom: 5px;
-        }
-
-        .connect-item:nth-child(1) small {
-            color: var(--accent-blue);
-        }
-
-        .connect-item:nth-child(2) small {
-            color: var(--accent-purple);
-        }
-
-        .connect-item:nth-child(3) small {
-            color: var(--accent-green);
-        }
-
-        .connect-item:nth-child(4) small {
-            color: var(--accent-orange);
-        }
-
-        .connect-item span {
-            font-size: 11px;
-            word-break: break-word;
-        }
-
-
-        /* =========================================================
-           BACK TO TOP
-        ========================================================= */
-
-        .back-to-top {
-            position: fixed;
-
-            right: 22px;
-            bottom: 22px;
-
-            width: 38px;
-            height: 38px;
-
-            border: 1px solid var(--line-dark);
-            border-radius: 50%;
-
-            background: #ffffff;
-            color: var(--accent-blue);
-
-            font-size: 16px;
-            font-weight: 700;
-
-            cursor: pointer;
-
-            opacity: 0;
-            visibility: hidden;
-
-            transform: translateY(10px);
-
-            transition:
-                opacity 0.25s ease,
-                visibility 0.25s ease,
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .back-to-top:hover {
-            box-shadow:
-                0 7px 18px rgba(37, 99, 235, 0.15);
-
-            transform: translateY(-2px);
-        }
-
-
-        /* =========================================================
-           FOOTER
-        ========================================================= */
-
-        footer {
-            padding: 18px 0 25px;
-            font-size: 10px;
-            color: var(--muted);
-            text-align: center;
-        }
-
-
-        /* =========================================================
-           SCROLL REVEAL
-        ========================================================= */
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(18px);
-
-            transition:
-                opacity 0.65s ease,
-                transform 0.65s ease;
-        }
-
-        .reveal.revealed {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-
-        /* =========================================================
-           MOBILE
-        ========================================================= */
-
-        @media (max-width: 800px) {
-
-            .hero-top {
-                display: block;
-            }
-
-            .hero-badge {
-                display: inline-block;
-                margin-top: 15px;
-            }
-
-            .about-layout {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .cert-grid,
-            .approach-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .connect-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .cursor-glow {
-                display: none;
-            }
-
-        }
-
-
-        @media (max-width: 560px) {
-
-            .container {
-                width: min(100% - 28px, 1120px);
-            }
-
-            section {
-                padding: 23px 0;
-            }
-
-            .hero {
-                padding-top: 18px;
-            }
-
-            .hero h1 {
-                font-size: 43px;
-                letter-spacing: -2.5px;
-            }
-
-            .cert-grid,
-            .approach-grid,
-            .artifact-grid,
-            .connect-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .company-header {
-                display: block;
-            }
-
-            .company-role {
-                display: block;
-                margin-top: 3px;
-            }
-
-            .back-to-top {
-                right: 14px;
-                bottom: 14px;
-            }
-
-        }
-
-
-        /* =========================================================
-           REDUCED MOTION
-        ========================================================= */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            html {
-                scroll-behavior: auto;
-            }
-
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-
-            .reveal {
-                opacity: 1;
-                transform: none;
-            }
-
-        }
-
-    </style>
+.hero-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:30px;
+}
 
+.hero-name{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+
+    margin-bottom:13px;
+
+    color:var(--accent-blue);
+}
+
+.hero h1{
+    font-size:clamp(42px,7vw,78px);
+    line-height:.9;
+    letter-spacing:-4px;
+    font-weight:800;
+
+    margin-bottom:15px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #111 0%,
+            #2563eb 35%,
+            #7c3aed 65%,
+            #0891b2 100%
+        );
+
+    background-size:200% auto;
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+
+    animation:gradientMove 7s ease-in-out infinite;
+}
+
+@keyframes gradientMove{
+
+    0%{
+        background-position:0 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0 50%;
+    }
+
+}
+
+.hero-role{
+    font-size:13px;
+    color:var(--muted);
+    max-width:650px;
+}
+
+.hero-caption{
+    margin-top:20px;
+
+    font-size:14px;
+    font-style:italic;
+
+    color:var(--accent-purple);
+
+    animation:captionFade 1.2s ease both;
+}
+
+@keyframes captionFade{
+
+    from{
+        opacity:0;
+        transform:translateY(8px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.hero-badge{
+    position:relative;
+
+    border:1px solid var(--accent-blue);
+
+    padding:9px 12px;
+
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+
+    white-space:nowrap;
+
+    color:var(--accent-blue);
+    background:#eff6ff;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.hero-badge::before{
+    content:"";
+
+    display:inline-block;
+
+    width:6px;
+    height:6px;
+
+    margin-right:6px;
+
+    border-radius:50%;
+
+    background:var(--accent-green);
+
+    box-shadow:
+        0 0 0 0 rgba(5,150,105,.35);
+
+    animation:pulseDot 2s infinite;
+}
+
+@keyframes pulseDot{
+
+    0%{
+        box-shadow:0 0 0 0 rgba(5,150,105,.35);
+    }
+
+    70%{
+        box-shadow:0 0 0 7px rgba(5,150,105,0);
+    }
+
+    100%{
+        box-shadow:0 0 0 0 rgba(5,150,105,0);
+    }
+
+}
+
+.hero-badge:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(37,99,235,.12);
+}
+
+/* =========================================================
+   HEADINGS
+========================================================= */
+
+h2{
+    font-size:27px;
+    line-height:1.05;
+    letter-spacing:-1px;
+
+    margin-bottom:12px;
+}
+
+h3{
+    line-height:1.2;
+}
+
+/* =========================================================
+   CORE FOCUS
+========================================================= */
+
+.focus-intro{
+    font-size:17px;
+    max-width:850px;
+    margin-bottom:13px;
+}
+
+.focus-intro strong{
+    color:var(--accent-blue);
+}
+
+.focus-keywords{
+    font-size:11px;
+    line-height:2;
+    color:var(--muted);
+}
+
+.focus-keywords span{
+    color:var(--text);
+    transition:
+        opacity .2s ease,
+        transform .2s ease;
+}
+
+.focus-keywords span:hover{
+    opacity:.65;
+    transform:translateY(-1px);
+}
+
+.focus-keywords span:nth-child(1){color:#2563eb}
+.focus-keywords span:nth-child(3){color:#7c3aed}
+.focus-keywords span:nth-child(5){color:#0891b2}
+.focus-keywords span:nth-child(7){color:#059669}
+.focus-keywords span:nth-child(9){color:#ea580c}
+.focus-keywords span:nth-child(11){color:#db2777}
+.focus-keywords span:nth-child(13){color:#2563eb}
+.focus-keywords span:nth-child(15){color:#7c3aed}
+.focus-keywords span:nth-child(17){color:#0891b2}
+.focus-keywords span:nth-child(19){color:#059669}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-layout{
+    display:grid;
+    grid-template-columns:1fr 280px;
+    gap:35px;
+    align-items:start;
+}
+
+.about-text{
+    font-size:14px;
+    color:#444;
+    max-width:780px;
+}
+
+.about-text p{
+    margin-bottom:9px;
+}
+
+.about-text strong{
+    color:var(--accent-blue);
+}
+
+.research-card{
+    position:relative;
+
+    border-left:3px solid var(--accent-purple);
+
+    padding-left:14px;
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease;
+}
+
+.research-card:hover{
+    transform:translateX(3px);
+    border-color:var(--accent-pink);
+}
+
+.research-card small{
+    display:block;
+
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+
+    color:var(--accent-purple);
+
+    margin-bottom:6px;
+}
+
+.research-card strong{
+    display:block;
+
+    font-size:13px;
+    line-height:1.35;
+
+    color:#111;
+}
+
+.research-card p{
+    font-size:11px;
+    color:var(--muted);
+
+    margin-top:6px;
+}
+
+/* =========================================================
+   CERTIFICATIONS
+========================================================= */
+
+.cert-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:9px;
+}
+
+.cert-card{
+    position:relative;
+    overflow:hidden;
+
+    border:1px solid var(--line);
+
+    padding:13px;
+
+    background:var(--surface);
+
+    transition:
+        border-color .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.cert-card::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+    right:0;
+
+    height:3px;
+
+    background:var(--gradient-main);
+}
+
+.cert-card:nth-child(1)::before{
+    background:linear-gradient(90deg,#2563eb,#0891b2);
+}
+
+.cert-card:nth-child(2)::before{
+    background:linear-gradient(90deg,#059669,#0891b2);
+}
+
+.cert-card:nth-child(3)::before{
+    background:linear-gradient(90deg,#7c3aed,#db2777);
+}
+
+.cert-card:hover{
+    border-color:#b8b8b8;
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 10px 25px rgba(17,17,17,.08);
+}
+
+.cert-tag{
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+
+    color:var(--accent-blue);
+
+    margin-bottom:7px;
+}
+
+.cert-card:nth-child(2) .cert-tag{
+    color:var(--accent-green);
+}
+
+.cert-card:nth-child(3) .cert-tag{
+    color:var(--accent-purple);
+}
+
+.cert-card h3{
+    font-size:14px;
+    margin-bottom:5px;
+}
+
+.cert-card h3 a{
+    color:var(--accent-blue);
+
+    text-decoration:underline;
+    text-decoration-thickness:1px;
+    text-underline-offset:3px;
+
+    cursor:pointer;
+}
+
+.cert-card h3 a:hover{
+    opacity:.65;
+}
+
+.cert-tag a{
+    color:var(--accent-purple);
+
+    text-decoration:underline;
+    text-decoration-thickness:1px;
+    text-underline-offset:3px;
+
+    cursor:pointer;
+}
+
+.cert-tag a:hover{
+    opacity:.6;
+}
+
+.cert-card p{
+    font-size:11px;
+    color:var(--muted);
+}
+
+/* =========================================================
+   EXPERTISE
+========================================================= */
+
+.approach-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+}
+
+.approach-card{
+    position:relative;
+
+    border:1px solid var(--line);
+
+    padding:13px;
+
+    transition:
+        border-color .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.approach-card:hover{
+    border-color:#b8b8b8;
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 7px 20px rgba(124,58,237,.08);
+}
+
+.approach-card.selected{
+    border-color:var(--accent-blue);
+
+    box-shadow:
+        0 10px 25px rgba(37,99,235,.12);
+}
+
+.approach-number{
+    font-size:9px;
+    font-weight:700;
+
+    color:var(--muted);
+
+    margin-bottom:5px;
+}
+
+.approach-card:nth-child(1) .approach-number{color:#2563eb}
+.approach-card:nth-child(2) .approach-number{color:#7c3aed}
+.approach-card:nth-child(3) .approach-number{color:#0891b2}
+.approach-card:nth-child(4) .approach-number{color:#059669}
+.approach-card:nth-child(5) .approach-number{color:#ea580c}
+.approach-card:nth-child(6) .approach-number{color:#db2777}
+
+.approach-card h3{
+    font-size:13px;
+    margin-bottom:5px;
+}
+
+.approach-card p{
+    font-size:11px;
+    color:var(--muted);
+}
+
+/* =========================================================
+   EXPERIENCE
+========================================================= */
+
+.company{
+    padding:15px 0;
+
+    border-top:1px solid var(--line);
+
+    transition:
+        padding-left .25s ease;
+}
+
+.company:first-child{
+    border-top:none;
+    padding-top:0;
+}
+
+.company:hover{
+    padding-left:6px;
+}
+
+.company-header{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:baseline;
+
+    gap:20px;
+
+    margin-bottom:8px;
+}
+
+.company-name{
+    font-size:16px;
+    font-weight:800;
+}
+
+.company:first-child .company-name{
+    color:var(--accent-blue);
+}
+
+.company:last-child .company-name{
+    color:var(--accent-purple);
+}
+
+.company-role{
+    font-size:10px;
+    color:var(--accent-blue);
+}
+
+.company:last-child .company-role{
+    color:var(--accent-purple);
+}
+
+.experience-line{
+    font-size:11px;
+    line-height:1.9;
+    color:var(--muted);
+}
+
+.experience-line span{
+    color:#222;
+    font-weight:600;
+
+    transition:color .2s ease;
+}
+
+.experience-line span:hover{
+    color:var(--accent-blue);
+}
+
+.bullet{
+    color:var(--accent-purple);
+    padding:0 5px;
+}
+
+/* =========================================================
+   PORTFOLIO SEARCH + FILTER
+========================================================= */
+
+.portfolio-tools{
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    gap:10px;
+
+    margin:0 0 15px;
+}
+
+.portfolio-search{
+    position:relative;
+    flex:1;
+}
+
+.portfolio-search input{
+    width:100%;
+
+    border:1px solid var(--line);
+
+    padding:10px 36px 10px 12px;
+
+    font-family:inherit;
+    font-size:11px;
+
+    outline:none;
+
+    background:#fff;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.portfolio-search input:focus{
+    border-color:var(--accent-blue);
+
+    box-shadow:
+        0 0 0 3px rgba(37,99,235,.08);
+}
+
+.search-icon{
+    position:absolute;
+
+    right:12px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+.filter-buttons{
+    display:flex;
+    flex-wrap:wrap;
+
+    gap:5px;
+}
+
+.filter-btn{
+    border:1px solid var(--line);
+
+    background:#fff;
+
+    padding:8px 10px;
+
+    font-family:inherit;
+
+    font-size:9px;
+    font-weight:700;
+
+    letter-spacing:.4px;
+
+    color:#555;
+
+    cursor:pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+}
+
+.filter-btn:hover{
+    transform:translateY(-1px);
+
+    border-color:var(--accent-blue);
+
+    color:var(--accent-blue);
+}
+
+.filter-btn.active{
+    background:var(--accent-blue);
+
+    border-color:var(--accent-blue);
+
+    color:#fff;
+}
+
+/* =========================================================
+   PORTFOLIO
+========================================================= */
+
+.portfolio-intro{
+    font-size:13px;
+    color:var(--muted);
+
+    max-width:800px;
+
+    margin-bottom:17px;
+}
+
+.artifact-grid{
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:10px;
+}
+
+.artifact{
+    position:relative;
+    overflow:hidden;
+
+    display:block;
+
+    border:1px solid var(--line);
+
+    padding:17px;
+
+    background:#fff;
+
+    transition:
+        border-color .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+    
+    cursor:pointer;
+}
+
+.artifact::before{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+    bottom:0;
+
+    width:3px;
+
+    background:var(--accent-blue);
+
+    transition:width .25s ease;
+}
+
+.artifact:hover::before{
+    width:5px;
+}
+
+.artifact:nth-child(2)::before{
+    background:var(--accent-purple);
+}
+
+.artifact:nth-child(3)::before{
+    background:var(--accent-green);
+}
+
+.artifact:nth-child(4)::before{
+    background:var(--accent-orange);
+}
+
+.artifact:nth-child(5)::before{
+    background:var(--accent-cyan);
+}
+
+.artifact:nth-child(6)::before{
+    background:var(--accent-pink);
+}
+
+.artifact:hover{
+    border-color:#999;
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 12px 28px rgba(17,17,17,.08);
+}
+
+.artifact.hidden{
+    display:none;
+}
+
+.artifact-top{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:flex-start;
+
+    gap:15px;
+
+    margin-bottom:9px;
+}
+
+.artifact-type{
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:1.3px;
+    text-transform:uppercase;
+
+    color:var(--accent-blue);
+}
+
+.artifact:nth-child(2) .artifact-type{
+    color:var(--accent-purple);
+}
+
+.artifact:nth-child(3) .artifact-type{
+    color:var(--accent-green);
+}
+
+.artifact:nth-child(4) .artifact-type{
+    color:var(--accent-orange);
+}
+
+.artifact:nth-child(5) .artifact-type{
+    color:var(--accent-cyan);
+}
+
+.artifact:nth-child(6) .artifact-type{
+    color:var(--accent-pink);
+}
+
+.artifact-number{
+    font-size:10px;
+    color:#999;
+
+    transition:transform .25s ease;
+}
+
+.artifact:hover .artifact-number{
+    transform:scale(1.15);
+}
+
+.artifact:nth-child(1) .artifact-number{color:var(--accent-blue)}
+.artifact:nth-child(2) .artifact-number{color:var(--accent-purple)}
+.artifact:nth-child(3) .artifact-number{color:var(--accent-green)}
+.artifact:nth-child(4) .artifact-number{color:var(--accent-orange)}
+.artifact:nth-child(5) .artifact-number{color:var(--accent-cyan)}
+.artifact:nth-child(6) .artifact-number{color:var(--accent-pink)}
+
+.artifact h3{
+    font-size:16px;
+    margin-bottom:7px;
+}
+
+.artifact-description{
+    font-size:11px;
+    line-height:1.55;
+    color:var(--muted);
+
+    margin-bottom:10px;
+}
+
+.artifact-tags{
+    display:flex;
+    flex-wrap:wrap;
+
+    gap:5px;
+
+    margin-bottom:12px;
+}
+
+.artifact-tags span{
+    font-size:9px;
+
+    padding:4px 6px;
+
+    background:var(--surface);
+
+    border:1px solid var(--line);
+
+    color:#555;
+
+    transition:
+        transform .2s ease;
+}
+
+.artifact-tags span:hover{
+    transform:translateY(-1px);
+}
+
+.artifact:nth-child(1) .artifact-tags span{
+    border-color:#bfdbfe;
+    background:#eff6ff;
+}
+
+.artifact:nth-child(2) .artifact-tags span{
+    border-color:#ddd6fe;
+    background:#f5f3ff;
+}
+
+.artifact:nth-child(3) .artifact-tags span{
+    border-color:#a7f3d0;
+    background:#ecfdf5;
+}
+
+.artifact:nth-child(4) .artifact-tags span{
+    border-color:#fed7aa;
+    background:#fff7ed;
+}
+
+.artifact:nth-child(5) .artifact-tags span{
+    border-color:#a5f3fc;
+    background:#ecfeff;
+}
+
+.artifact:nth-child(6) .artifact-tags span{
+    border-color:#fbcfe8;
+    background:#fdf2f8;
+}
+
+.artifact-link{
+    display:inline-block;
+
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.5px;
+
+    color:var(--accent-blue);
+
+    transition:
+        letter-spacing .2s ease;
+}
+
+.artifact:hover .artifact-link{
+    letter-spacing:1px;
+}
+
+.artifact:nth-child(2) .artifact-link{
+    color:var(--accent-purple);
+}
+
+.artifact:nth-child(3) .artifact-link{
+    color:var(--accent-green);
+}
+
+.artifact:nth-child(4) .artifact-link{
+    color:var(--accent-orange);
+}
+
+.artifact:nth-child(5) .artifact-link{
+    color:var(--accent-cyan);
+}
+
+.artifact:nth-child(6) .artifact-link{
+    color:var(--accent-pink);
+}
+
+.artifact-link:hover{
+    text-decoration:underline;
+}
+
+.no-results{
+    display:none;
+
+    padding:25px;
+
+    border:1px dashed var(--line);
+
+    text-align:center;
+
+    color:var(--muted);
+
+    font-size:11px;
+}
+
+.no-results.visible{
+    display:block;
+}
+
+/* =========================================================
+   ARTIFACT SPOTLIGHT
+========================================================= */
+
+.artifact::after{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:0;
+
+    background:
+        radial-gradient(
+            220px circle at var(--mouse-x,50%) var(--mouse-y,50%),
+            rgba(37,99,235,.08),
+            transparent 65%
+        );
+
+    transition:opacity .25s ease;
+}
+
+.artifact:hover::after{
+    opacity:1;
+}
+
+/* =========================================================
+   KM BOX
+========================================================= */
+
+.fortiv-box{
+    margin-top:15px;
+
+    padding:13px 15px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f5f3ff,
+            #f8fafc
+        );
+
+    border-left:3px solid var(--accent-purple);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.fortiv-box:hover{
+    transform:translateX(3px);
+
+    box-shadow:
+        0 6px 18px rgba(124,58,237,.07);
+}
+
+.fortiv-box strong{
+    display:block;
+
+    font-size:10px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+
+    margin-bottom:4px;
+
+    color:var(--accent-purple);
+}
+
+.fortiv-box p{
+    font-size:11px;
+    color:var(--muted);
+}
+
+/* =========================================================
+   CONNECT
+========================================================= */
+
+.connect-intro{
+    font-size:14px;
+    color:var(--muted);
+
+    margin-bottom:14px;
+}
+
+.connect-grid{
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:8px;
+}
+
+.connect-item{
+    position:relative;
+    overflow:hidden;
+
+    border:1px solid var(--line);
+
+    padding:13px;
+
+    background:var(--surface);
+
+    transition:
+        border-color .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.connect-item::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:0;
+    height:3px;
+
+    transition:width .3s ease;
+}
+
+.connect-item:nth-child(1)::before{
+    background:var(--accent-blue);
+}
+
+.connect-item:nth-child(2)::before{
+    background:var(--accent-purple);
+}
+
+.connect-item:nth-child(3)::before{
+    background:var(--accent-green);
+}
+
+.connect-item:nth-child(4)::before{
+    background:var(--accent-orange);
+}
+
+.connect-item:hover::before{
+    width:100%;
+}
+
+.connect-item:hover{
+    border-color:#999;
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(37,99,235,.08);
+}
+
+.connect-item small{
+    display:block;
+
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+
+    color:var(--muted);
+
+    margin-bottom:5px;
+}
+
+.connect-item:nth-child(1) small{
+    color:var(--accent-blue);
+}
+
+.connect-item:nth-child(2) small{
+    color:var(--accent-purple);
+}
+
+.connect-item:nth-child(3) small{
+    color:var(--accent-green);
+}
+
+.connect-item:nth-child(4) small{
+    color:var(--accent-orange);
+}
+
+.connect-item span{
+    font-size:11px;
+    word-break:break-word;
+}
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast{
+    position:fixed;
+
+    left:50%;
+    bottom:28px;
+
+    transform:
+        translate(-50%,20px);
+
+    padding:10px 15px;
+
+    background:#111;
+    color:#fff;
+
+    font-size:11px;
+
+    border-radius:6px;
+
+    opacity:0;
+    visibility:hidden;
+
+    z-index:10001;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.18);
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease,
+        visibility .25s ease;
+}
+
+.toast.show{
+    opacity:1;
+    visibility:visible;
+
+    transform:
+        translate(-50%,0);
+}
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+.back-to-top{
+    position:fixed;
+
+    right:22px;
+    bottom:22px;
+
+    width:44px;
+    height:44px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    color:var(--accent-blue);
+
+    font-size:15px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:translateY(10px);
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+
+    box-shadow:
+        0 3px 12px rgba(0,0,0,.08);
+}
+
+.back-to-top.visible{
+    opacity:1;
+    visibility:visible;
+
+    transform:translateY(0);
+}
+
+.back-to-top:hover{
+    box-shadow:
+        0 7px 18px rgba(37,99,235,.15);
+
+    transform:translateY(-2px);
+}
+
+.back-to-top svg{
+    position:absolute;
+
+    inset:0;
+
+    width:44px;
+    height:44px;
+
+    transform:rotate(-90deg);
+}
+
+.progress-circle{
+    fill:none;
+
+    stroke:var(--accent-blue);
+
+    stroke-width:2;
+
+    stroke-linecap:round;
+
+    stroke-dasharray:126;
+
+    stroke-dashoffset:126;
+
+    transition:stroke-dashoffset .1s linear;
+}
+
+/* =========================================================
+   COMMAND PALETTE
+========================================================= */
+
+.command-overlay{
+    position:fixed;
+
+    inset:0;
+
+    z-index:10000;
+
+    background:
+        rgba(17,17,17,.42);
+
+    backdrop-filter:
+        blur(5px);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:
+        opacity .2s ease,
+        visibility .2s ease;
+}
+
+.command-overlay.open{
+    opacity:1;
+    visibility:visible;
+}
+
+.command-box{
+    width:min(620px,calc(100% - 30px));
+
+    margin:90px auto 0;
+
+    background:#fff;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.22);
+
+    transform:translateY(-12px) scale(.98);
+
+    transition:
+        transform .2s ease;
+}
+
+.command-overlay.open .command-box{
+    transform:translateY(0) scale(1);
+}
+
+.command-input-wrap{
+    display:flex;
+    align-items:center;
+
+    border-bottom:1px solid var(--line);
+
+    padding:0 15px;
+}
+
+.command-input-icon{
+    color:var(--accent-blue);
+    font-size:15px;
+
+    margin-right:9px;
+}
+
+.command-input{
+    width:100%;
+
+    border:none;
+    outline:none;
+
+    padding:16px 0;
+
+    font-family:inherit;
+    font-size:13px;
+}
+
+.command-results{
+    max-height:330px;
+    overflow-y:auto;
+
+    padding:7px;
+}
+
+.command-item{
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    gap:15px;
+
+    padding:11px 12px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    transition:
+        background .15s ease,
+        transform .15s ease;
+}
+
+.command-item:hover,
+.command-item.selected{
+    background:#f3f6ff;
+
+    transform:translateX(2px);
+}
+
+.command-item-main{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.command-item-icon{
+    width:27px;
+    height:27px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:5px;
+
+    background:#eff6ff;
+
+    color:var(--accent-blue);
+
+    font-size:11px;
+}
+
+.command-item strong{
+    display:block;
+
+    font-size:11px;
+}
+
+.command-item small{
+    display:block;
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    margin-top:2px;
+}
+
+.command-key{
+    font-size:8px;
+
+    padding:3px 5px;
+
+    border:1px solid var(--line);
+
+    border-radius:4px;
+
+    color:#888;
+}
+
+.command-footer{
+    border-top:1px solid var(--line);
+
+    padding:8px 12px;
+
+    display:flex;
+    justify-content:space-between;
+
+    font-size:8px;
+
+    color:#999;
+}
+
+.command-empty{
+    padding:25px;
+
+    text-align:center;
+
+    font-size:11px;
+
+    color:var(--muted);
+}
+
+/* =========================================================
+   SEARCH HIGHLIGHT
+========================================================= */
+
+.search-match{
+    outline:2px solid rgba(37,99,235,.15);
+
+    outline-offset:3px;
+}
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(18px);
+
+    transition:
+        opacity .65s ease,
+        transform .65s ease;
+}
+
+.reveal.revealed{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    padding:18px 0 25px;
+
+    font-size:10px;
+
+    color:var(--muted);
+
+    text-align:center;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width:800px){
+
+    .hero-top{
+        display:block;
+    }
+
+    .hero-badge{
+        display:inline-block;
+
+        margin-top:15px;
+    }
+
+    .about-layout{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    .cert-grid,
+    .approach-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .connect-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .cursor-glow{
+        display:none;
+    }
+
+    .portfolio-tools{
+        display:block;
+    }
+
+    .filter-buttons{
+        margin-top:7px;
+    }
+
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width:560px){
+
+    .container{
+        width:min(100% - 28px,1120px);
+    }
+
+    section{
+        padding:23px 0;
+    }
+
+    .hero{
+        padding-top:18px;
+    }
+
+    .hero h1{
+        font-size:43px;
+        letter-spacing:-2.5px;
+    }
+
+    .cert-grid,
+    .approach-grid,
+    .artifact-grid,
+    .connect-grid{
+        grid-template-columns:1fr;
+    }
+
+    .company-header{
+        display:block;
+    }
+
+    .company-role{
+        display:block;
+        margin-top:3px;
+    }
+
+    .back-to-top{
+        right:14px;
+        bottom:14px;
+    }
+
+    .command-box{
+        margin-top:50px;
+    }
+
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion:reduce){
+
+    html{
+        scroll-behavior:auto;
+    }
+
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+        transition-duration:.01ms!important;
+    }
+
+    .reveal{
+        opacity:1;
+        transform:none;
+    }
+
+}
+
+</style>
 </head>
 
 
 <body>
+
+<!-- =======================================================
+     TOP PROGRESS
+======================================================= -->
 
 <div class="reading-progress"></div>
 
 <div class="cursor-glow"></div>
 
 
+<!-- =======================================================
+     COMMAND PALETTE
+======================================================= -->
+
+<div class="command-overlay" id="commandOverlay">
+
+    <div class="command-box">
+
+        <div class="command-input-wrap">
+
+            <span class="command-input-icon">⌕</span>
+
+            <input
+                type="text"
+                class="command-input"
+                id="commandInput"
+                placeholder="Search portfolio or jump to a section..."
+                autocomplete="off"
+            >
+
+        </div>
+
+
+        <div
+            class="command-results"
+            id="commandResults">
+        </div>
+
+
+        <div class="command-footer">
+
+            <span>↑ ↓ Navigate</span>
+
+            <span>Enter Select · Esc Close</span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =======================================================
+     MAIN CONTAINER
+======================================================= -->
+
 <div class="container">
 
 
-    <!-- =========================================================
-         HERO
-    ========================================================= -->
+<!-- =======================================================
+     HERO
+======================================================= -->
 
-    <section class="hero" id="home">
+<section class="hero" id="home">
 
-        <div class="hero-top">
+    <div class="hero-top">
 
-            <div>
+        <div>
 
-                <div class="hero-name">
-                    Vishnuvardhan V
-                </div>
-
-                <h1>
-                    KNOWLEDGE<br>
-                    MANAGEMENT<br>
-                    PORTFOLIO
-                </h1>
-
-                <div class="hero-role">
-                    Knowledge Management · HR Content Strategy ·
-                    Knowledge Architecture · ServiceNow · SharePoint ·
-                    AI-Ready Knowledge
-                </div>
-
+            <div class="hero-name">
+                Vishnuvardhan V
             </div>
 
+            <h1>
+                KNOWLEDGE<br>
+                MANAGEMENT<br>
+                PORTFOLIO
+            </h1>
 
-            <div class="hero-badge">
-                Enterprise KM
+            <div class="hero-role">
+                Knowledge Management · HR Content Strategy ·
+                Knowledge Architecture · ServiceNow · SharePoint ·
+                AI-Ready Knowledge
             </div>
 
         </div>
 
 
-        <div class="hero-caption">
-            “Life, Knowledge Management and everything in between.”
+        <div class="hero-badge">
+            Enterprise KM
         </div>
 
-    </section>
+    </div>
 
 
+    <div class="hero-caption">
+        “Life, Knowledge Management and everything in between.”
+    </div>
 
-    <!-- =========================================================
-         CORE FOCUS
-    ========================================================= -->
+</section>
 
-    <section id="focus">
 
-        <div class="section-label">
-            Core Focus
-        </div>
+<!-- =======================================================
+     CORE FOCUS
+======================================================= -->
 
-        <div class="focus-intro">
+<section id="focus">
 
-            I design and govern enterprise knowledge experiences that
-            make information <strong>easier to find, easier to understand,
-            and easier to use.</strong>
+    <div class="section-label">
+        Core Focus
+    </div>
 
-        </div>
 
-        <div class="focus-keywords">
+    <div class="focus-intro">
 
-            <span>HR Knowledge Strategy</span> •
-            <span>Knowledge Architecture</span> •
-            <span>ServiceNow Knowledge</span> •
-            <span>SharePoint</span> •
-            <span>Taxonomy &amp; Metadata</span> •
-            <span>Content Governance</span> •
-            <span>Self-Service</span> •
-            <span>Content Migration</span> •
-            <span>Knowledge Analytics</span> •
-            <span>AI-Ready Knowledge</span>
+        I design and govern enterprise knowledge experiences
+        that make information
+        <strong>
+            easier to find, easier to understand, and easier to use.
+        </strong>
 
-        </div>
+    </div>
 
-    </section>
 
+    <div class="focus-keywords">
 
+        <span>HR Knowledge Strategy</span> •
 
-    <!-- =========================================================
-         ABOUT ME
-    ========================================================= -->
+        <span>Knowledge Architecture</span> •
 
-    <section id="about">
+        <span>ServiceNow Knowledge</span> •
 
-        <div class="section-label">
-            About Me
-        </div>
+        <span>SharePoint</span> •
 
+        <span>Taxonomy &amp; Metadata</span> •
 
-        <div class="about-layout">
+        <span>Content Governance</span> •
 
-            <div class="about-text">
+        <span>Self-Service</span> •
 
-                <h2>
-                    Knowledge Management<br>
-                    across the enterprise
-                </h2>
+        <span>Content Migration</span> •
 
-                <p>
-                    I am a Knowledge Management professional focused on
-                    designing <strong>structured, searchable and governed
-                    knowledge experiences</strong> for enterprise HR environments.
-                </p>
+        <span>Knowledge Analytics</span> •
 
-                <p>
-                    My work spans the knowledge lifecycle — from
-                    <strong>content strategy, information architecture and
-                    taxonomy</strong> through governance, publishing,
-                    analytics, migration and continuous improvement.
-                </p>
+        <span>AI-Ready Knowledge</span>
 
-                <p>
-                    I design knowledge for employees who need simple,
-                    actionable self-service information and HR service teams
-                    that need reliable knowledge to resolve employee queries
-                    efficiently and consistently.
-                </p>
+    </div>
 
-                <p>
-                    Alongside my professional work, I am pursuing my
-                    <strong>Doctorate (PhD) focused on Enterprise Knowledge
-                    Management Systems using Generative AI and
-                    Retrieval-Augmented Generation (RAG) pipelines.</strong>
-                </p>
+</section>
 
-            </div>
 
+<!-- =======================================================
+     ABOUT
+======================================================= -->
 
-            <div class="research-card">
+<section id="about">
 
-                <small>
-                    Current Research
-                </small>
+    <div class="section-label">
+        About Me
+    </div>
 
-                <strong>
-                    Enterprise Knowledge Management Systems
-                    using Generative AI &amp; RAG
-                </strong>
 
-                <p>
-                    Exploring how structured enterprise knowledge can support
-                    intelligent search, self-service, chatbots and
-                    AI-enabled employee experiences.
-                </p>
+    <div class="about-layout">
 
-            </div>
+        <div class="about-text">
 
-        </div>
+            <h2>
+                Knowledge Management<br>
+                across the enterprise
+            </h2>
 
-    </section>
-
-
-
-    <!-- =========================================================
-         CERTIFICATIONS
-    ========================================================= -->
-
-    <section id="certifications">
-
-        <div class="section-label">
-            Certifications
-        </div>
-
-        <h2>
-            Professional Certifications
-        </h2>
-
-
-        <div class="cert-grid">
-
-
-            <div class="cert-card">
-
-                <div class="cert-tag">
-                    ServiceNow
-                </div>
-
-                <h3>
-
-                    <a
-                        href="https://www.credly.com/badges/84f99c95-075b-468e-a9b5-a1aeb1710d69/linked_in_profile"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        ServiceNow Certified System Administrator
-                    </a>
-
-                </h3>
-
-                <p>
-                    Platform administration, workflows, ITSM practices,
-                    enterprise service management and ServiceNow capabilities.
-                </p>
-
-            </div>
-
-
-            <div class="cert-card">
-
-                <div class="cert-tag">
-                    Knowledge Management
-                </div>
-
-                <h3>
-                    Enterprise Knowledge Management
-                </h3>
-
-                <p>
-                    Knowledge architecture, taxonomy, content governance,
-                    lifecycle management and employee self-service.
-                </p>
-
-            </div>
-
-
-            <div class="cert-card">
-
-                <div class="cert-tag">
-
-                    <a
-                        href="https://www.linkedin.com/in/vishnuvardhan-v/details/certifications/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="View AI and Knowledge certifications on LinkedIn"
-                    >
-                        AI &amp; Knowledge
-                    </a>
-
-                </div>
-
-                <h3>
-                    Generative AI &amp; AI-Ready Knowledge
-                </h3>
-
-                <p>
-                    Generative AI, prompt engineering, semantic knowledge,
-                    intelligent search and RAG concepts.
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================================
-         EXPERTISE
-    ========================================================= -->
-
-    <section id="expertise">
-
-        <div class="section-label">
-            Expertise
-        </div>
-
-        <h2>
-            How I Approach Knowledge Management
-        </h2>
-
-
-        <div class="approach-grid">
-
-
-            <div class="approach-card">
-
-                <div class="approach-number">
-                    01
-                </div>
-
-                <h3>
-                    Understand
-                </h3>
-
-                <p>
-                    Identify knowledge sources, users, owners,
-                    business needs and information gaps.
-                </p>
-
-            </div>
-
-
-            <div class="approach-card">
-
-                <div class="approach-number">
-                    02
-                </div>
-
-                <h3>
-                    Structure
-                </h3>
-
-                <p>
-                    Build information architecture using taxonomy,
-                    metadata, categorization and content models.
-                </p>
-
-            </div>
-
-
-            <div class="approach-card">
-
-                <div class="approach-number">
-                    03
-                </div>
-
-                <h3>
-                    Govern
-                </h3>
-
-                <p>
-                    Establish ownership, review, approval, publishing,
-                    version control and retirement practices.
-                </p>
-
-            </div>
-
-
-            <div class="approach-card">
-
-                <div class="approach-number">
-                    04
-                </div>
-
-                <h3>
-                    Enable Self-Service
-                </h3>
-
-                <p>
-                    Create persona-relevant knowledge that helps employees
-                    find answers independently.
-                </p>
-
-            </div>
-
-
-            <div class="approach-card">
-
-                <div class="approach-number">
-                    05
-                </div>
-
-                <h3>
-                    Measure
-                </h3>
-
-                <p>
-                    Use search, usage, feedback, case trends and
-                    knowledge gaps to improve content.
-                </p>
-
-            </div>
-
-
-            <div class="approach-card">
-
-                <div class="approach-number">
-                    06
-                </div>
-
-                <h3>
-                    Prepare for AI
-                </h3>
-
-                <p>
-                    Build structured, governed knowledge foundations
-                    ready for search, chatbots and RAG.
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================================
-         ENTERPRISE EXPERIENCE
-    ========================================================= -->
-
-    <section id="experience">
-
-        <div class="section-label">
-            Enterprise Experience
-        </div>
-
-
-        <div class="company">
-
-            <div class="company-header">
-
-                <div class="company-name">
-                    Capgemini
-                </div>
-
-                <div class="company-role">
-                    Process Lead · Global Knowledge Management
-                </div>
-
-            </div>
-
-
-            <div class="experience-line">
-
-                <span>Global HR Knowledge Management</span>
-                <b class="bullet">•</b>
-
-                <span>ServiceNow Knowledge Management</span>
-                <b class="bullet">•</b>
-
-                <span>HR Knowledge Architecture</span>
-                <b class="bullet">•</b>
-
-                <span>Taxonomy &amp; Metadata</span>
-                <b class="bullet">•</b>
-
-                <span>Content Lifecycle Governance</span>
-                <b class="bullet">•</b>
-
-                <span>SharePoint &amp; Repository Governance</span>
-                <b class="bullet">•</b>
-
-                <span>HR Content Strategy &amp; Development</span>
-                <b class="bullet">•</b>
-
-                <span>Content Migration &amp; Harmonization</span>
-                <b class="bullet">•</b>
-
-                <span>SME &amp; Stakeholder Governance</span>
-                <b class="bullet">•</b>
-
-                <span>Knowledge Analytics &amp; Self-Service</span>
-                <b class="bullet">•</b>
-
-                <span>Knowledge Enablement &amp; Standards</span>
-                <b class="bullet">•</b>
-
-                <span>Automation &amp; AI-Ready Knowledge</span>
-
-            </div>
-
-        </div>
-
-
-        <div class="company">
-
-            <div class="company-header">
-
-                <div class="company-name">
-                    AUI Systems Pvt. Ltd.
-                </div>
-
-                <div class="company-role">
-                    Knowledge Architect
-                </div>
-
-            </div>
-
-
-            <div class="experience-line">
-
-                <span>Knowledge Management Strategy</span>
-                <b class="bullet">•</b>
-
-                <span>Knowledge Architecture</span>
-                <b class="bullet">•</b>
-
-                <span>Information Design</span>
-                <b class="bullet">•</b>
-
-                <span>Taxonomy &amp; Metadata</span>
-                <b class="bullet">•</b>
-
-                <span>Knowledge Portal Management</span>
-                <b class="bullet">•</b>
-
-                <span>Content Management &amp; Standards</span>
-                <b class="bullet">•</b>
-
-                <span>Knowledge Governance &amp; Lifecycle</span>
-                <b class="bullet">•</b>
-
-                <span>Knowledge Discovery &amp; Search</span>
-                <b class="bullet">•</b>
-
-                <span>Content Analysis &amp; Knowledge Gaps</span>
-                <b class="bullet">•</b>
-
-                <span>SME Collaboration</span>
-                <b class="bullet">•</b>
-
-                <span>Knowledge Reuse &amp; Self-Service</span>
-                <b class="bullet">•</b>
-
-                <span>Semantic Technologies</span>
-                <b class="bullet">•</b>
-
-                <span>Intelligent Knowledge Systems</span>
-                <b class="bullet">•</b>
-
-                <span>Scalable KM</span>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================================
-         SELECTED PORTFOLIO WORK
-    ========================================================= -->
-
-    <section id="portfolio">
-
-        <div class="section-label">
-            Selected Portfolio Work
-        </div>
-
-        <h2>
-            Enterprise KM Artifacts
-        </h2>
-
-        <div class="portfolio-intro">
-
-            Demonstrative documentation artifacts showcasing how I approach
-            HR knowledge strategy, architecture, governance, self-service,
-            analytics and AI-ready enterprise knowledge.
-
-        </div>
-
-
-        <div class="artifact-grid">
-
-
-            <a
-                href="artifacts/HR_Knowledge_Article_Employee_Personal_Information_Update.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="artifact"
-            >
-
-                <div class="artifact-top">
-
-                    <div class="artifact-type">
-                        HR Content · Knowledge Article
-                    </div>
-
-                    <div class="artifact-number">
-                        01
-                    </div>
-
-                </div>
-
-                <h3>
-                    HR Knowledge Article
-                </h3>
-
-                <p class="artifact-description">
-
-                    A concise, searchable HR knowledge article designed around
-                    an employee question, with structured answers, steps,
-                    eligibility, metadata, ownership and review information.
-
-                </p>
-
-                <div class="artifact-tags">
-
-                    <span>ServiceNow KM</span>
-                    <span>Self-Service</span>
-                    <span>Plain Language</span>
-                    <span>Metadata</span>
-
-                </div>
-
-                <span class="artifact-link">
-                    VIEW ARTIFACT →
-                </span>
-
-            </a>
-
-
-
-            <a
-                href="artifacts/HR_Knowledge_Architecture_Taxonomy.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="artifact"
-            >
-
-                <div class="artifact-top">
-
-                    <div class="artifact-type">
-                        Architecture · Taxonomy
-                    </div>
-
-                    <div class="artifact-number">
-                        02
-                    </div>
-
-                </div>
-
-                <h3>
-                    HR Knowledge Architecture &amp; Taxonomy
-                </h3>
-
-                <p class="artifact-description">
-
-                    A visual knowledge architecture showing HR domains,
-                    taxonomy, metadata, persona, lifecycle and ownership
-                    structures for enterprise knowledge.
-
-                </p>
-
-                <div class="artifact-tags">
-
-                    <span>Taxonomy</span>
-                    <span>Metadata</span>
-                    <span>Information Architecture</span>
-                    <span>Search</span>
-
-                </div>
-
-                <span class="artifact-link">
-                    VIEW ARTIFACT →
-                </span>
-
-            </a>
-
-
-
-            <a
-                href="artifacts/Knowledge_Content_Governance_Lifecycle_SOP.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="artifact"
-            >
-
-                <div class="artifact-top">
-
-                    <div class="artifact-type">
-                        Governance · SOP
-                    </div>
-
-                    <div class="artifact-number">
-                        03
-                    </div>
-
-                </div>
-
-                <h3>
-                    Knowledge Content Governance &amp; Lifecycle
-                </h3>
-
-                <p class="artifact-description">
-
-                    A governance framework covering content intake, drafting,
-                    SME review, approval, publishing, version control,
-                    renewal, retirement and ownership.
-
-                </p>
-
-                <div class="artifact-tags">
-
-                    <span>Governance</span>
-                    <span>SME Review</span>
-                    <span>Approval</span>
-                    <span>Lifecycle</span>
-
-                </div>
-
-                <span class="artifact-link">
-                    VIEW ARTIFACT →
-                </span>
-
-            </a>
-
-
-
-            <a
-                href="artifacts/HR_Content_Inventory_Gap_Analysis.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="artifact"
-            >
-
-                <div class="artifact-top">
-
-                    <div class="artifact-type">
-                        Content Analysis · Gap Assessment
-                    </div>
-
-                    <div class="artifact-number">
-                        04
-                    </div>
-
-                </div>
-
-                <h3>
-                    HR Content Inventory &amp; Gap Analysis
-                </h3>
-
-                <p class="artifact-description">
-
-                    A sample enterprise content inventory identifying
-                    duplicate, outdated, fragmented and migration-ready
-                    HR knowledge across multiple repositories.
-
-                </p>
-
-                <div class="artifact-tags">
-
-                    <span>Inventory</span>
-                    <span>Gap Analysis</span>
-                    <span>Cleanup</span>
-                    <span>Migration</span>
-
-                </div>
-
-                <span class="artifact-link">
-                    VIEW ARTIFACT →
-                </span>
-
-            </a>
-
-
-
-            <a
-                href="artifacts/Employee_Self_Service_Content_Pack.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="artifact"
-            >
-
-                <div class="artifact-top">
-
-                    <div class="artifact-type">
-                        Employee Experience · Self-Service
-                    </div>
-
-                    <div class="artifact-number">
-                        05
-                    </div>
-
-                </div>
-
-                <h3>
-                    Employee Self-Service Content Pack
-                </h3>
-
-                <p class="artifact-description">
-
-                    Persona-relevant HR content designed for employees and
-                    managers, showing how knowledge can simplify common HR
-                    questions and reduce dependency on assisted support.
-
-                </p>
-
-                <div class="artifact-tags">
-
-                    <span>Employee</span>
-                    <span>Manager</span>
-                    <span>Self-Service</span>
-                    <span>Persona</span>
-
-                </div>
-
-                <span class="artifact-link">
-                    VIEW ARTIFACT →
-                </span>
-
-            </a>
-
-
-
-            <a
-                href="artifacts/AI_RAG_Ready_Enterprise_Knowledge_Blueprint.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="artifact"
-            >
-
-                <div class="artifact-top">
-
-                    <div class="artifact-type">
-                        AI · RAG · Knowledge Engineering
-                    </div>
-
-                    <div class="artifact-number">
-                        06
-                    </div>
-
-                </div>
-
-                <h3>
-                    AI / RAG-Ready Enterprise Knowledge Blueprint
-                </h3>
-
-                <p class="artifact-description">
-
-                    A conceptual blueprint showing how governed enterprise
-                    knowledge can be structured and prepared for intelligent
-                    search, chatbots, Generative AI and RAG-based experiences.
-
-                </p>
-
-                <div class="artifact-tags">
-
-                    <span>GenAI</span>
-                    <span>RAG</span>
-                    <span>Search</span>
-                    <span>Knowledge Engineering</span>
-
-                </div>
-
-                <span class="artifact-link">
-                    VIEW ARTIFACT →
-                </span>
-
-            </a>
-
-
-        </div>
-
-
-        <div class="fortiv-box">
-
-            <strong>
-                Knowledge Management in Practice
-            </strong>
 
             <p>
-                These artifacts demonstrate the complete knowledge journey —
-                from architecture and content creation to governance,
-                self-service, analytics and AI-ready knowledge.
+                I am a Knowledge Management professional focused
+                on designing
+                <strong>
+                    structured, searchable and governed knowledge
+                    experiences
+                </strong>
+                for enterprise HR environments.
+            </p>
+
+
+            <p>
+                My work spans the knowledge lifecycle —
+                from
+                <strong>
+                    content strategy, information architecture
+                    and taxonomy
+                </strong>
+                through governance, publishing, analytics,
+                migration and continuous improvement.
+            </p>
+
+
+            <p>
+                I design knowledge for employees who need simple,
+                actionable self-service information and HR service
+                teams that need reliable knowledge to resolve
+                employee queries efficiently and consistently.
+            </p>
+
+
+            <p>
+                Alongside my professional work, I am pursuing my
+                <strong>
+                    Doctorate (PhD) focused on Enterprise Knowledge
+                    Management Systems using Generative AI and
+                    Retrieval-Augmented Generation (RAG) pipelines.
+                </strong>
             </p>
 
         </div>
 
-    </section>
 
+        <div class="research-card">
 
+            <small>
+                Current Research
+            </small>
 
-    <!-- =========================================================
-         LET'S CONNECT
-    ========================================================= -->
+            <strong>
+                Enterprise Knowledge Management Systems using
+                Generative AI &amp; RAG
+            </strong>
 
-    <section id="connect">
-
-        <div class="section-label">
-            Let's Connect
-        </div>
-
-        <h2>
-            Let's build better knowledge experiences.
-        </h2>
-
-        <div class="connect-intro">
-
-            Interested in Knowledge Management, HR content strategy,
-            ServiceNow Knowledge or AI-ready enterprise knowledge?
+            <p>
+                Exploring how structured enterprise knowledge can
+                support intelligent search, self-service,
+                chatbots and AI-enabled employee experiences.
+            </p>
 
         </div>
 
+    </div>
 
-        <div class="connect-grid">
-
-
-            <a
-                href="https://www.linkedin.com/in/vishnuvardhan-v/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="connect-item"
-            >
-
-                <small>
-                    LinkedIn
-                </small>
-
-                <span>
-                    Connect with me
-                </span>
-
-            </a>
+</section>
 
 
-            <a
-                href="resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="connect-item"
-            >
+<!-- =======================================================
+     CERTIFICATIONS
+======================================================= -->
 
-                <small>
-                    Resume
-                </small>
+<section id="certifications">
 
-                <span>
-                    View Resume
-                </span>
-
-            </a>
+    <div class="section-label">
+        Certifications
+    </div>
 
 
-            <a
-                href="mailto:vishnuvardhanvjkumar@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="connect-item"
-            >
-
-                <small>
-                    Email
-                </small>
-
-                <span>
-                    vishnuvardhanvjkumar@gmail.com
-                </span>
-
-            </a>
+    <h2>
+        Professional Certifications
+    </h2>
 
 
-            <a
-                href="tel:+917200206838"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="connect-item"
-            >
+    <div class="cert-grid">
 
-                <small>
-                    Mobile
-                </small>
 
-                <span>
-                    +91 72002 06838
-                </span>
+        <div class="cert-card">
 
-            </a>
+            <div class="cert-tag">
+                ServiceNow
+            </div>
 
+            <h3>
+
+                <a
+                    href="https://www.credly.com/badges/84f99c95-075b-468e-a9b5-a1aeb1710d69/linked_in_profile"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    ServiceNow Certified System Administrator
+                </a>
+
+            </h3>
+
+            <p>
+                Platform administration, workflows, ITSM practices,
+                enterprise service management and ServiceNow capabilities.
+            </p>
 
         </div>
 
-    </section>
+
+        <div class="cert-card">
+
+            <div class="cert-tag">
+                Knowledge Management
+            </div>
+
+            <h3>
+                Enterprise Knowledge Management
+            </h3>
+
+            <p>
+                Knowledge architecture, taxonomy, content governance,
+                lifecycle management and employee self-service.
+            </p>
+
+        </div>
 
 
+        <div class="cert-card">
 
-    <!-- =========================================================
-         FOOTER
-    ========================================================= -->
+            <div class="cert-tag">
 
-    <footer>
+                <a
+                    href="https://www.linkedin.com/in/vishnuvardhan-v/details/certifications/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    AI &amp; Knowledge
+                </a>
 
-        © 2026 Vishnuvardhan V ·
-        Knowledge Management · HR Content Strategy · AI-Ready Knowledge
+            </div>
 
-    </footer>
+            <h3>
+                Generative AI &amp; AI-Ready Knowledge
+            </h3>
+
+            <p>
+                Generative AI, prompt engineering, semantic knowledge,
+                intelligent search and RAG concepts.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     EXPERTISE
+======================================================= -->
+
+<section id="expertise">
+
+    <div class="section-label">
+        Expertise
+    </div>
+
+
+    <h2>
+        How I Approach Knowledge Management
+    </h2>
+
+
+    <div class="approach-grid">
+
+
+        <div class="approach-card">
+
+            <div class="approach-number">
+                01
+            </div>
+
+            <h3>
+                Understand
+            </h3>
+
+            <p>
+                Identify knowledge sources, users, owners,
+                business needs and information gaps.
+            </p>
+
+        </div>
+
+
+        <div class="approach-card">
+
+            <div class="approach-number">
+                02
+            </div>
+
+            <h3>
+                Structure
+            </h3>
+
+            <p>
+                Build information architecture using taxonomy,
+                metadata, categorization and content models.
+            </p>
+
+        </div>
+
+
+        <div class="approach-card">
+
+            <div class="approach-number">
+                03
+            </div>
+
+            <h3>
+                Govern
+            </h3>
+
+            <p>
+                Establish ownership, review, approval,
+                publishing, version control and retirement practices.
+            </p>
+
+        </div>
+
+
+        <div class="approach-card">
+
+            <div class="approach-number">
+                04
+            </div>
+
+            <h3>
+                Enable Self-Service
+            </h3>
+
+            <p>
+                Create persona-relevant knowledge that helps
+                employees find answers independently.
+            </p>
+
+        </div>
+
+
+        <div class="approach-card">
+
+            <div class="approach-number">
+                05
+            </div>
+
+            <h3>
+                Measure
+            </h3>
+
+            <p>
+                Use search, usage, feedback, case trends and
+                knowledge gaps to improve content.
+            </p>
+
+        </div>
+
+
+        <div class="approach-card">
+
+            <div class="approach-number">
+                06
+            </div>
+
+            <h3>
+                Prepare for AI
+            </h3>
+
+            <p>
+                Build structured, governed knowledge foundations
+                ready for search, chatbots and RAG.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     EXPERIENCE
+======================================================= -->
+
+<section id="experience">
+
+    <div class="section-label">
+        Enterprise Experience
+    </div>
+
+
+    <div class="company">
+
+        <div class="company-header">
+
+            <div class="company-name">
+                Capgemini
+            </div>
+
+            <div class="company-role">
+                Process Lead · Global Knowledge Management
+            </div>
+
+        </div>
+
+
+        <div class="experience-line">
+
+            <span>Global HR Knowledge Management</span>
+            <b class="bullet">•</b>
+
+            <span>ServiceNow Knowledge Management</span>
+            <b class="bullet">•</b>
+
+            <span>HR Knowledge Architecture</span>
+            <b class="bullet">•</b>
+
+            <span>Taxonomy &amp; Metadata</span>
+            <b class="bullet">•</b>
+
+            <span>Content Lifecycle Governance</span>
+            <b class="bullet">•</b>
+
+            <span>SharePoint &amp; Repository Governance</span>
+            <b class="bullet">•</b>
+
+            <span>HR Content Strategy &amp; Development</span>
+            <b class="bullet">•</b>
+
+            <span>Content Migration &amp; Harmonization</span>
+            <b class="bullet">•</b>
+
+            <span>SME &amp; Stakeholder Governance</span>
+            <b class="bullet">•</b>
+
+            <span>Knowledge Analytics &amp; Self-Service</span>
+            <b class="bullet">•</b>
+
+            <span>Knowledge Enablement &amp; Standards</span>
+            <b class="bullet">•</b>
+
+            <span>Automation &amp; AI-Ready Knowledge</span>
+
+        </div>
+
+    </div>
+
+
+    <div class="company">
+
+        <div class="company-header">
+
+            <div class="company-name">
+                AUI Systems Pvt. Ltd.
+            </div>
+
+            <div class="company-role">
+                Knowledge Architect
+            </div>
+
+        </div>
+
+
+        <div class="experience-line">
+
+            <span>Knowledge Management Strategy</span>
+            <b class="bullet">•</b>
+
+            <span>Knowledge Architecture</span>
+            <b class="bullet">•</b>
+
+            <span>Information Design</span>
+            <b class="bullet">•</b>
+
+            <span>Taxonomy &amp; Metadata</span>
+            <b class="bullet">•</b>
+
+            <span>Knowledge Portal Management</span>
+            <b class="bullet">•</b>
+
+            <span>Content Management &amp; Standards</span>
+            <b class="bullet">•</b>
+
+            <span>Knowledge Governance &amp; Lifecycle</span>
+            <b class="bullet">•</b>
+
+            <span>Knowledge Discovery &amp; Search</span>
+            <b class="bullet">•</b>
+
+            <span>Content Analysis &amp; Knowledge Gaps</span>
+            <b class="bullet">•</b>
+
+            <span>SME Collaboration</span>
+            <b class="bullet">•</b>
+
+            <span>Knowledge Reuse &amp; Self-Service</span>
+            <b class="bullet">•</b>
+
+            <span>Semantic Technologies</span>
+            <b class="bullet">•</b>
+
+            <span>Intelligent Knowledge Systems</span>
+            <b class="bullet">•</b>
+
+            <span>Scalable KM</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     PORTFOLIO
+======================================================= -->
+
+<section id="portfolio">
+
+    <div class="section-label">
+        Selected Portfolio Work
+    </div>
+
+
+    <h2>
+        Enterprise KM Artifacts
+    </h2>
+
+
+    <div class="portfolio-intro">
+
+        Demonstrative documentation artifacts showcasing how I
+        approach HR knowledge strategy, architecture, governance,
+        self-service, analytics and AI-ready enterprise knowledge.
+
+    </div>
+
+
+    <!-- SEARCH + FILTER -->
+
+    <div class="portfolio-tools">
+
+        <div class="portfolio-search">
+
+            <input
+                type="search"
+                id="portfolioSearch"
+                placeholder="Search artifacts — AI, RAG, ServiceNow, governance..."
+                autocomplete="off"
+            >
+
+            <span class="search-icon">
+                ⌕
+            </span>
+
+        </div>
+
+
+        <div class="filter-buttons">
+
+            <button
+                class="filter-btn active"
+                data-filter="all"
+            >
+                ALL
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="hr"
+            >
+                HR
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="governance"
+            >
+                GOVERNANCE
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="architecture"
+            >
+                ARCHITECTURE
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="ai"
+            >
+                AI
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ARTIFACTS -->
+
+    <div class="artifact-grid">
+
+
+        <a
+            href="artifacts/HR_Knowledge_Article_Employee_Personal_Information_Update.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="artifact"
+            data-category="hr"
+            data-keywords="hr serviceNow knowledge article self service plain language metadata employee"
+        >
+
+            <div class="artifact-top">
+
+                <div class="artifact-type">
+                    HR Content · Knowledge Article
+                </div>
+
+                <div class="artifact-number">
+                    01
+                </div>
+
+            </div>
+
+
+            <h3>
+                HR Knowledge Article
+            </h3>
+
+
+            <p class="artifact-description">
+
+                A concise, searchable HR knowledge article designed
+                around an employee question, with structured answers,
+                steps, eligibility, metadata, ownership and review information.
+
+            </p>
+
+
+            <div class="artifact-tags">
+
+                <span>ServiceNow KM</span>
+                <span>Self-Service</span>
+                <span>Plain Language</span>
+                <span>Metadata</span>
+
+            </div>
+
+
+            <span class="artifact-link">
+                VIEW ARTIFACT →
+            </span>
+
+        </a>
+
+
+        <a
+            href="artifacts/HR_Knowledge_Architecture_Taxonomy.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="artifact"
+            data-category="architecture"
+            data-keywords="hr taxonomy metadata information architecture search knowledge architecture"
+        >
+
+            <div class="artifact-top">
+
+                <div class="artifact-type">
+                    Architecture · Taxonomy
+                </div>
+
+                <div class="artifact-number">
+                    02
+                </div>
+
+            </div>
+
+
+            <h3>
+                HR Knowledge Architecture &amp; Taxonomy
+            </h3>
+
+
+            <p class="artifact-description">
+
+                A visual knowledge architecture showing HR domains,
+                taxonomy, metadata, persona, lifecycle and ownership
+                structures for enterprise knowledge.
+
+            </p>
+
+
+            <div class="artifact-tags">
+
+                <span>Taxonomy</span>
+                <span>Metadata</span>
+                <span>Information Architecture</span>
+                <span>Search</span>
+
+            </div>
+
+
+            <span class="artifact-link">
+                VIEW ARTIFACT →
+            </span>
+
+        </a>
+
+
+        <a
+            href="artifacts/Knowledge_Content_Governance_Lifecycle_SOP.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="artifact"
+            data-category="governance"
+            data-keywords="knowledge governance sop SME review approval lifecycle content governance"
+        >
+
+            <div class="artifact-top">
+
+                <div class="artifact-type">
+                    Governance · SOP
+                </div>
+
+                <div class="artifact-number">
+                    03
+                </div>
+
+            </div>
+
+
+            <h3>
+                Knowledge Content Governance &amp; Lifecycle
+            </h3>
+
+
+            <p class="artifact-description">
+
+                A governance framework covering content intake,
+                drafting, SME review, approval, publishing,
+                version control, renewal, retirement and ownership.
+
+            </p>
+
+
+            <div class="artifact-tags">
+
+                <span>Governance</span>
+                <span>SME Review</span>
+                <span>Approval</span>
+                <span>Lifecycle</span>
+
+            </div>
+
+
+            <span class="artifact-link">
+                VIEW ARTIFACT →
+            </span>
+
+        </a>
+
+
+        <a
+            href="artifacts/HR_Content_Inventory_Gap_Analysis.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="artifact"
+            data-category="hr"
+            data-keywords="hr content inventory gap analysis cleanup migration duplicate outdated fragmented"
+        >
+
+            <div class="artifact-top">
+
+                <div class="artifact-type">
+                    Content Analysis · Gap Assessment
+                </div>
+
+                <div class="artifact-number">
+                    04
+                </div>
+
+            </div>
+
+
+            <h3>
+                HR Content Inventory &amp; Gap Analysis
+            </h3>
+
+
+            <p class="artifact-description">
+
+                A sample enterprise content inventory identifying
+                duplicate, outdated, fragmented and migration-ready
+                HR knowledge across multiple repositories.
+
+            </p>
+
+
+            <div class="artifact-tags">
+
+                <span>Inventory</span>
+                <span>Gap Analysis</span>
+                <span>Cleanup</span>
+                <span>Migration</span>
+
+            </div>
+
+
+            <span class="artifact-link">
+                VIEW ARTIFACT →
+            </span>
+
+        </a>
+
+
+        <a
+            href="artifacts/Employee_Self_Service_Content_Pack.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="artifact"
+            data-category="hr"
+            data-keywords="employee manager self service persona HR content employee experience"
+        >
+
+            <div class="artifact-top">
+
+                <div class="artifact-type">
+                    Employee Experience · Self-Service
+                </div>
+
+                <div class="artifact-number">
+                    05
+                </div>
+
+            </div>
+
+
+            <h3>
+                Employee Self-Service Content Pack
+            </h3>
+
+
+            <p class="artifact-description">
+
+                Persona-relevant HR content designed for employees
+                and managers, showing how knowledge can simplify
+                common HR questions and reduce dependency on assisted support.
+
+            </p>
+
+
+            <div class="artifact-tags">
+
+                <span>Employee</span>
+                <span>Manager</span>
+                <span>Self-Service</span>
+                <span>Persona</span>
+
+            </div>
+
+
+            <span class="artifact-link">
+                VIEW ARTIFACT →
+            </span>
+
+        </a>
+
+
+        <a
+            href="artifacts/AI_RAG_Ready_Enterprise_Knowledge_Blueprint.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="artifact"
+            data-category="ai"
+            data-keywords="AI RAG GenAI generative AI search knowledge engineering chatbot intelligent search"
+        >
+
+            <div class="artifact-top">
+
+                <div class="artifact-type">
+                    AI · RAG · Knowledge Engineering
+                </div>
+
+                <div class="artifact-number">
+                    06
+                </div>
+
+            </div>
+
+
+            <h3>
+                AI / RAG-Ready Enterprise Knowledge Blueprint
+            </h3>
+
+
+            <p class="artifact-description">
+
+                A conceptual blueprint showing how governed enterprise
+                knowledge can be structured and prepared for intelligent
+                search, chatbots, Generative AI and RAG-based experiences.
+
+            </p>
+
+
+            <div class="artifact-tags">
+
+                <span>GenAI</span>
+                <span>RAG</span>
+                <span>Search</span>
+                <span>Knowledge Engineering</span>
+
+            </div>
+
+
+            <span class="artifact-link">
+                VIEW ARTIFACT →
+            </span>
+
+        </a>
+
+
+    </div>
+
+
+    <div
+        class="no-results"
+        id="noResults"
+    >
+        No matching knowledge artifacts found.
+        Try another keyword or select <strong>ALL</strong>.
+    </div>
+
+
+    <div class="fortiv-box">
+
+        <strong>
+            Knowledge Management in Practice
+        </strong>
+
+        <p>
+            These artifacts demonstrate the complete knowledge journey —
+            from architecture and content creation to governance,
+            self-service, analytics and AI-ready knowledge.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     CONNECT
+======================================================= -->
+
+<section id="connect">
+
+    <div class="section-label">
+        Let's Connect
+    </div>
+
+
+    <h2>
+        Let's build better knowledge experiences.
+    </h2>
+
+
+    <div class="connect-intro">
+
+        Interested in Knowledge Management, HR content strategy,
+        ServiceNow Knowledge or AI-ready enterprise knowledge?
+
+    </div>
+
+
+    <div class="connect-grid">
+
+
+        <a
+            href="https://www.linkedin.com/in/vishnuvardhan-v/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="connect-item"
+        >
+
+            <small>
+                LinkedIn
+            </small>
+
+            <span>
+                Connect with me
+            </span>
+
+        </a>
+
+
+        <a
+            href="resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="connect-item"
+        >
+
+            <small>
+                Resume
+            </small>
+
+            <span>
+                View Resume
+            </span>
+
+        </a>
+
+
+        <a
+            href="mailto:vishnuvardhanvjkumar@gmail.com"
+            class="connect-item email-copy"
+        >
+
+            <small>
+                Email
+            </small>
+
+            <span>
+                vishnuvardhanvjkumar@gmail.com
+            </span>
+
+        </a>
+
+
+        <a
+            href="tel:+917200206838"
+            class="connect-item"
+        >
+
+            <small>
+                Mobile
+            </small>
+
+            <span>
+                +91 72002 06838
+            </span>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
+<footer>
+
+    © 2026 Vishnuvardhan V · Knowledge Management ·
+    HR Content Strategy · AI-Ready Knowledge
+
+</footer>
 
 
 </div>
 
 
-<!-- =========================================================
+<!-- =======================================================
      BACK TO TOP
-========================================================= -->
+======================================================= -->
 
 <button
     class="back-to-top"
@@ -2340,469 +2941,1418 @@
     aria-label="Back to top"
     title="Back to top"
 >
+
+    <svg viewBox="0 0 44 44">
+
+        <circle
+            cx="22"
+            cy="22"
+            r="20"
+            fill="none"
+            stroke="#eee"
+            stroke-width="2"
+        ></circle>
+
+        <circle
+            class="progress-circle"
+            id="progressCircle"
+            cx="22"
+            cy="22"
+            r="20"
+        ></circle>
+
+    </svg>
+
     ↑
+
 </button>
 
 
-<!-- =========================================================
+<!-- =======================================================
+     TOAST
+======================================================= -->
+
+<div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+>
+</div>
+
+
+<!-- =======================================================
      JAVASCRIPT
-========================================================= -->
+======================================================= -->
 
 <script>
 
-    /* =========================================================
-       READING PROGRESS
-    ========================================================= */
+/* =========================================================
+   BASIC ELEMENTS
+========================================================= */
 
-    const progressBar =
-        document.querySelector(".reading-progress");
+const progressBar =
+    document.querySelector(".reading-progress");
 
-    function updateProgress() {
+const backToTop =
+    document.getElementById("backToTop");
 
-        const scrollTop =
-            window.scrollY;
+const progressCircle =
+    document.getElementById("progressCircle");
 
-        const documentHeight =
-            document.documentElement.scrollHeight -
-            window.innerHeight;
+const toast =
+    document.getElementById("toast");
 
-        const progress =
-            documentHeight > 0
-                ? (scrollTop / documentHeight) * 100
-                : 0;
+const cursorGlow =
+    document.querySelector(".cursor-glow");
 
-        progressBar.style.width =
-            progress + "%";
+
+/* =========================================================
+   TOAST SYSTEM
+========================================================= */
+
+let toastTimer;
+
+function showToast(message){
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+
+    toastTimer = setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    }, 2200);
+
+}
+
+
+/* =========================================================
+   SCROLL PROGRESS
+========================================================= */
+
+function updateScrollProgress(){
+
+    const scrollTop =
+        window.scrollY;
+
+    const documentHeight =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
+
+    const progress =
+        documentHeight > 0
+            ? (scrollTop / documentHeight) * 100
+            : 0;
+
+    progressBar.style.width =
+        progress + "%";
+
+
+    /* Circular progress */
+
+    const circumference = 126;
+
+    const offset =
+        circumference -
+        (progress / 100) * circumference;
+
+    progressCircle.style.strokeDashoffset =
+        offset;
+
+
+    /* Back to top */
+
+    if(scrollTop > 500){
+
+        backToTop.classList.add("visible");
+
+    }else{
+
+        backToTop.classList.remove("visible");
 
     }
 
-    window.addEventListener(
-        "scroll",
-        updateProgress,
-        { passive: true }
-    );
+}
 
-    updateProgress();
+window.addEventListener(
+    "scroll",
+    updateScrollProgress,
+    {passive:true}
+);
 
-
-    /* =========================================================
-       SCROLL REVEAL
-    ========================================================= */
-
-    const revealElements =
-        document.querySelectorAll(
-            "section > .section-label, " +
-            ".focus-intro, " +
-            ".focus-keywords, " +
-            ".about-layout, " +
-            ".cert-card, " +
-            ".approach-card, " +
-            ".company, " +
-            ".portfolio-intro, " +
-            ".artifact, " +
-            ".fortiv-box, " +
-            ".connect-intro, " +
-            ".connect-item"
-        );
-
-    revealElements.forEach(
-        element => {
-            element.classList.add("reveal");
-        }
-    );
+updateScrollProgress();
 
 
-    const revealObserver =
-        new IntersectionObserver(
-            entries => {
+/* =========================================================
+   BACK TO TOP
+========================================================= */
 
-                entries.forEach(
-                    entry => {
+backToTop.addEventListener(
+    "click",
+    () => {
 
-                        if (
-                            entry.isIntersecting
-                        ) {
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
 
-                            entry.target.classList.add(
-                                "revealed"
-                            );
-
-                            revealObserver.unobserve(
-                                entry.target
-                            );
-
-                        }
-
-                    }
-                );
-
-            },
-            {
-                threshold: 0.12,
-                rootMargin: "0px 0px -35px 0px"
-            }
-        );
+    }
+);
 
 
-    revealElements.forEach(
-        element => {
-            revealObserver.observe(element);
-        }
-    );
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
 
-
-    /* =========================================================
-       STAGGER CARD ANIMATION
-    ========================================================= */
-
-    const cardGroups = [
-        ".cert-card",
-        ".approach-card",
-        ".artifact",
+const revealElements =
+    document.querySelectorAll(
+        "section > .section-label," +
+        ".focus-intro," +
+        ".focus-keywords," +
+        ".about-layout," +
+        ".cert-card," +
+        ".approach-card," +
+        ".company," +
+        ".portfolio-intro," +
+        ".portfolio-tools," +
+        ".artifact," +
+        ".fortiv-box," +
+        ".connect-intro," +
         ".connect-item"
-    ];
+    );
 
-    cardGroups.forEach(
-        selector => {
 
-            const cards =
-                document.querySelectorAll(selector);
+revealElements.forEach(
+    element => element.classList.add("reveal")
+);
 
-            cards.forEach(
-                (card, index) => {
 
-                    card.style.transitionDelay =
-                        `${index * 70}ms`;
+const revealObserver =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add(
+                        "revealed"
+                    );
+
+                    revealObserver.unobserve(
+                        entry.target
+                    );
 
                 }
-            );
 
-        }
-    );
-
-
-    /* =========================================================
-       ACTIVE SECTION
-    ========================================================= */
-
-    const sections =
-        document.querySelectorAll(
-            "section[id]"
-        );
-
-
-    const sectionObserver =
-        new IntersectionObserver(
-            entries => {
-
-                entries.forEach(
-                    entry => {
-
-                        if (
-                            entry.isIntersecting
-                        ) {
-
-                            sections.forEach(
-                                section => {
-                                    section.classList.remove(
-                                        "active-section"
-                                    );
-                                }
-                            );
-
-                            entry.target.classList.add(
-                                "active-section"
-                            );
-
-                        }
-
-                    }
-                );
-
-            },
-            {
-                threshold: 0.35
-            }
-        );
-
-
-    sections.forEach(
-        section => {
-            sectionObserver.observe(section);
-        }
-    );
-
-
-    /* =========================================================
-       BACK TO TOP
-    ========================================================= */
-
-    const backToTop =
-        document.getElementById(
-            "backToTop"
-        );
-
-
-    function updateBackToTop() {
-
-        if (
-            window.scrollY > 500
-        ) {
-
-            backToTop.classList.add(
-                "visible"
-            );
-
-        } else {
-
-            backToTop.classList.remove(
-                "visible"
-            );
-
-        }
-
-    }
-
-
-    window.addEventListener(
-        "scroll",
-        updateBackToTop,
-        { passive: true }
-    );
-
-
-    backToTop.addEventListener(
-        "click",
-        () => {
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
             });
 
+        },
+
+        {
+            threshold:.12,
+            rootMargin:"0px 0px -35px 0px"
         }
+
     );
 
 
-    /* =========================================================
-       CURSOR GLOW
-       Desktop only
-    ========================================================= */
-
-    const cursorGlow =
-        document.querySelector(
-            ".cursor-glow"
-        );
+revealElements.forEach(
+    element =>
+        revealObserver.observe(element)
+);
 
 
-    if (
-        window.matchMedia(
-            "(pointer: fine)"
-        ).matches
-    ) {
+/* =========================================================
+   STAGGERED ANIMATION
+========================================================= */
 
-        document.addEventListener(
-            "mousemove",
-            event => {
+[
+    ".cert-card",
+    ".approach-card",
+    ".artifact",
+    ".connect-item"
+].forEach(selector => {
 
-                cursorGlow.style.left =
-                    event.clientX + "px";
+    document
+        .querySelectorAll(selector)
+        .forEach((card,index) => {
 
-                cursorGlow.style.top =
-                    event.clientY + "px";
+            card.style.transitionDelay =
+                `${index * 70}ms`;
 
-                cursorGlow.style.opacity =
-                    "1";
+        });
 
-            }
-        );
-
-        document.addEventListener(
-            "mouseleave",
-            () => {
-
-                cursorGlow.style.opacity =
-                    "0";
-
-            }
-        );
-
-    }
+});
 
 
-    /* =========================================================
-       ARTIFACT CARD TILT
-       Very subtle — desktop only
-    ========================================================= */
+/* =========================================================
+   ACTIVE SECTION
+========================================================= */
 
-    if (
-        window.matchMedia(
-            "(pointer: fine)"
-        ).matches
-    ) {
-
-        const artifacts =
-            document.querySelectorAll(
-                ".artifact"
-            );
-
-
-        artifacts.forEach(
-            card => {
-
-                card.addEventListener(
-                    "mousemove",
-                    event => {
-
-                        const rect =
-                            card.getBoundingClientRect();
-
-                        const x =
-                            event.clientX -
-                            rect.left;
-
-                        const y =
-                            event.clientY -
-                            rect.top;
-
-                        const centerX =
-                            rect.width / 2;
-
-                        const centerY =
-                            rect.height / 2;
-
-                        const rotateX =
-                            ((y - centerY) /
-                                centerY) * -1.2;
-
-                        const rotateY =
-                            ((x - centerX) /
-                                centerX) * 1.2;
-
-
-                        card.style.transform =
-                            `translateY(-4px)
-                             perspective(700px)
-                             rotateX(${rotateX}deg)
-                             rotateY(${rotateY}deg)`;
-
-                    }
-                );
-
-
-                card.addEventListener(
-                    "mouseleave",
-                    () => {
-
-                        card.style.transform =
-                            "";
-
-                    }
-                );
-
-            }
-        );
-
-    }
-
-
-    /* =========================================================
-       EXPERTISE NUMBER MICRO-ANIMATION
-    ========================================================= */
-
-    const expertiseNumbers =
-        document.querySelectorAll(
-            ".approach-number"
-        );
-
-
-    const numberObserver =
-        new IntersectionObserver(
-            entries => {
-
-                entries.forEach(
-                    entry => {
-
-                        if (
-                            entry.isIntersecting
-                        ) {
-
-                            const element =
-                                entry.target;
-
-                            const finalValue =
-                                element.textContent.trim();
-
-                            element.textContent =
-                                "00";
-
-
-                            setTimeout(
-                                () => {
-                                    element.textContent =
-                                        finalValue;
-                                },
-                                180
-                            );
-
-
-                            numberObserver.unobserve(
-                                element
-                            );
-
-                        }
-
-                    }
-                );
-
-            },
-            {
-                threshold: 0.7
-            }
-        );
-
-
-    expertiseNumbers.forEach(
-        number => {
-            numberObserver.observe(number);
-        }
-    );
-
-
-    /* =========================================================
-       EXTERNAL LINKS
-       Keep current HTML links untouched.
-    ========================================================= */
-
+const sections =
     document.querySelectorAll(
-        'a[href^="http"]'
-    ).forEach(
-        link => {
+        "section[id]"
+    );
 
-            link.addEventListener(
-                "click",
-                () => {
 
-                    link.style.opacity =
-                        "0.7";
+const sectionObserver =
+    new IntersectionObserver(
 
-                    setTimeout(
-                        () => {
-                            link.style.opacity =
-                                "";
-                        },
-                        250
+        entries => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting){
+
+                    sections.forEach(
+                        section =>
+                            section.classList.remove(
+                                "active-section"
+                            )
+                    );
+
+                    entry.target.classList.add(
+                        "active-section"
+                    );
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:.35
+        }
+
+    );
+
+
+sections.forEach(
+    section =>
+        sectionObserver.observe(section)
+);
+
+
+/* =========================================================
+   CURSOR GLOW
+========================================================= */
+
+if(
+    window.matchMedia(
+        "(pointer: fine)"
+    ).matches
+){
+
+    document.addEventListener(
+        "mousemove",
+        event => {
+
+            cursorGlow.style.left =
+                event.clientX + "px";
+
+            cursorGlow.style.top =
+                event.clientY + "px";
+
+            cursorGlow.style.opacity =
+                "1";
+
+        }
+    );
+
+
+    document.addEventListener(
+        "mouseleave",
+        () => {
+
+            cursorGlow.style.opacity =
+                "0";
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   PORTFOLIO SPOTLIGHT
+========================================================= */
+
+if(
+    window.matchMedia(
+        "(pointer: fine)"
+    ).matches
+){
+
+    document
+        .querySelectorAll(".artifact")
+        .forEach(card => {
+
+            card.addEventListener(
+                "mousemove",
+                event => {
+
+                    const rect =
+                        card.getBoundingClientRect();
+
+                    const x =
+                        event.clientX -
+                        rect.left;
+
+                    const y =
+                        event.clientY -
+                        rect.top;
+
+                    card.style.setProperty(
+                        "--mouse-x",
+                        x + "px"
+                    );
+
+                    card.style.setProperty(
+                        "--mouse-y",
+                        y + "px"
                     );
 
                 }
             );
 
+        });
+
+}
+
+
+/* =========================================================
+   3D ARTIFACT EFFECT
+========================================================= */
+
+if(
+    window.matchMedia(
+        "(pointer: fine)"
+    ).matches
+){
+
+    document
+        .querySelectorAll(".artifact")
+        .forEach(card => {
+
+            card.addEventListener(
+                "mousemove",
+                event => {
+
+                    const rect =
+                        card.getBoundingClientRect();
+
+                    const x =
+                        event.clientX -
+                        rect.left;
+
+                    const y =
+                        event.clientY -
+                        rect.top;
+
+                    const centerX =
+                        rect.width / 2;
+
+                    const centerY =
+                        rect.height / 2;
+
+                    const rotateX =
+                        ((y - centerY) /
+                        centerY) * -1.2;
+
+                    const rotateY =
+                        ((x - centerX) /
+                        centerX) * 1.2;
+
+                    card.style.transform =
+                        `translateY(-4px)
+                         perspective(700px)
+                         rotateX(${rotateX}deg)
+                         rotateY(${rotateY}deg)`;
+
+                }
+            );
+
+
+            card.addEventListener(
+                "mouseleave",
+                () => {
+
+                    card.style.transform = "";
+
+                }
+            );
+
+        });
+
+}
+
+
+/* =========================================================
+   EXPERTISE CARD SELECTION
+========================================================= */
+
+document
+    .querySelectorAll(".approach-card")
+    .forEach(card => {
+
+        card.addEventListener(
+            "click",
+            () => {
+
+                document
+                    .querySelectorAll(
+                        ".approach-card"
+                    )
+                    .forEach(item =>
+                        item.classList.remove(
+                            "selected"
+                        )
+                    );
+
+                card.classList.add(
+                    "selected"
+                );
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   EXPERTISE NUMBER MICRO ANIMATION
+========================================================= */
+
+const expertiseNumbers =
+    document.querySelectorAll(
+        ".approach-number"
+    );
+
+
+const numberObserver =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting){
+
+                    const element =
+                        entry.target;
+
+                    const finalValue =
+                        element.textContent.trim();
+
+                    element.textContent =
+                        "00";
+
+                    setTimeout(
+                        () => {
+
+                            element.textContent =
+                                finalValue;
+
+                        },
+                        180
+                    );
+
+                    numberObserver.unobserve(
+                        element
+                    );
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:.7
+        }
+
+    );
+
+
+expertiseNumbers.forEach(
+    number =>
+        numberObserver.observe(number)
+);
+
+
+/* =========================================================
+   PORTFOLIO SEARCH
+========================================================= */
+
+const searchInput =
+    document.getElementById(
+        "portfolioSearch"
+    );
+
+const artifacts =
+    document.querySelectorAll(
+        ".artifact"
+    );
+
+const noResults =
+    document.getElementById(
+        "noResults"
+    );
+
+const filterButtons =
+    document.querySelectorAll(
+        ".filter-btn"
+    );
+
+let activeFilter =
+    "all";
+
+
+function filterPortfolio(){
+
+    const searchTerm =
+        searchInput.value
+            .toLowerCase()
+            .trim();
+
+    let visibleCount = 0;
+
+
+    artifacts.forEach(artifact => {
+
+        const category =
+            artifact.dataset.category;
+
+        const keywords =
+            artifact.dataset.keywords
+                .toLowerCase();
+
+        const content =
+            artifact.textContent
+                .toLowerCase();
+
+
+        const matchesSearch =
+            !searchTerm ||
+            keywords.includes(searchTerm) ||
+            content.includes(searchTerm);
+
+
+        const matchesFilter =
+            activeFilter === "all" ||
+            category === activeFilter;
+
+
+        if(
+            matchesSearch &&
+            matchesFilter
+        ){
+
+            artifact.classList.remove(
+                "hidden"
+            );
+
+            artifact.classList.add(
+                "search-match"
+            );
+
+            visibleCount++;
+
+        }else{
+
+            artifact.classList.add(
+                "hidden"
+            );
+
+            artifact.classList.remove(
+                "search-match"
+            );
+
+        }
+
+    });
+
+
+    noResults.classList.toggle(
+        "visible",
+        visibleCount === 0
+    );
+
+}
+
+
+searchInput.addEventListener(
+    "input",
+    filterPortfolio
+);
+
+
+/* =========================================================
+   FILTER BUTTONS
+========================================================= */
+
+filterButtons.forEach(button => {
+
+    button.addEventListener(
+        "click",
+        () => {
+
+            filterButtons.forEach(
+                btn =>
+                    btn.classList.remove(
+                        "active"
+                    )
+            );
+
+            button.classList.add(
+                "active"
+            );
+
+            activeFilter =
+                button.dataset.filter;
+
+            filterPortfolio();
+
         }
     );
 
-</script>
+});
 
+
+/* =========================================================
+   COPY EMAIL
+========================================================= */
+
+const emailLink =
+    document.querySelector(
+        ".email-copy"
+    );
+
+
+emailLink.addEventListener(
+    "click",
+    async event => {
+
+        event.preventDefault();
+
+        const email =
+            "vishnuvardhanvjkumar@gmail.com";
+
+
+        try{
+
+            await navigator.clipboard.writeText(
+                email
+            );
+
+            showToast(
+                "Email address copied ✓"
+            );
+
+        }catch(error){
+
+            window.location.href =
+                "mailto:" + email;
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   DYNAMIC GREETING
+========================================================= */
+
+function getGreeting(){
+
+    const hour =
+        new Date().getHours();
+
+    if(hour < 12){
+
+        return "Good morning";
+
+    }
+
+    if(hour < 17){
+
+        return "Good afternoon";
+
+    }
+
+    return "Good evening";
+
+}
+
+
+const heroCaption =
+    document.querySelector(
+        ".hero-caption"
+    );
+
+
+heroCaption.addEventListener(
+    "click",
+    () => {
+
+        showToast(
+            getGreeting() +
+            " — welcome to my KM portfolio."
+        );
+
+    }
+);
+
+
+/* =========================================================
+   EXTERNAL LINK FEEDBACK
+========================================================= */
+
+document
+    .querySelectorAll(
+        'a[href^="http"]'
+    )
+    .forEach(link => {
+
+        link.addEventListener(
+            "click",
+            () => {
+
+                link.style.opacity =
+                    ".7";
+
+                setTimeout(
+                    () => {
+
+                        link.style.opacity =
+                            "";
+
+                    },
+                    250
+                );
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   COMMAND PALETTE
+========================================================= */
+
+const commandOverlay =
+    document.getElementById(
+        "commandOverlay"
+    );
+
+const commandInput =
+    document.getElementById(
+        "commandInput"
+    );
+
+const commandResults =
+    document.getElementById(
+        "commandResults"
+    );
+
+
+const commandItems = [
+
+    {
+        title:"Home",
+        description:"Return to the portfolio introduction",
+        icon:"⌂",
+        action:() => scrollToSection("home")
+    },
+
+    {
+        title:"Core Focus",
+        description:"HR Knowledge Strategy and AI-ready knowledge",
+        icon:"◎",
+        action:() => scrollToSection("focus")
+    },
+
+    {
+        title:"About Me",
+        description:"Knowledge Management background and research",
+        icon:"◉",
+        action:() => scrollToSection("about")
+    },
+
+    {
+        title:"Certifications",
+        description:"ServiceNow and AI & Knowledge",
+        icon:"✓",
+        action:() => scrollToSection("certifications")
+    },
+
+    {
+        title:"Expertise",
+        description:"Understand → Structure → Govern → Measure → AI",
+        icon:"◆",
+        action:() => scrollToSection("expertise")
+    },
+
+    {
+        title:"Enterprise Experience",
+        description:"Capgemini and AUI Systems experience",
+        icon:"▣",
+        action:() => scrollToSection("experience")
+    },
+
+    {
+        title:"Portfolio",
+        description:"Search and explore KM artifacts",
+        icon:"▤",
+        action:() => scrollToSection("portfolio")
+    },
+
+    {
+        title:"AI / RAG Blueprint",
+        description:"Open the AI-ready enterprise knowledge artifact",
+        icon:"✦",
+        action:() => {
+
+            document
+                .querySelector(
+                    '[data-category="ai"]'
+                )
+                .click();
+
+        }
+    },
+
+    {
+        title:"ServiceNow Knowledge",
+        description:"Find ServiceNow-related portfolio work",
+        icon:"S",
+        action:() => {
+
+            scrollToSection("portfolio");
+
+            searchInput.value =
+                "ServiceNow";
+
+            filterPortfolio();
+
+        }
+    },
+
+    {
+        title:"Governance",
+        description:"Find knowledge governance artifacts",
+        icon:"G",
+        action:() => {
+
+            scrollToSection("portfolio");
+
+            document
+                .querySelector(
+                    '[data-filter="governance"]'
+                )
+                .click();
+
+        }
+    },
+
+    {
+        title:"Contact",
+        description:"Connect through LinkedIn, email or resume",
+        icon:"→",
+        action:() => scrollToSection("connect")
+    }
+
+];
+
+
+let selectedCommand =
+    0;
+
+
+function renderCommands(){
+
+    const query =
+        commandInput.value
+            .toLowerCase()
+            .trim();
+
+
+    const filtered =
+        commandItems.filter(item =>
+
+            item.title
+                .toLowerCase()
+                .includes(query)
+
+            ||
+
+            item.description
+                .toLowerCase()
+                .includes(query)
+
+        );
+
+
+    if(filtered.length === 0){
+
+        commandResults.innerHTML = `
+            <div class="command-empty">
+                No matching knowledge found.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    selectedCommand =
+        Math.min(
+            selectedCommand,
+            filtered.length - 1
+        );
+
+
+    commandResults.innerHTML =
+        filtered.map(
+            (item,index) => `
+
+                <div
+                    class="command-item
+                    ${index === selectedCommand
+                        ? "selected"
+                        : ""}"
+                    data-index="${index}"
+                >
+
+                    <div class="command-item-main">
+
+                        <div class="command-item-icon">
+                            ${item.icon}
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                ${item.title}
+                            </strong>
+
+                            <small>
+                                ${item.description}
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                    ${
+                        index === selectedCommand
+                        ? `<span class="command-key">
+                            ENTER
+                           </span>`
+                        : ""
+                    }
+
+                </div>
+
+            `
+        ).join("");
+
+
+    commandResults
+        .querySelectorAll(
+            ".command-item"
+        )
+        .forEach((element,index) => {
+
+            element.addEventListener(
+                "mouseenter",
+                () => {
+
+                    selectedCommand =
+                        index;
+
+                    renderCommands();
+
+                }
+            );
+
+
+            element.addEventListener(
+                "click",
+                () => {
+
+                    filtered[index]
+                        .action();
+
+                    closeCommandPalette();
+
+                }
+            );
+
+        });
+
+}
+
+
+function openCommandPalette(){
+
+    commandOverlay.classList.add(
+        "open"
+    );
+
+    commandInput.value = "";
+
+    selectedCommand = 0;
+
+    renderCommands();
+
+    setTimeout(
+        () =>
+            commandInput.focus(),
+        100
+    );
+
+}
+
+
+function closeCommandPalette(){
+
+    commandOverlay.classList.remove(
+        "open"
+    );
+
+    commandInput.blur();
+
+}
+
+
+function scrollToSection(id){
+
+    const section =
+        document.getElementById(id);
+
+    if(!section){
+
+        return;
+
+    }
+
+    section.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+}
+
+
+commandInput.addEventListener(
+    "input",
+    () => {
+
+        selectedCommand = 0;
+
+        renderCommands();
+
+    }
+);
+
+
+/* =========================================================
+   COMMAND KEYBOARD NAVIGATION
+========================================================= */
+
+commandInput.addEventListener(
+    "keydown",
+    event => {
+
+        const query =
+            commandInput.value
+                .toLowerCase()
+                .trim();
+
+
+        const filtered =
+            commandItems.filter(item =>
+
+                item.title
+                    .toLowerCase()
+                    .includes(query)
+
+                ||
+
+                item.description
+                    .toLowerCase()
+                    .includes(query)
+
+            );
+
+
+        if(event.key === "ArrowDown"){
+
+            event.preventDefault();
+
+            selectedCommand =
+                Math.min(
+                    selectedCommand + 1,
+                    filtered.length - 1
+                );
+
+            renderCommands();
+
+        }
+
+
+        if(event.key === "ArrowUp"){
+
+            event.preventDefault();
+
+            selectedCommand =
+                Math.max(
+                    selectedCommand - 1,
+                    0
+                );
+
+            renderCommands();
+
+        }
+
+
+        if(event.key === "Enter"){
+
+            event.preventDefault();
+
+            if(filtered[selectedCommand]){
+
+                filtered[selectedCommand]
+                    .action();
+
+                closeCommandPalette();
+
+            }
+
+        }
+
+
+        if(event.key === "Escape"){
+
+            closeCommandPalette();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   GLOBAL KEYBOARD SHORTCUTS
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        /* Ctrl + K */
+
+        if(
+            (event.ctrlKey || event.metaKey) &&
+            event.key.toLowerCase() === "k"
+        ){
+
+            event.preventDefault();
+
+            openCommandPalette();
+
+        }
+
+
+        /* Escape */
+
+        if(
+            event.key === "Escape" &&
+            commandOverlay.classList.contains(
+                "open"
+            )
+        ){
+
+            closeCommandPalette();
+
+        }
+
+
+        /* Home */
+
+        if(
+            event.key === "Home" &&
+            document.activeElement.tagName !== "INPUT"
+        ){
+
+            scrollToSection("home");
+
+        }
+
+
+        /* End */
+
+        if(
+            event.key === "End" &&
+            document.activeElement.tagName !== "INPUT"
+        ){
+
+            scrollToSection("connect");
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   CLICK OUTSIDE COMMAND PALETTE
+========================================================= */
+
+commandOverlay.addEventListener(
+    "click",
+    event => {
+
+        if(
+            event.target ===
+            commandOverlay
+        ){
+
+            closeCommandPalette();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   RANDOM KM INSIGHT
+========================================================= */
+
+const kmInsights = [
+
+    "Knowledge is only useful when people can find it.",
+
+    "Good governance turns content into trusted knowledge.",
+
+    "AI becomes more useful when the knowledge foundation is structured.",
+
+    "Self-service starts with understanding what employees actually need.",
+
+    "A strong taxonomy improves both human search and machine retrieval."
+
+];
+
+
+document
+    .querySelector(".hero-badge")
+    .addEventListener(
+        "click",
+        () => {
+
+            const insight =
+                kmInsights[
+                    Math.floor(
+                        Math.random() *
+                        kmInsights.length
+                    )
+                ];
+
+            showToast(
+                insight
+            );
+
+        }
+    );
+
+
+/* =========================================================
+   MAGNETIC CONNECT CARDS
+========================================================= */
+
+if(
+    window.matchMedia(
+        "(pointer: fine)"
+    ).matches
+){
+
+    document
+        .querySelectorAll(
+            ".connect-item,.hero-badge"
+        )
+        .forEach(element => {
+
+            element.addEventListener(
+                "mousemove",
+                event => {
+
+                    const rect =
+                        element.getBoundingClientRect();
+
+                    const x =
+                        event.clientX -
+                        rect.left -
+                        rect.width / 2;
+
+                    const y =
+                        event.clientY -
+                        rect.top -
+                        rect.height / 2;
+
+                    element.style.transform =
+                        `translate(
+                            ${x * .04}px,
+                            ${y * .04}px
+                        )`;
+
+                }
+            );
+
+
+            element.addEventListener(
+                "mouseleave",
+                () => {
+
+                    element.style.transform =
+                        "";
+
+                }
+            );
+
+        });
+
+}
+
+
+/* =========================================================
+   INITIAL GREETING
+========================================================= */
+
+setTimeout(
+    () => {
+
+        showToast(
+            getGreeting() +
+            " — explore the knowledge portfolio."
+        );
+
+    },
+    1200
+);
+
+</script>
 
 </body>
 </html>
-```
