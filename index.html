@@ -1,342 +1,566 @@
 ```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Vishnuvardhan V | Knowledge Management Portfolio</title>
 
+    <meta name="description"
+        content="Vishnuvardhan V — Knowledge Management, HR Content Strategy, ServiceNow Knowledge, SharePoint, Content Governance and AI-Ready Enterprise Knowledge.">
+
     <style>
+
+        /* =========================================================
+           GLOBAL
+        ========================================================= */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --bg: #0d0f12;
-            --card: #15181d;
-            --text: #f4f4f4;
-            --muted: #a6a6a6;
-            --accent: #d9d9d9;
-            --line: #2b3038;
-        }
-
         html {
             scroll-behavior: smooth;
         }
 
+        :root {
+            --background: #ffffff;
+            --surface: #f7f7f7;
+            --surface-dark: #f1f1f1;
+            --text: #111111;
+            --muted: #666666;
+            --light-muted: #888888;
+            --line: #dddddd;
+            --line-dark: #cfcfcf;
+        }
+
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: var(--bg);
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: var(--background);
             color: var(--text);
-            line-height: 1.5;
+
+            line-height: 1.45;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
         .container {
-            max-width: 1050px;
-            margin: auto;
-            padding: 28px 24px;
+            width: min(1120px, calc(100% - 40px));
+            margin: 0 auto;
         }
 
-        /* =========================
-           SECTION SPACING
-        ========================= */
+
+        /* =========================================================
+           SECTION
+        ========================================================= */
 
         section {
-            padding: 26px 0;
+            padding: 30px 0;
             border-bottom: 1px solid var(--line);
         }
 
         section:first-child {
-            padding-top: 10px;
+            padding-top: 25px;
         }
 
         section:last-child {
             border-bottom: none;
         }
 
-        /* =========================
-           HERO
-        ========================= */
 
-        .eyebrow {
-            font-size: 11px;
-            letter-spacing: 2px;
+        /* =========================================================
+           SMALL LABEL
+        ========================================================= */
+
+        .section-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.8px;
             text-transform: uppercase;
             color: var(--muted);
-            margin-bottom: 10px;
+            margin-bottom: 9px;
         }
 
-        h1 {
-            font-size: clamp(38px, 7vw, 72px);
-            line-height: 0.95;
-            letter-spacing: -2px;
-            margin-bottom: 14px;
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            padding: 25px 0 30px;
+        }
+
+        .hero-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
         }
 
         .hero-name {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 5px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 13px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 78px);
+            line-height: 0.9;
+            letter-spacing: -4px;
+            font-weight: 800;
+            margin-bottom: 15px;
         }
 
         .hero-role {
             font-size: 13px;
             color: var(--muted);
+            max-width: 650px;
         }
 
-        .quote {
-            margin-top: 22px;
-            font-size: 15px;
+        .hero-caption {
+            margin-top: 20px;
+            font-size: 14px;
             font-style: italic;
             color: var(--muted);
         }
 
-        /* =========================
-           HEADINGS
-        ========================= */
-
-        .section-label {
-            font-size: 11px;
-            letter-spacing: 2px;
+        .hero-badge {
+            border: 1px solid var(--line-dark);
+            padding: 9px 12px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            color: var(--muted);
-            margin-bottom: 12px;
+            white-space: nowrap;
         }
+
+
+        /* =========================================================
+           HEADINGS
+        ========================================================= */
 
         h2 {
-            font-size: 25px;
+            font-size: 27px;
+            line-height: 1.05;
+            letter-spacing: -1px;
             margin-bottom: 12px;
-            letter-spacing: -0.5px;
         }
 
-        /* =========================
+        h3 {
+            line-height: 1.2;
+        }
+
+
+        /* =========================================================
            CORE FOCUS
-        ========================= */
+        ========================================================= */
 
-        .focus-text {
+        .focus-intro {
             font-size: 17px;
-            max-width: 800px;
-            margin-bottom: 14px;
+            max-width: 850px;
+            margin-bottom: 13px;
         }
 
-        .keyword-line {
-            font-size: 12px;
+        .focus-keywords {
+            font-size: 11px;
             line-height: 2;
             color: var(--muted);
         }
 
-        .keyword-line span {
+        .focus-keywords span {
             color: var(--text);
         }
 
-        /* =========================
+
+        /* =========================================================
            ABOUT
-        ========================= */
+        ========================================================= */
+
+        .about-layout {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 35px;
+            align-items: start;
+        }
 
         .about-text {
-            max-width: 850px;
-            color: #d4d4d4;
-            font-size: 15px;
+            font-size: 14px;
+            color: #444444;
+            max-width: 780px;
         }
 
         .about-text p {
-            margin-bottom: 10px;
+            margin-bottom: 9px;
         }
 
-        .highlight {
+        .about-text strong {
             color: var(--text);
-            font-weight: 600;
         }
 
-        /* =========================
+        .research-card {
+            border-left: 2px solid #111111;
+            padding-left: 14px;
+        }
+
+        .research-card small {
+            display: block;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+
+        .research-card strong {
+            display: block;
+            font-size: 13px;
+            line-height: 1.35;
+        }
+
+        .research-card p {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 6px;
+        }
+
+
+        /* =========================================================
            CERTIFICATIONS
-        ========================= */
+        ========================================================= */
 
         .cert-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+            gap: 9px;
         }
 
         .cert-card {
-            background: var(--card);
             border: 1px solid var(--line);
-            padding: 15px;
-            min-height: 110px;
+            padding: 13px;
+            background: var(--surface);
+        }
+
+        .cert-tag {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 7px;
         }
 
         .cert-card h3 {
             font-size: 14px;
-            margin-bottom: 7px;
+            margin-bottom: 5px;
         }
 
         .cert-card p {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--muted);
         }
 
-        /* =========================
+
+        /* =========================================================
            EXPERTISE
-        ========================= */
+        ========================================================= */
 
         .approach-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+            gap: 8px;
         }
 
         .approach-card {
             border: 1px solid var(--line);
-            padding: 14px;
-            background: var(--card);
+            padding: 13px;
         }
 
         .approach-number {
-            font-size: 11px;
-            color: var(--muted);
-            margin-bottom: 6px;
-        }
-
-        .approach-card h3 {
-            font-size: 14px;
-            margin-bottom: 6px;
-        }
-
-        .approach-card p {
-            font-size: 12px;
-            color: var(--muted);
-        }
-
-        /* =========================
-           PORTFOLIO EXPERIENCE
-        ========================= */
-
-        .company {
-            margin-top: 20px;
-        }
-
-        .company:first-of-type {
-            margin-top: 0;
-        }
-
-        .company-name {
-            font-size: 18px;
+            font-size: 9px;
             font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .company-description {
-            font-size: 13px;
-            color: var(--muted);
-            margin-bottom: 14px;
-        }
-
-        .experience-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 7px;
-        }
-
-        .experience-item {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-            color: #d0d0d0;
-            padding: 7px 10px;
-            border: 1px solid var(--line);
-            background: var(--card);
-        }
-
-        /* =========================
-           SELECTED WORK
-        ========================= */
-
-        .work-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-top: 18px;
-        }
-
-        .work-card {
-            border: 1px solid var(--line);
-            padding: 17px;
-            background: var(--card);
-        }
-
-        .work-card h3 {
-            font-size: 15px;
-            margin-bottom: 10px;
-        }
-
-        .work-card ul {
-            padding-left: 16px;
-        }
-
-        .work-card li {
-            font-size: 12px;
             color: var(--muted);
             margin-bottom: 5px;
         }
 
-        /* =========================
+        .approach-card h3 {
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .approach-card p {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+
+        /* =========================================================
+           ENTERPRISE EXPERIENCE
+        ========================================================= */
+
+        .company {
+            padding: 15px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .company:first-child {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 20px;
+            margin-bottom: 8px;
+        }
+
+        .company-name {
+            font-size: 16px;
+            font-weight: 800;
+        }
+
+        .company-role {
+            font-size: 10px;
+            color: var(--muted);
+        }
+
+        .experience-line {
+            font-size: 11px;
+            line-height: 1.9;
+            color: var(--muted);
+        }
+
+        .experience-line span {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .bullet {
+            color: #999999;
+            padding: 0 5px;
+        }
+
+
+        /* =========================================================
+           PORTFOLIO HEADER
+        ========================================================= */
+
+        .portfolio-intro {
+            font-size: 13px;
+            color: var(--muted);
+            max-width: 800px;
+            margin-bottom: 17px;
+        }
+
+        .alignment-line {
+            font-size: 10px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+
+        /* =========================================================
+           ARTIFACT GRID
+        ========================================================= */
+
+        .artifact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .artifact {
+            border: 1px solid var(--line);
+            padding: 17px;
+            background: #ffffff;
+            transition: 0.2s ease;
+        }
+
+        .artifact:hover {
+            border-color: #999999;
+            transform: translateY(-2px);
+        }
+
+        .artifact-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 9px;
+        }
+
+        .artifact-type {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .artifact-number {
+            font-size: 10px;
+            color: #999999;
+        }
+
+        .artifact h3 {
+            font-size: 16px;
+            margin-bottom: 7px;
+        }
+
+        .artifact-description {
+            font-size: 11px;
+            line-height: 1.55;
+            color: var(--muted);
+            margin-bottom: 10px;
+        }
+
+        .artifact-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 12px;
+        }
+
+        .artifact-tags span {
+            font-size: 9px;
+            padding: 4px 6px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            color: #555555;
+        }
+
+        .artifact-link {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .artifact-link:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================================================
+           FORTIV ALIGNMENT
+        ========================================================= */
+
+        .fortiv-box {
+            margin-top: 15px;
+            padding: 13px 15px;
+            background: var(--surface);
+            border-left: 2px solid #111111;
+        }
+
+        .fortiv-box strong {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .fortiv-box p {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+
+        /* =========================================================
            CONNECT
-        ========================= */
+        ========================================================= */
+
+        .connect-intro {
+            font-size: 14px;
+            color: var(--muted);
+            margin-bottom: 14px;
+        }
 
         .connect-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin-top: 15px;
+            gap: 8px;
         }
 
         .connect-item {
-            padding: 14px;
             border: 1px solid var(--line);
-            background: var(--card);
-            text-decoration: none;
-            color: var(--text);
+            padding: 13px;
+            background: var(--surface);
             transition: 0.2s ease;
         }
 
         .connect-item:hover {
-            border-color: #777;
+            border-color: #999999;
             transform: translateY(-2px);
         }
 
         .connect-item small {
             display: block;
-            font-size: 10px;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
             text-transform: uppercase;
-            letter-spacing: 1px;
             color: var(--muted);
             margin-bottom: 5px;
         }
 
         .connect-item span {
-            font-size: 12px;
+            font-size: 11px;
             word-break: break-word;
         }
 
-        /* =========================
+
+        /* =========================================================
            FOOTER
-        ========================= */
+        ========================================================= */
 
         footer {
-            padding-top: 20px;
-            font-size: 11px;
+            padding: 18px 0 25px;
+            font-size: 10px;
             color: var(--muted);
             text-align: center;
         }
 
-        /* =========================
+
+        /* =========================================================
            MOBILE
-        ========================= */
+        ========================================================= */
 
         @media (max-width: 800px) {
+
+            .hero-top {
+                display: block;
+            }
+
+            .hero-badge {
+                display: inline-block;
+                margin-top: 15px;
+            }
+
+            .about-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
 
             .cert-grid,
             .approach-grid {
@@ -349,164 +573,241 @@
 
         }
 
+
         @media (max-width: 560px) {
 
             .container {
-                padding: 20px 16px;
+                width: min(100% - 28px, 1120px);
             }
 
             section {
-                padding: 20px 0;
+                padding: 23px 0;
             }
 
-            h1 {
-                font-size: 42px;
+            .hero {
+                padding-top: 18px;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+                letter-spacing: -2.5px;
             }
 
             .cert-grid,
             .approach-grid,
-            .work-grid,
+            .artifact-grid,
             .connect-grid {
                 grid-template-columns: 1fr;
             }
 
-            .experience-item {
-                font-size: 10px;
+            .company-header {
+                display: block;
+            }
+
+            .company-role {
+                display: block;
+                margin-top: 3px;
             }
 
         }
 
     </style>
+
 </head>
+
 
 <body>
 
 <div class="container">
 
-    <!-- ================= HERO ================= -->
 
-    <section id="home">
+    <!-- =========================================================
+         01 — HERO
+    ========================================================= -->
 
-        <div class="eyebrow">Vishnuvardhan V.</div>
+    <section class="hero" id="home">
 
-        <h1>
-            KNOWLEDGE<br>
-            MANAGEMENT<br>
-            PORTFOLIO
-        </h1>
+        <div class="hero-top">
 
-        <div class="hero-role">
-            Knowledge Management | Knowledge Architecture |
-            Enterprise Content | AI-Ready Knowledge
+            <div>
+
+                <div class="hero-name">
+                    Vishnuvardhan V
+                </div>
+
+                <h1>
+                    KNOWLEDGE<br>
+                    MANAGEMENT<br>
+                    PORTFOLIO
+                </h1>
+
+                <div class="hero-role">
+                    Knowledge Management · HR Content Strategy ·
+                    Knowledge Architecture · ServiceNow · SharePoint ·
+                    AI-Ready Knowledge
+                </div>
+
+            </div>
+
+
+            <div class="hero-badge">
+                Enterprise KM
+            </div>
+
         </div>
 
-        <div class="quote">
+
+        <div class="hero-caption">
             “Life, Knowledge Management and everything in between.”
         </div>
 
     </section>
 
 
-    <!-- ================= CORE FOCUS ================= -->
+
+    <!-- =========================================================
+         02 — CORE FOCUS
+    ========================================================= -->
 
     <section id="focus">
 
-        <div class="section-label">01 — Core Focus</div>
-
-        <div class="focus-text">
-            Designing knowledge ecosystems that make enterprise information
-            <strong>easier to find, easier to understand, and easier to use.</strong>
+        <div class="section-label">
+            01 — Core Focus
         </div>
 
-        <div class="keyword-line">
+        <div class="focus-intro">
 
-            <span>Knowledge Strategy</span> •
+            I design and govern enterprise knowledge experiences that
+            make information <strong>easier to find, easier to understand,
+            and easier to use.</strong>
+
+        </div>
+
+        <div class="focus-keywords">
+
+            <span>HR Knowledge Strategy</span> •
             <span>Knowledge Architecture</span> •
-            <span>Taxonomy & Metadata</span> •
-            <span>Enterprise Search</span> •
-            <span>Content Governance</span> •
-            <span>Knowledge Lifecycle</span> •
-            <span>Self-Service</span> •
-            <span>ServiceNow KM</span> •
+            <span>ServiceNow Knowledge</span> •
             <span>SharePoint</span> •
+            <span>Taxonomy & Metadata</span> •
+            <span>Content Governance</span> •
+            <span>Self-Service</span> •
             <span>Content Migration</span> •
             <span>Knowledge Analytics</span> •
-            <span>Automation</span> •
-            <span>AI & RAG-Ready Knowledge</span>
+            <span>AI-Ready Knowledge</span>
 
         </div>
 
     </section>
 
 
-    <!-- ================= ABOUT ================= -->
+
+    <!-- =========================================================
+         03 — ABOUT ME
+    ========================================================= -->
 
     <section id="about">
 
-        <div class="section-label">02 — About Me</div>
+        <div class="section-label">
+            02 — About Me
+        </div>
 
-        <h2>Building knowledge that people can actually use.</h2>
 
-        <div class="about-text">
+        <div class="about-layout">
 
-            <p>
-                I am a Knowledge Management professional with experience in
-                building, governing, organizing, and improving enterprise
-                knowledge ecosystems.
-            </p>
+            <div class="about-text">
 
-            <p>
-                My work sits at the intersection of
-                <span class="highlight">
-                    people, processes, content, technology, and enterprise
-                    self-service.
-                </span>
-            </p>
+                <h2>
+                    Knowledge Management<br>
+                    across the enterprise
+                </h2>
 
-            <p>
-                Currently, I am pursuing my
-                <span class="highlight">
-                    Doctorate (PhD) focused on Enterprise Knowledge Management
-                    Systems using Generative AI and Retrieval-Augmented
-                    Generation (RAG) pipelines.
-                </span>
-            </p>
+                <p>
+                    I am a Knowledge Management professional focused on
+                    designing <strong>structured, searchable and governed
+                    knowledge experiences</strong> for enterprise HR environments.
+                </p>
 
-            <p>
-                My research explores how enterprise knowledge can become more
-                intelligent, contextual, personalized, and accessible through
-                AI-powered knowledge systems.
-            </p>
+                <p>
+                    My work spans the knowledge lifecycle — from
+                    <strong>content strategy, information architecture and
+                    taxonomy</strong> through governance, publishing,
+                    analytics, migration and continuous improvement.
+                </p>
 
-            <p>
-                <span class="highlight">
-                    For me, Knowledge Management is not about storing documents.
-                    It is about connecting the right knowledge with the right
-                    person at the right time.
-                </span>
-            </p>
+                <p>
+                    I design knowledge for employees who need simple,
+                    actionable self-service information and HR service teams
+                    that need reliable knowledge to resolve employee queries
+                    efficiently and consistently.
+                </p>
+
+                <p>
+                    Alongside my professional work, I am pursuing my
+                    <strong>Doctorate (PhD) focused on Enterprise Knowledge
+                    Management Systems using Generative AI and
+                    Retrieval-Augmented Generation (RAG) pipelines.</strong>
+                </p>
+
+            </div>
+
+
+            <div class="research-card">
+
+                <small>
+                    Current Research
+                </small>
+
+                <strong>
+                    Enterprise Knowledge Management Systems
+                    using Generative AI & RAG
+                </strong>
+
+                <p>
+                    Exploring how structured enterprise knowledge can support
+                    intelligent search, self-service, chatbots and
+                    AI-enabled employee experiences.
+                </p>
+
+            </div>
 
         </div>
 
     </section>
 
 
-    <!-- ================= CERTIFICATIONS ================= -->
+
+    <!-- =========================================================
+         04 — CERTIFICATIONS
+    ========================================================= -->
 
     <section id="certifications">
 
-        <div class="section-label">03 — Certifications</div>
+        <div class="section-label">
+            03 — Certifications
+        </div>
+
+        <h2>
+            Professional Certifications
+        </h2>
+
 
         <div class="cert-grid">
 
+
             <div class="cert-card">
 
-                <h3>ServiceNow CSA</h3>
+                <div class="cert-tag">
+                    ServiceNow
+                </div>
+
+                <h3>
+                    ServiceNow Certified System Administrator
+                </h3>
 
                 <p>
-                    ServiceNow Certified System Administrator with knowledge
-                    of platform administration, ITSM practices, workflow
-                    automation, and ServiceNow Knowledge Management.
+                    Platform administration, workflows, ITSM practices,
+                    enterprise service management and ServiceNow capabilities.
                 </p>
 
             </div>
@@ -514,11 +815,17 @@
 
             <div class="cert-card">
 
-                <h3>Knowledge Management</h3>
+                <div class="cert-tag">
+                    Knowledge Management
+                </div>
+
+                <h3>
+                    Enterprise Knowledge Management
+                </h3>
 
                 <p>
-                    Knowledge Architecture • Content Governance • Taxonomy •
-                    Metadata • Enterprise Search • Self-Service
+                    Knowledge architecture, taxonomy, content governance,
+                    lifecycle management and employee self-service.
                 </p>
 
             </div>
@@ -526,21 +833,31 @@
 
             <div class="cert-card">
 
-                <h3>AI-Ready Knowledge</h3>
+                <div class="cert-tag">
+                    AI & Knowledge
+                </div>
+
+                <h3>
+                    Generative AI & AI-Ready Knowledge
+                </h3>
 
                 <p>
-                    Generative AI • Prompt Engineering • Semantic Knowledge •
-                    Intelligent Knowledge Systems • RAG Concepts
+                    Generative AI, prompt engineering, semantic knowledge,
+                    intelligent search and RAG concepts.
                 </p>
 
             </div>
+
 
         </div>
 
     </section>
 
 
-    <!-- ================= EXPERTISE ================= -->
+
+    <!-- =========================================================
+         05 — EXPERTISE
+    ========================================================= -->
 
     <section id="expertise">
 
@@ -548,20 +865,27 @@
             04 — Expertise
         </div>
 
-        <h2>How I Approach Knowledge Management</h2>
+        <h2>
+            How I Approach Knowledge Management
+        </h2>
 
 
         <div class="approach-grid">
 
+
             <div class="approach-card">
 
-                <div class="approach-number">01</div>
+                <div class="approach-number">
+                    01
+                </div>
 
-                <h3>Understand</h3>
+                <h3>
+                    Understand
+                </h3>
 
                 <p>
-                    Identify where knowledge exists, who owns it,
-                    how people access it, and where gaps occur.
+                    Identify knowledge sources, users, owners,
+                    business needs and information gaps.
                 </p>
 
             </div>
@@ -569,13 +893,17 @@
 
             <div class="approach-card">
 
-                <div class="approach-number">02</div>
+                <div class="approach-number">
+                    02
+                </div>
 
-                <h3>Structure</h3>
+                <h3>
+                    Structure
+                </h3>
 
                 <p>
-                    Build logical knowledge architecture using taxonomy,
-                    metadata, categories, and information standards.
+                    Build information architecture using taxonomy,
+                    metadata, categorization and content models.
                 </p>
 
             </div>
@@ -583,13 +911,17 @@
 
             <div class="approach-card">
 
-                <div class="approach-number">03</div>
+                <div class="approach-number">
+                    03
+                </div>
 
-                <h3>Govern</h3>
+                <h3>
+                    Govern
+                </h3>
 
                 <p>
-                    Establish ownership, review cycles, approval workflows,
-                    and lifecycle governance.
+                    Establish ownership, review, approval, publishing,
+                    version control and retirement practices.
                 </p>
 
             </div>
@@ -597,13 +929,17 @@
 
             <div class="approach-card">
 
-                <div class="approach-number">04</div>
+                <div class="approach-number">
+                    04
+                </div>
 
-                <h3>Enable Self-Service</h3>
+                <h3>
+                    Enable Self-Service
+                </h3>
 
                 <p>
-                    Create knowledge experiences that help employees find
-                    answers independently.
+                    Create persona-relevant knowledge that helps employees
+                    find answers independently.
                 </p>
 
             </div>
@@ -611,13 +947,17 @@
 
             <div class="approach-card">
 
-                <div class="approach-number">05</div>
+                <div class="approach-number">
+                    05
+                </div>
 
-                <h3>Measure</h3>
+                <h3>
+                    Measure
+                </h3>
 
                 <p>
-                    Use search trends, usage data, feedback, and knowledge
-                    gaps to improve the ecosystem.
+                    Use search, usage, feedback, case trends and
+                    knowledge gaps to improve content.
                 </p>
 
             </div>
@@ -625,223 +965,181 @@
 
             <div class="approach-card">
 
-                <div class="approach-number">06</div>
+                <div class="approach-number">
+                    06
+                </div>
 
-                <h3>Prepare for AI</h3>
+                <h3>
+                    Prepare for AI
+                </h3>
 
                 <p>
-                    Build structured and governed knowledge foundations
-                    ready for enterprise AI and RAG systems.
+                    Build structured, governed knowledge foundations
+                    ready for search, chatbots and RAG.
                 </p>
 
             </div>
+
 
         </div>
 
     </section>
 
 
-    <!-- ================= PORTFOLIO ================= -->
 
-    <section id="portfolio">
+    <!-- =========================================================
+         06 — ENTERPRISE EXPERIENCE
+    ========================================================= -->
+
+    <section id="experience">
 
         <div class="section-label">
-            05 — Portfolio
+            05 — Enterprise Experience
         </div>
-
-        <h2>Selected Knowledge Management Work</h2>
 
 
         <!-- CAPGEMINI -->
 
         <div class="company">
 
-            <div class="company-name">
-                CAPGEMINI
+            <div class="company-header">
+
+                <div class="company-name">
+                    Capgemini
+                </div>
+
+                <div class="company-role">
+                    Process Lead · Global Knowledge Management
+                </div>
+
             </div>
 
-            <div class="company-description">
-                Process Lead | Global Knowledge Management |
-                Enterprise Content | Self-Service
-            </div>
 
+            <div class="experience-line">
 
-            <div class="experience-list">
+                <span>Global HR Knowledge Management</span>
 
-                <div class="experience-item">
-                    Global HR Knowledge Management
-                </div>
+                <b class="bullet">•</b>
 
-                <div class="experience-item">
-                    ServiceNow Knowledge Management
-                </div>
+                <span>ServiceNow Knowledge Management</span>
 
-                <div class="experience-item">
-                    Knowledge Architecture & Taxonomy
-                </div>
+                <b class="bullet">•</b>
 
-                <div class="experience-item">
-                    Content Lifecycle Governance
-                </div>
+                <span>HR Knowledge Architecture</span>
 
-                <div class="experience-item">
-                    SharePoint & Repository Governance
-                </div>
+                <b class="bullet">•</b>
 
-                <div class="experience-item">
-                    HR Content Strategy & Development
-                </div>
+                <span>Taxonomy & Metadata</span>
 
-                <div class="experience-item">
-                    Content Migration & Harmonization
-                </div>
+                <b class="bullet">•</b>
 
-                <div class="experience-item">
-                    SME & Stakeholder Governance
-                </div>
+                <span>Content Lifecycle Governance</span>
 
-                <div class="experience-item">
-                    Knowledge Analytics & Self-Service
-                </div>
+                <b class="bullet">•</b>
 
-                <div class="experience-item">
-                    Knowledge Enablement & Standards
-                </div>
+                <span>SharePoint & Repository Governance</span>
 
-                <div class="experience-item">
-                    Analytics, Automation & AI-Ready Knowledge
-                </div>
+                <b class="bullet">•</b>
+
+                <span>HR Content Strategy & Development</span>
+
+                <b class="bullet">•</b>
+
+                <span>Content Migration & Harmonization</span>
+
+                <b class="bullet">•</b>
+
+                <span>SME & Stakeholder Governance</span>
+
+                <b class="bullet">•</b>
+
+                <span>Knowledge Analytics & Self-Service</span>
+
+                <b class="bullet">•</b>
+
+                <span>Knowledge Enablement & Standards</span>
+
+                <b class="bullet">•</b>
+
+                <span>Automation & AI-Ready Knowledge</span>
 
             </div>
 
         </div>
 
 
-        <!-- AUI SYSTEMS -->
+        <!-- AUI -->
 
         <div class="company">
 
-            <div class="company-name">
-                AUI SYSTEMS PVT. LTD.
-            </div>
+            <div class="company-header">
 
-            <div class="company-description">
-                Knowledge Architecture | Intelligent Knowledge |
-                Semantic Technologies
-            </div>
-
-
-            <div class="experience-list">
-
-                <div class="experience-item">
-                    Knowledge Management Strategy
+                <div class="company-name">
+                    AUI Systems Pvt. Ltd.
                 </div>
 
-                <div class="experience-item">
-                    Knowledge Architecture & Information Design
-                </div>
-
-                <div class="experience-item">
-                    Taxonomy & Metadata Management
-                </div>
-
-                <div class="experience-item">
-                    Knowledge Portal & Repository Management
-                </div>
-
-                <div class="experience-item">
-                    Content Management & Standards
-                </div>
-
-                <div class="experience-item">
-                    Knowledge Governance & Lifecycle
-                </div>
-
-                <div class="experience-item">
-                    Knowledge Discovery & Search
-                </div>
-
-                <div class="experience-item">
-                    Content Analysis & Knowledge Gaps
-                </div>
-
-                <div class="experience-item">
-                    Stakeholder & SME Collaboration
-                </div>
-
-                <div class="experience-item">
-                    Knowledge Reuse & Self-Service
-                </div>
-
-                <div class="experience-item">
-                    Intelligent Knowledge & Semantic Technologies
-                </div>
-
-                <div class="experience-item">
-                    Continuous Improvement & Scalable KM
+                <div class="company-role">
+                    Knowledge Architect
                 </div>
 
             </div>
 
-        </div>
 
+            <div class="experience-line">
 
-        <!-- SELECTED WORK -->
+                <span>Knowledge Management Strategy</span>
 
-        <div class="work-grid">
+                <b class="bullet">•</b>
 
-            <div class="work-card">
+                <span>Knowledge Architecture</span>
 
-                <h3>HR Knowledge Management</h3>
+                <b class="bullet">•</b>
 
-                <ul>
-                    <li>Global HR knowledge initiatives</li>
-                    <li>Employee self-service content</li>
-                    <li>Knowledge articles and process guides</li>
-                    <li>SME validation and governance</li>
-                </ul>
+                <span>Information Design</span>
 
-            </div>
+                <b class="bullet">•</b>
 
+                <span>Taxonomy & Metadata</span>
 
-            <div class="work-card">
+                <b class="bullet">•</b>
 
-                <h3>Knowledge Architecture</h3>
+                <span>Knowledge Portal Management</span>
 
-                <ul>
-                    <li>Taxonomy and content structure</li>
-                    <li>Information organization</li>
-                    <li>Improved discoverability</li>
-                    <li>Scalable knowledge structures</li>
-                </ul>
+                <b class="bullet">•</b>
 
-            </div>
+                <span>Content Management & Standards</span>
 
+                <b class="bullet">•</b>
 
-            <div class="work-card">
+                <span>Knowledge Governance & Lifecycle</span>
 
-                <h3>Content Governance</h3>
+                <b class="bullet">•</b>
 
-                <ul>
-                    <li>Content lifecycle management</li>
-                    <li>Review and approval processes</li>
-                    <li>Knowledge ownership</li>
-                    <li>Content quality standards</li>
-                </ul>
+                <span>Knowledge Discovery & Search</span>
 
-            </div>
+                <b class="bullet">•</b>
 
+                <span>Content Analysis & Knowledge Gaps</span>
 
-            <div class="work-card">
+                <b class="bullet">•</b>
 
-                <h3>AI-Ready Knowledge</h3>
+                <span>SME Collaboration</span>
 
-                <ul>
-                    <li>Structured enterprise knowledge</li>
-                    <li>Semantic knowledge concepts</li>
-                    <li>Generative AI exploration</li>
-                    <li>RAG-ready knowledge foundations</li>
-                </ul>
+                <b class="bullet">•</b>
+
+                <span>Knowledge Reuse & Self-Service</span>
+
+                <b class="bullet">•</b>
+
+                <span>Semantic Technologies</span>
+
+                <b class="bullet">•</b>
+
+                <span>Intelligent Knowledge Systems</span>
+
+                <b class="bullet">•</b>
+
+                <span>Scalable KM</span>
 
             </div>
 
@@ -850,18 +1148,394 @@
     </section>
 
 
-    <!-- ================= CONNECT ================= -->
+
+    <!-- =========================================================
+         07 — SELECTED PORTFOLIO WORK
+    ========================================================= -->
+
+    <section id="portfolio">
+
+        <div class="section-label">
+            06 — Selected Portfolio Work
+        </div>
+
+        <h2>
+            Enterprise KM Artifacts
+        </h2>
+
+        <div class="portfolio-intro">
+
+            Demonstrative documentation artifacts showcasing how I approach
+            HR knowledge strategy, architecture, governance, self-service,
+            analytics and AI-ready enterprise knowledge.
+
+        </div>
+
+
+        <div class="artifact-grid">
+
+
+            <!-- 01 -->
+
+            <div class="artifact">
+
+                <div class="artifact-top">
+
+                    <div class="artifact-type">
+                        HR Content · Knowledge Article
+                    </div>
+
+                    <div class="artifact-number">
+                        01
+                    </div>
+
+                </div>
+
+
+                <h3>
+                    HR Knowledge Article
+                </h3>
+
+                <p class="artifact-description">
+
+                    A concise, searchable HR knowledge article designed around
+                    an employee question, with structured answers, steps,
+                    eligibility, metadata, ownership and review information.
+
+                </p>
+
+
+                <div class="artifact-tags">
+
+                    <span>ServiceNow KM</span>
+                    <span>Self-Service</span>
+                    <span>Plain Language</span>
+                    <span>Metadata</span>
+
+                </div>
+
+
+                <a
+                    href="artifacts/hr-knowledge-article.pdf"
+                    target="_blank"
+                    class="artifact-link"
+                >
+                    VIEW ARTIFACT →
+                </a>
+
+            </div>
+
+
+
+            <!-- 02 -->
+
+            <div class="artifact">
+
+                <div class="artifact-top">
+
+                    <div class="artifact-type">
+                        Architecture · Taxonomy
+                    </div>
+
+                    <div class="artifact-number">
+                        02
+                    </div>
+
+                </div>
+
+
+                <h3>
+                    HR Knowledge Architecture & Taxonomy
+                </h3>
+
+
+                <p class="artifact-description">
+
+                    A visual knowledge architecture showing HR domains,
+                    taxonomy, metadata, persona, lifecycle and ownership
+                    structures for enterprise knowledge.
+
+                </p>
+
+
+                <div class="artifact-tags">
+
+                    <span>Taxonomy</span>
+                    <span>Metadata</span>
+                    <span>Information Architecture</span>
+                    <span>Search</span>
+
+                </div>
+
+
+                <a
+                    href="artifacts/hr-knowledge-architecture.pdf"
+                    target="_blank"
+                    class="artifact-link"
+                >
+                    VIEW ARTIFACT →
+                </a>
+
+            </div>
+
+
+
+            <!-- 03 -->
+
+            <div class="artifact">
+
+                <div class="artifact-top">
+
+                    <div class="artifact-type">
+                        Governance · SOP
+                    </div>
+
+                    <div class="artifact-number">
+                        03
+                    </div>
+
+                </div>
+
+
+                <h3>
+                    Knowledge Content Governance & Lifecycle
+                </h3>
+
+
+                <p class="artifact-description">
+
+                    A governance framework covering content intake, drafting,
+                    SME review, approval, publishing, version control,
+                    renewal, retirement and ownership.
+
+                </p>
+
+
+                <div class="artifact-tags">
+
+                    <span>Governance</span>
+                    <span>SME Review</span>
+                    <span>Approval</span>
+                    <span>Lifecycle</span>
+
+                </div>
+
+
+                <a
+                    href="artifacts/knowledge-governance-sop.pdf"
+                    target="_blank"
+                    class="artifact-link"
+                >
+                    VIEW ARTIFACT →
+                </a>
+
+            </div>
+
+
+
+            <!-- 04 -->
+
+            <div class="artifact">
+
+                <div class="artifact-top">
+
+                    <div class="artifact-type">
+                        Content Analysis · Gap Assessment
+                    </div>
+
+                    <div class="artifact-number">
+                        04
+                    </div>
+
+                </div>
+
+
+                <h3>
+                    HR Content Inventory & Gap Analysis
+                </h3>
+
+
+                <p class="artifact-description">
+
+                    A sample enterprise content inventory identifying
+                    duplicate, outdated, fragmented and migration-ready
+                    HR knowledge across multiple repositories.
+
+                </p>
+
+
+                <div class="artifact-tags">
+
+                    <span>Inventory</span>
+                    <span>Gap Analysis</span>
+                    <span>Cleanup</span>
+                    <span>Migration</span>
+
+                </div>
+
+
+                <a
+                    href="artifacts/hr-content-inventory.pdf"
+                    target="_blank"
+                    class="artifact-link"
+                >
+                    VIEW ARTIFACT →
+                </a>
+
+            </div>
+
+
+
+            <!-- 05 -->
+
+            <div class="artifact">
+
+                <div class="artifact-top">
+
+                    <div class="artifact-type">
+                        Employee Experience · Self-Service
+                    </div>
+
+                    <div class="artifact-number">
+                        05
+                    </div>
+
+                </div>
+
+
+                <h3>
+                    Employee Self-Service Content Pack
+                </h3>
+
+
+                <p class="artifact-description">
+
+                    Persona-relevant HR content designed for employees and
+                    managers, showing how knowledge can simplify common HR
+                    questions and reduce dependency on assisted support.
+
+                </p>
+
+
+                <div class="artifact-tags">
+
+                    <span>Employee</span>
+                    <span>Manager</span>
+                    <span>Self-Service</span>
+                    <span>Persona</span>
+
+                </div>
+
+
+                <a
+                    href="artifacts/employee-self-service-pack.pdf"
+                    target="_blank"
+                    class="artifact-link"
+                >
+                    VIEW ARTIFACT →
+                </a>
+
+            </div>
+
+
+
+            <!-- 06 -->
+
+            <div class="artifact">
+
+                <div class="artifact-top">
+
+                    <div class="artifact-type">
+                        AI · RAG · Knowledge Engineering
+                    </div>
+
+                    <div class="artifact-number">
+                        06
+                    </div>
+
+                </div>
+
+
+                <h3>
+                    AI / RAG-Ready Enterprise Knowledge Blueprint
+                </h3>
+
+
+                <p class="artifact-description">
+
+                    A conceptual blueprint showing how governed enterprise
+                    knowledge can be structured and prepared for intelligent
+                    search, chatbots, Generative AI and RAG-based experiences.
+
+                </p>
+
+
+                <div class="artifact-tags">
+
+                    <span>GenAI</span>
+                    <span>RAG</span>
+                    <span>Search</span>
+                    <span>Knowledge Engineering</span>
+
+                </div>
+
+
+                <a
+                    href="artifacts/ai-rag-knowledge-blueprint.pdf"
+                    target="_blank"
+                    class="artifact-link"
+                >
+                    VIEW ARTIFACT →
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="fortiv-box">
+
+            <strong>
+                Knowledge Management in Practice
+            </strong>
+
+            <p>
+                These artifacts demonstrate the complete knowledge journey —
+                from architecture and content creation to governance,
+                self-service, analytics and AI-ready knowledge.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         08 — LET'S CONNECT
+    ========================================================= -->
 
     <section id="connect">
 
         <div class="section-label">
-            06 — Let's Connect
+            07 — Let's Connect
         </div>
 
-        <h2>Let's build better knowledge experiences.</h2>
+        <h2>
+            Let's build better knowledge experiences.
+        </h2>
+
+        <div class="connect-intro">
+
+            Interested in Knowledge Management, HR content strategy,
+            ServiceNow Knowledge or AI-ready enterprise knowledge?
+
+        </div>
 
 
         <div class="connect-grid">
+
 
             <a
                 href="https://www.linkedin.com/in/vishnuvardhanvjkumar"
@@ -869,7 +1543,9 @@
                 class="connect-item"
             >
 
-                <small>LinkedIn</small>
+                <small>
+                    LinkedIn
+                </small>
 
                 <span>
                     Connect with me
@@ -879,15 +1555,17 @@
 
 
             <a
-                href="https://vishnuvardhanvjkumar.github.io/"
+                href="resume.pdf"
                 target="_blank"
                 class="connect-item"
             >
 
-                <small>Portfolio</small>
+                <small>
+                    Resume
+                </small>
 
                 <span>
-                    View my work
+                    View Resume
                 </span>
 
             </a>
@@ -898,10 +1576,12 @@
                 class="connect-item"
             >
 
-                <small>Email</small>
+                <small>
+                    Email
+                </small>
 
                 <span>
-                    Send me an email
+                    vishnuvardhanvjkumar@gmail.com
                 </span>
 
             </a>
@@ -912,7 +1592,9 @@
                 class="connect-item"
             >
 
-                <small>Mobile</small>
+                <small>
+                    Mobile
+                </small>
 
                 <span>
                     +91 72002 06838
@@ -920,22 +1602,27 @@
 
             </a>
 
+
         </div>
 
     </section>
 
 
-    <!-- ================= FOOTER ================= -->
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
 
     <footer>
 
-        © 2026 Vishnuvardhan V. |
-        Knowledge Management Portfolio
+        © 2026 Vishnuvardhan V ·
+        Knowledge Management · HR Content Strategy · AI-Ready Knowledge
 
     </footer>
 
 
 </div>
+
 
 </body>
 </html>
