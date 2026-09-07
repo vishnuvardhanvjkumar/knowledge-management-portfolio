@@ -31,10 +31,8 @@
         :root {
             --background: #ffffff;
             --surface: #f7f7f7;
-            --surface-dark: #f1f1f1;
             --text: #111111;
             --muted: #666666;
-            --light-muted: #888888;
             --line: #dddddd;
             --line-dark: #cfcfcf;
         }
@@ -51,7 +49,6 @@
 
             background: var(--background);
             color: var(--text);
-
             line-height: 1.45;
         }
 
@@ -273,6 +270,16 @@
             margin-bottom: 5px;
         }
 
+        .cert-card h3 a {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+        }
+
+        .cert-card h3 a:hover {
+            opacity: 0.65;
+        }
+
         .cert-card p {
             font-size: 11px;
             color: var(--muted);
@@ -362,7 +369,7 @@
 
 
         /* =========================================================
-           PORTFOLIO HEADER
+           PORTFOLIO
         ========================================================= */
 
         .portfolio-intro {
@@ -370,12 +377,6 @@
             color: var(--muted);
             max-width: 800px;
             margin-bottom: 17px;
-        }
-
-        .alignment-line {
-            font-size: 10px;
-            color: var(--muted);
-            margin-top: 4px;
         }
 
 
@@ -462,7 +463,7 @@
 
 
         /* =========================================================
-           FORTIV ALIGNMENT
+           KM MESSAGE
         ========================================================= */
 
         .fortiv-box {
@@ -622,7 +623,7 @@
 
 
     <!-- =========================================================
-         01 — HERO
+         HERO
     ========================================================= -->
 
     <section class="hero" id="home">
@@ -666,13 +667,13 @@
 
 
     <!-- =========================================================
-         02 — CORE FOCUS
+         CORE FOCUS
     ========================================================= -->
 
     <section id="focus">
 
         <div class="section-label">
-            01 — Core Focus
+            Core Focus
         </div>
 
         <div class="focus-intro">
@@ -703,13 +704,13 @@
 
 
     <!-- =========================================================
-         03 — ABOUT ME
+         ABOUT ME
     ========================================================= -->
 
     <section id="about">
 
         <div class="section-label">
-            02 — About Me
+            About Me
         </div>
 
 
@@ -778,13 +779,13 @@
 
 
     <!-- =========================================================
-         04 — CERTIFICATIONS
+         CERTIFICATIONS
     ========================================================= -->
 
     <section id="certifications">
 
         <div class="section-label">
-            03 — Certifications
+            Certifications
         </div>
 
         <h2>
@@ -795,6 +796,8 @@
         <div class="cert-grid">
 
 
+            <!-- SERVICENOW -->
+
             <div class="cert-card">
 
                 <div class="cert-tag">
@@ -802,7 +805,15 @@
                 </div>
 
                 <h3>
-                    ServiceNow Certified System Administrator
+
+                    <a
+                        href="https://www.credly.com/badges/84f99c95-075b-468e-a9b5-a1aeb1710d69/linked_in_profile"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        ServiceNow Certified System Administrator
+                    </a>
+
                 </h3>
 
                 <p>
@@ -812,6 +823,8 @@
 
             </div>
 
+
+            <!-- KNOWLEDGE MANAGEMENT -->
 
             <div class="cert-card">
 
@@ -831,6 +844,8 @@
             </div>
 
 
+            <!-- AI & KNOWLEDGE -->
+
             <div class="cert-card">
 
                 <div class="cert-tag">
@@ -838,7 +853,15 @@
                 </div>
 
                 <h3>
-                    Generative AI & AI-Ready Knowledge
+
+                    <a
+                        href="https://www.linkedin.com/in/vishnuvardhan-v/details/certifications/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Generative AI & AI-Ready Knowledge
+                    </a>
+
                 </h3>
 
                 <p>
@@ -856,13 +879,13 @@
 
 
     <!-- =========================================================
-         05 — EXPERTISE
+         EXPERTISE
     ========================================================= -->
 
     <section id="expertise">
 
         <div class="section-label">
-            04 — Expertise
+            Expertise
         </div>
 
         <h2>
@@ -988,13 +1011,13 @@
 
 
     <!-- =========================================================
-         06 — ENTERPRISE EXPERIENCE
+         ENTERPRISE EXPERIENCE
     ========================================================= -->
 
     <section id="experience">
 
         <div class="section-label">
-            05 — Enterprise Experience
+            Enterprise Experience
         </div>
 
 
@@ -1150,13 +1173,13 @@
 
 
     <!-- =========================================================
-         07 — SELECTED PORTFOLIO WORK
+         SELECTED PORTFOLIO WORK
     ========================================================= -->
 
     <section id="portfolio">
 
         <div class="section-label">
-            06 — Selected Portfolio Work
+            Selected Portfolio Work
         </div>
 
         <h2>
@@ -1218,6 +1241,7 @@
                 <a
                     href="artifacts/hr-knowledge-article.pdf"
                     target="_blank"
+                    rel="noopener noreferrer"
                     class="artifact-link"
                 >
                     VIEW ARTIFACT →
@@ -1271,6 +1295,7 @@
                 <a
                     href="artifacts/hr-knowledge-architecture.pdf"
                     target="_blank"
+                    rel="noopener noreferrer"
                     class="artifact-link"
                 >
                     VIEW ARTIFACT →
@@ -1324,6 +1349,7 @@
                 <a
                     href="artifacts/knowledge-governance-sop.pdf"
                     target="_blank"
+                    rel="noopener noreferrer"
                     class="artifact-link"
                 >
                     VIEW ARTIFACT →
@@ -1377,6 +1403,7 @@
                 <a
                     href="artifacts/hr-content-inventory.pdf"
                     target="_blank"
+                    rel="noopener noreferrer"
                     class="artifact-link"
                 >
                     VIEW ARTIFACT →
@@ -1430,6 +1457,7 @@
                 <a
                     href="artifacts/employee-self-service-pack.pdf"
                     target="_blank"
+                    rel="noopener noreferrer"
                     class="artifact-link"
                 >
                     VIEW ARTIFACT →
@@ -1460,7 +1488,6 @@
                     AI / RAG-Ready Enterprise Knowledge Blueprint
                 </h3>
 
-
                 <p class="artifact-description">
 
                     A conceptual blueprint showing how governed enterprise
@@ -1483,6 +1510,7 @@
                 <a
                     href="artifacts/ai-rag-knowledge-blueprint.pdf"
                     target="_blank"
+                    rel="noopener noreferrer"
                     class="artifact-link"
                 >
                     VIEW ARTIFACT →
@@ -1513,13 +1541,13 @@
 
 
     <!-- =========================================================
-         08 — LET'S CONNECT
+         LET'S CONNECT
     ========================================================= -->
 
     <section id="connect">
 
         <div class="section-label">
-            07 — Let's Connect
+            Let's Connect
         </div>
 
         <h2>
@@ -1537,9 +1565,12 @@
         <div class="connect-grid">
 
 
+            <!-- LINKEDIN -->
+
             <a
-                href="https://www.linkedin.com/in/vishnuvardhanvjkumar"
+                href="https://www.linkedin.com/in/vishnuvardhan-v/"
                 target="_blank"
+                rel="noopener noreferrer"
                 class="connect-item"
             >
 
@@ -1554,9 +1585,12 @@
             </a>
 
 
+            <!-- RESUME -->
+
             <a
                 href="resume.pdf"
                 target="_blank"
+                rel="noopener noreferrer"
                 class="connect-item"
             >
 
@@ -1571,8 +1605,12 @@
             </a>
 
 
+            <!-- EMAIL -->
+
             <a
                 href="mailto:vishnuvardhanvjkumar@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="connect-item"
             >
 
@@ -1587,8 +1625,12 @@
             </a>
 
 
+            <!-- MOBILE -->
+
             <a
                 href="tel:+917200206838"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="connect-item"
             >
 
