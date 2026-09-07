@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,6 +35,22 @@
             --muted: #666666;
             --line: #dddddd;
             --line-dark: #cfcfcf;
+
+            /* COLOR PALETTE */
+            --accent-blue: #2563eb;
+            --accent-purple: #7c3aed;
+            --accent-cyan: #0891b2;
+            --accent-green: #059669;
+            --accent-orange: #ea580c;
+            --accent-pink: #db2777;
+
+            --gradient-main:
+                linear-gradient(
+                    90deg,
+                    #2563eb,
+                    #7c3aed,
+                    #0891b2
+                );
         }
 
         body {
@@ -89,7 +106,7 @@
             font-weight: 700;
             letter-spacing: 1.8px;
             text-transform: uppercase;
-            color: var(--muted);
+            color: var(--accent-purple);
             margin-bottom: 9px;
         }
 
@@ -115,6 +132,7 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 13px;
+            color: var(--accent-blue);
         }
 
         .hero h1 {
@@ -123,6 +141,19 @@
             letter-spacing: -4px;
             font-weight: 800;
             margin-bottom: 15px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #111111 0%,
+                    #2563eb 42%,
+                    #7c3aed 72%,
+                    #0891b2 100%
+                );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero-role {
@@ -135,17 +166,19 @@
             margin-top: 20px;
             font-size: 14px;
             font-style: italic;
-            color: var(--muted);
+            color: var(--accent-purple);
         }
 
         .hero-badge {
-            border: 1px solid var(--line-dark);
+            border: 1px solid var(--accent-blue);
             padding: 9px 12px;
             font-size: 10px;
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
             white-space: nowrap;
+            color: var(--accent-blue);
+            background: #eff6ff;
         }
 
 
@@ -175,6 +208,10 @@
             margin-bottom: 13px;
         }
 
+        .focus-intro strong {
+            color: var(--accent-blue);
+        }
+
         .focus-keywords {
             font-size: 11px;
             line-height: 2;
@@ -183,6 +220,46 @@
 
         .focus-keywords span {
             color: var(--text);
+        }
+
+        .focus-keywords span:nth-child(1) {
+            color: #2563eb;
+        }
+
+        .focus-keywords span:nth-child(3) {
+            color: #7c3aed;
+        }
+
+        .focus-keywords span:nth-child(5) {
+            color: #0891b2;
+        }
+
+        .focus-keywords span:nth-child(7) {
+            color: #059669;
+        }
+
+        .focus-keywords span:nth-child(9) {
+            color: #ea580c;
+        }
+
+        .focus-keywords span:nth-child(11) {
+            color: #db2777;
+        }
+
+        .focus-keywords span:nth-child(13) {
+            color: #2563eb;
+        }
+
+        .focus-keywords span:nth-child(15) {
+            color: #7c3aed;
+        }
+
+        .focus-keywords span:nth-child(17) {
+            color: #0891b2;
+        }
+
+        .focus-keywords span:nth-child(19) {
+            color: #059669;
         }
 
 
@@ -208,11 +285,11 @@
         }
 
         .about-text strong {
-            color: var(--text);
+            color: var(--accent-blue);
         }
 
         .research-card {
-            border-left: 2px solid #111111;
+            border-left: 3px solid var(--accent-purple);
             padding-left: 14px;
         }
 
@@ -222,7 +299,7 @@
             font-weight: 700;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: var(--muted);
+            color: var(--accent-purple);
             margin-bottom: 6px;
         }
 
@@ -230,6 +307,7 @@
             display: block;
             font-size: 13px;
             line-height: 1.35;
+            color: #111111;
         }
 
         .research-card p {
@@ -250,9 +328,61 @@
         }
 
         .cert-card {
+            position: relative;
+            overflow: hidden;
+
             border: 1px solid var(--line);
             padding: 13px;
             background: var(--surface);
+
+            transition:
+                border-color 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .cert-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-main);
+        }
+
+        .cert-card:nth-child(1)::before {
+            background:
+                linear-gradient(
+                    90deg,
+                    #2563eb,
+                    #0891b2
+                );
+        }
+
+        .cert-card:nth-child(2)::before {
+            background:
+                linear-gradient(
+                    90deg,
+                    #059669,
+                    #0891b2
+                );
+        }
+
+        .cert-card:nth-child(3)::before {
+            background:
+                linear-gradient(
+                    90deg,
+                    #7c3aed,
+                    #db2777
+                );
+        }
+
+        .cert-card:hover {
+            border-color: #b8b8b8;
+            transform: translateY(-2px);
+            box-shadow:
+                0 6px 18px rgba(37, 99, 235, 0.08);
         }
 
         .cert-tag {
@@ -260,8 +390,16 @@
             font-weight: 700;
             letter-spacing: 1.2px;
             text-transform: uppercase;
-            color: var(--muted);
+            color: var(--accent-blue);
             margin-bottom: 7px;
+        }
+
+        .cert-card:nth-child(2) .cert-tag {
+            color: var(--accent-green);
+        }
+
+        .cert-card:nth-child(3) .cert-tag {
+            color: var(--accent-purple);
         }
 
         .cert-card h3 {
@@ -271,6 +409,7 @@
 
         /* ServiceNow certification link */
         .cert-card h3 a {
+            color: var(--accent-blue);
             text-decoration: underline;
             text-decoration-thickness: 1px;
             text-underline-offset: 3px;
@@ -283,7 +422,7 @@
 
         /* AI & Knowledge hyperlink */
         .cert-tag a {
-            color: var(--text);
+            color: var(--accent-purple);
             text-decoration: underline;
             text-decoration-thickness: 1px;
             text-underline-offset: 3px;
@@ -313,6 +452,18 @@
         .approach-card {
             border: 1px solid var(--line);
             padding: 13px;
+
+            transition:
+                border-color 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .approach-card:hover {
+            border-color: #b8b8b8;
+            transform: translateY(-2px);
+            box-shadow:
+                0 5px 15px rgba(124, 58, 237, 0.07);
         }
 
         .approach-number {
@@ -320,6 +471,30 @@
             font-weight: 700;
             color: var(--muted);
             margin-bottom: 5px;
+        }
+
+        .approach-card:nth-child(1) .approach-number {
+            color: #2563eb;
+        }
+
+        .approach-card:nth-child(2) .approach-number {
+            color: #7c3aed;
+        }
+
+        .approach-card:nth-child(3) .approach-number {
+            color: #0891b2;
+        }
+
+        .approach-card:nth-child(4) .approach-number {
+            color: #059669;
+        }
+
+        .approach-card:nth-child(5) .approach-number {
+            color: #ea580c;
+        }
+
+        .approach-card:nth-child(6) .approach-number {
+            color: #db2777;
         }
 
         .approach-card h3 {
@@ -360,9 +535,21 @@
             font-weight: 800;
         }
 
+        .company:first-child .company-name {
+            color: var(--accent-blue);
+        }
+
+        .company:last-child .company-name {
+            color: var(--accent-purple);
+        }
+
         .company-role {
             font-size: 10px;
-            color: var(--muted);
+            color: var(--accent-blue);
+        }
+
+        .company:last-child .company-role {
+            color: var(--accent-purple);
         }
 
         .experience-line {
@@ -372,12 +559,12 @@
         }
 
         .experience-line span {
-            color: var(--text);
+            color: #222222;
             font-weight: 600;
         }
 
         .bullet {
-            color: #999999;
+            color: var(--accent-purple);
             padding: 0 5px;
         }
 
@@ -405,17 +592,57 @@
         }
 
         .artifact {
+            position: relative;
+            overflow: hidden;
+
             display: block;
             border: 1px solid var(--line);
             padding: 17px;
             background: #ffffff;
-            transition: 0.2s ease;
+
+            transition:
+                border-color 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+
             cursor: pointer;
+        }
+
+        .artifact::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--accent-blue);
+        }
+
+        .artifact:nth-child(2)::before {
+            background: var(--accent-purple);
+        }
+
+        .artifact:nth-child(3)::before {
+            background: var(--accent-green);
+        }
+
+        .artifact:nth-child(4)::before {
+            background: var(--accent-orange);
+        }
+
+        .artifact:nth-child(5)::before {
+            background: var(--accent-cyan);
+        }
+
+        .artifact:nth-child(6)::before {
+            background: var(--accent-pink);
         }
 
         .artifact:hover {
             border-color: #999999;
             transform: translateY(-2px);
+            box-shadow:
+                0 7px 20px rgba(17, 17, 17, 0.07);
         }
 
         .artifact-top {
@@ -431,12 +658,56 @@
             font-weight: 700;
             letter-spacing: 1.3px;
             text-transform: uppercase;
-            color: var(--muted);
+            color: var(--accent-blue);
+        }
+
+        .artifact:nth-child(2) .artifact-type {
+            color: var(--accent-purple);
+        }
+
+        .artifact:nth-child(3) .artifact-type {
+            color: var(--accent-green);
+        }
+
+        .artifact:nth-child(4) .artifact-type {
+            color: var(--accent-orange);
+        }
+
+        .artifact:nth-child(5) .artifact-type {
+            color: var(--accent-cyan);
+        }
+
+        .artifact:nth-child(6) .artifact-type {
+            color: var(--accent-pink);
         }
 
         .artifact-number {
             font-size: 10px;
             color: #999999;
+        }
+
+        .artifact:nth-child(1) .artifact-number {
+            color: var(--accent-blue);
+        }
+
+        .artifact:nth-child(2) .artifact-number {
+            color: var(--accent-purple);
+        }
+
+        .artifact:nth-child(3) .artifact-number {
+            color: var(--accent-green);
+        }
+
+        .artifact:nth-child(4) .artifact-number {
+            color: var(--accent-orange);
+        }
+
+        .artifact:nth-child(5) .artifact-number {
+            color: var(--accent-cyan);
+        }
+
+        .artifact:nth-child(6) .artifact-number {
+            color: var(--accent-pink);
         }
 
         .artifact h3 {
@@ -466,11 +737,62 @@
             color: #555555;
         }
 
+        .artifact:nth-child(1) .artifact-tags span {
+            border-color: #bfdbfe;
+            background: #eff6ff;
+        }
+
+        .artifact:nth-child(2) .artifact-tags span {
+            border-color: #ddd6fe;
+            background: #f5f3ff;
+        }
+
+        .artifact:nth-child(3) .artifact-tags span {
+            border-color: #a7f3d0;
+            background: #ecfdf5;
+        }
+
+        .artifact:nth-child(4) .artifact-tags span {
+            border-color: #fed7aa;
+            background: #fff7ed;
+        }
+
+        .artifact:nth-child(5) .artifact-tags span {
+            border-color: #a5f3fc;
+            background: #ecfeff;
+        }
+
+        .artifact:nth-child(6) .artifact-tags span {
+            border-color: #fbcfe8;
+            background: #fdf2f8;
+        }
+
         .artifact-link {
             display: inline-block;
             font-size: 10px;
             font-weight: 700;
             letter-spacing: 0.5px;
+            color: var(--accent-blue);
+        }
+
+        .artifact:nth-child(2) .artifact-link {
+            color: var(--accent-purple);
+        }
+
+        .artifact:nth-child(3) .artifact-link {
+            color: var(--accent-green);
+        }
+
+        .artifact:nth-child(4) .artifact-link {
+            color: var(--accent-orange);
+        }
+
+        .artifact:nth-child(5) .artifact-link {
+            color: var(--accent-cyan);
+        }
+
+        .artifact:nth-child(6) .artifact-link {
+            color: var(--accent-pink);
         }
 
         .artifact-link:hover {
@@ -485,8 +807,15 @@
         .fortiv-box {
             margin-top: 15px;
             padding: 13px 15px;
-            background: var(--surface);
-            border-left: 2px solid #111111;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #f5f3ff,
+                    #f8fafc
+                );
+
+            border-left: 3px solid var(--accent-purple);
         }
 
         .fortiv-box strong {
@@ -495,6 +824,7 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             margin-bottom: 4px;
+            color: var(--accent-purple);
         }
 
         .fortiv-box p {
@@ -523,12 +853,18 @@
             border: 1px solid var(--line);
             padding: 13px;
             background: var(--surface);
-            transition: 0.2s ease;
+
+            transition:
+                border-color 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
         }
 
         .connect-item:hover {
             border-color: #999999;
             transform: translateY(-2px);
+            box-shadow:
+                0 5px 15px rgba(37, 99, 235, 0.08);
         }
 
         .connect-item small {
@@ -539,6 +875,22 @@
             text-transform: uppercase;
             color: var(--muted);
             margin-bottom: 5px;
+        }
+
+        .connect-item:nth-child(1) small {
+            color: var(--accent-blue);
+        }
+
+        .connect-item:nth-child(2) small {
+            color: var(--accent-purple);
+        }
+
+        .connect-item:nth-child(3) small {
+            color: var(--accent-green);
+        }
+
+        .connect-item:nth-child(4) small {
+            color: var(--accent-orange);
         }
 
         .connect-item span {
@@ -556,6 +908,10 @@
             font-size: 10px;
             color: var(--muted);
             text-align: center;
+        }
+
+        footer::first-letter {
+            color: var(--accent-blue);
         }
 
 
@@ -706,7 +1062,7 @@
             <span>Knowledge Architecture</span> •
             <span>ServiceNow Knowledge</span> •
             <span>SharePoint</span> •
-            <span>Taxonomy & Metadata</span> •
+            <span>Taxonomy &amp; Metadata</span> •
             <span>Content Governance</span> •
             <span>Self-Service</span> •
             <span>Content Migration</span> •
@@ -777,7 +1133,7 @@
 
                 <strong>
                     Enterprise Knowledge Management Systems
-                    using Generative AI & RAG
+                    using Generative AI &amp; RAG
                 </strong>
 
                 <p>
@@ -1661,3 +2017,4 @@
 
 </body>
 </html>
+```
